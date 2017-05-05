@@ -1,0 +1,127 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{geometry}
+\usepackage{fullpage} % Package to use full page
+\usepackage{parskip} % Package to tweak paragraph skipping
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{amsmath,amsfonts,amsthm} % Math packages
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{float}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{brown}{rgb}{0.59, 0.29, 0.0}
+\definecolor{beaublue}{rgb}{0.74, 0.83, 0.9}
+\definecolor{orange}{rgb}{1.0, 0.5, 0.0}
+\definecolor{darkslategray}{rgb}{0.18, 0.31, 0.31}
+\def\Xint#1{\mathchoice
+	{\XXint\displaystyle\textstyle{#1}}%
+	{\XXint\textstyle\scriptstyle{#1}}%
+	{\XXint\scriptstyle\scriptscriptstyle{#1}}%
+	{\XXint\scriptscriptstyle\scriptscriptstyle{#1}}%
+	\!\int}
+\def\XXint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$}
+		\vcenter{\hbox{$#2#3$}}\kern-.5\wd0}}
+\def\dashint{\Xint-}
+
+% Swap the definition of \abs* and \norm*, so that \abs
+% and \norm resizes the size of the brackets, and the 
+% starred version does not.
+\makeatletter
+\let\oldabs\abs
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}
+%
+\let\oldnorm\norm
+\def\norm{\@ifstar{\oldnorm}{\oldnorm*}}
+\makeatother
+\lstdefinestyle{mystyle}{
+	backgroundcolor=\color{white},   
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{blue},
+	identifierstyle=\color{brown},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{orange},
+	basicstyle=\footnotesize,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,                 
+	numbers=left,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2
+}
+\lstset{style=mystyle}
+
+\title{\normalsize AMATH 535: Homework Problem 3.6}
+\author{\normalsize Jithin D. George, No. 1622555}
+% matrix environment
+\newenvironment{mat}{\left[ \begin{array}{ccccccccccccc}}{\end{array}\right]}
+\newcommand\bcm{\begin{mat}}
+	\newcommand\ecm{\end{mat}}
+
+\begin{document}
+
+\maketitle
+\begin{enumerate}
+
+	
+	\item 
+	\[P_n(t+\Delta t) = P_{n-1}(t)[(n-1)\Delta t \beta +I\Delta t]+P_{n+1}(t)\mu(n+1)\Delta t  \] \[   +  P_{n}(t)[1- ((\beta +\mu)n+I)\Delta t]\]
+	
+		\[\frac{P_n(t+\Delta t) - P_{n}(t)}{\Delta t}= P_{n-1}(t)[(n-1) \beta +I]+P_{n+1}(t)\mu(n+1) \] \[   -  P_{n}(t) ((\beta +\mu)n+I)\]
+		
+		As $ \Delta t$ goes to 0, this becomes,
+				\[\frac{dP_n(t)}{dt}= P_{n-1}(t)[(n-1) \beta +I]+P_{n+1}(t)\mu(n+1) \] \[   -  P_{n}(t) ((\beta +\mu)n+I)\]
+				
+	\item
+		\[F(x,t)= \sum_{n=0}^{\infty} P_n x^n\]
+		\[\frac{\partial  F}{\partial t}= \sum_{n=0}^{\infty} \dot{P_n} x^n \]
+	\[= \sum_{n=0}^{\infty} ( P_{n-1}(t)[(n-1) \beta +I]+P_{n+1}(t)\mu(n+1) -  P_{n}(t) ((\beta +\mu)n+I) ) x^n \]
+	\[= \beta x^2\sum_{n=0}^{\infty} P_{n-1}(t)(n-1) x^{n-2} + \mu \sum_{n=0}^{\infty} P_{n+1}(t)(n+1) x^{n}  -(\beta+\mu)x  \sum_{n=0}^{\infty} P_{n}(t)(n) x^{n-1} \]\[ +Ix\sum_{n=0}^{\infty} P_{n-1}(t)(n-1) x^{n-1}-  I \sum_{n=0}^{\infty} P_{n}(t)x^n \]
+	\[\frac{\partial  F}{\partial t} = (\beta x^2   -(\beta+\mu)x + \mu) \frac{\partial  F}{\partial x} + F(Ix-I) \]
+		\[\frac{\partial  F}{\partial t} = (x-1)(\beta x-\mu) \frac{\partial  F}{\partial x} + FI(x-1) \]
+	Initial conditions : \[F(x,0)= x^{n_0} \]
+	
+	\item At equilibrium, 
+	
+		\[\frac{\partial  F}{\partial t} = 0\]
+
+				\[ (x-1)(\beta x-\mu) \frac{\partial  F}{\partial x} + FI(x-1) =0 \]
+				\[ \frac{dF}{dx}= -\frac{I}{\beta x-\mu} F\]
+					\[ \frac{dF}{F}= -\frac{I}{\beta x-\mu} dx\]
+					
+					Integrating, we get
+					\[ln(F)= -\frac{I}{\beta} ln(x-\frac{\mu}{\beta}) +C \]
+					\[F= \frac{A}{(x-\frac{\mu}{\beta})^\frac{I}{\beta}}\]
+					
+					All the probabilities must sum to 1. That imposes the following constraint.
+					\[F(1,t)= 1\] 
+					\[\frac{A}{(1-\frac{\mu}{\beta})^\frac{I}{\beta}}= 1\] 
+					\[A =(1-\frac{\mu}{\beta})^\frac{I}{\beta} \]
+					
+					So, the equilibrium P.G.F is
+					\[F^* =\big( \frac{1-\frac{\mu}{\beta}}{x-\frac{\mu}{\beta}}\big)^{\frac{I}{\beta}} \]
+
+					
+	\item
+	The expected population size at equilibrium is given by
+	\[  E^*[N(t)] = \frac{dF}{dx}\big|_{x=1}=  - \frac{I}{\beta} \big( \frac{1-\frac{\mu}{\beta}}{1-\frac{\mu}{\beta}}\big)^{\frac{I}{\beta}}\frac{1}{1-\frac{\mu}{\beta}} = \frac{I}{\mu-\beta}  \]
+	
+	
+	\item 
+	We can see 
+	\[ \frac{d^2F}{dx^2}\big|_{x=1} =  - \frac{I}{\beta}(- \frac{I}{\beta}-1) \big( \frac{1-\frac{\mu}{\beta}}{1-\frac{\mu}{\beta}}\big)^{\frac{I}{\beta}}\frac{1}{(1-\frac{\mu}{\beta})^2} =  \frac{I^2+I\beta}{(\mu-\beta)^2} \]
+	The variance at equilibrium is given by
+		\[  Var^*[N(t)] = \frac{d^2F}{dx^2} + \frac{dF}{dx} -\big(\frac{dF}{dx}\big)^2\big|_{x=1}=  \frac{I^2+I\beta +I\mu -I\beta -I^2}{(\mu-\beta)^2} =   \frac{I\mu }{(\mu-\beta)^2} \]
+		
+		\item
+		The probability of the population being extinct at equilibrium is given by
+			\[ p_0* = F*(0)=  \big( \frac{\beta- \mu}{\mu}\big)^{\frac{I}{\beta}}\]
+	\end{enumerate} 
+\end{document}

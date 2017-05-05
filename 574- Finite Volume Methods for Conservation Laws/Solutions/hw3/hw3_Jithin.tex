@@ -1,0 +1,306 @@
+\documentclass[11pt]{article}
+
+\usepackage{graphicx}
+\usepackage{amsmath,amsfonts,amssymb}
+
+\usepackage{hyperref}  % for urls and hyperlinks
+
+
+\setlength{\textwidth}{6.2in}
+\setlength{\oddsidemargin}{0.3in}
+\setlength{\evensidemargin}{0in}
+\setlength{\textheight}{8.9in}
+\setlength{\voffset}{-1in}
+\setlength{\headsep}{26pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+
+% input some useful macros from RJLmacros.tex:
+\input{../hw1/RJLmacros}
+
+\begin{document}
+
+\hfill\vbox{\hbox{AMath 574}\hbox{Homework 3}
+\hbox{Due by 11:00pm on February 9, 2017}}
+
+For submission instructions, see:
+
+\url{http://faculty.washington.edu/rjl/classes/am574w2017/homework3.html}
+
+
+
+%--------------------------------------------------------------------------
+
+\vskip 1cm
+\hrule
+{\bf Problem \#1}
+
+Consider the scalar conservation law with flux function $f(q) = q^3 - 4q^2 +
+3q = q(q-1)(q-3)$.
+
+(a) Show that the flux is convex as long as we restrict the data to fall
+within $-\infty < q < 4/3$ or within $4/3 < q < +\infty$.
+
+\vskip 1cm
+{\bf Solution:}
+\[f''(q)=6q - 8 \]
+This is a cubic function. So, the only point where the function is not convex(or concave) is when $f''(q)=0$, i.e at q = 4/3.
+Thus, the flux is convex as long as $-\infty < q < 4/3$ or $4/3 < q < +\infty$.
+\vskip 1cm
+(b) Determine the exact solution to the Riemann problem with data $q_\ell =
+3, q_r = 2$.  
+
+\vskip 1cm
+{\bf Solution:}
+\[f'(q)=3q^2 - 8q+3 \]
+\[f'(q_l)=27 - 24+3 =6\]
+\[f'(q_r)=12 - 16+3 =-1\]
+So, this is a shock.
+
+The shock speed is given by 
+\[s= \frac{f(q_r)-f(q_l)}{q_r -q_l}= \frac{0+2}{-1}=-2\]
+
+Thus,
+
+\[q(x,t)= \begin{cases}
+3 & \text{if~}x/t <-2\\          2 & \text{if~} x/t >-2
+\end{cases}\]
+\vskip 1cm
+(c) Determine the exact solution to the Riemann problem with data $q_\ell =
+2, q_r = 3$.  In this case the solution is a rarefaction wave, so determine
+the solution in the form of a similarity solution $q(x,t) = Q(x/t)$ and find
+an exact expression for the function $Q(\xi)$. At the trailing edge of the
+rarefaction wave there is a kink, a jump in the slope of the solution, from
+0 to some non-zero value.  What value (as a function of time)?
+\vskip 1cm
+{\bf Solution:}
+\[f'(q_l)=-1\]
+\[f'(q_r)=6\]
+So, this is a rarefaction.
+\[q(x,t)= \begin{cases}
+2 & \text{if~}x/t <-1\\          3 & \text{if~} x/t >6
+\end{cases}\]
+
+For the middle state,
+\[ f'(q_m) = \frac{x}{t} \]
+\[ 3q_m^2 - 8q_m+3 = \frac{x}{t} \]
+\[q_m = \frac{4}{3} + \sqrt{\frac{7}{9} + \frac{x}{3t}} \]
+
+So, plugging in x = -t and x = 6t,  we get 2 and 3. So, the function is continuous. 
+
+The kink is given by
+\[q_x = \frac{1}{6}  (\frac{7}{9} + \frac{x}{3t})^{-1/2}\]
+
+(d) Re-do part (c) when $q_\ell = 4/3,~ q_r = 3$.  
+Comment on why you expect the slope at the trailing edge of the rarefaction
+wave to be infinite in this case.
+Also plot the solution as a function of $x$ at time $t=1$.
+
+\vskip 1cm
+{\bf Solution:}
+\[f'(q_l)= -\frac{7}{3}\]
+\[f'(q_r)=6\]
+So, this is a rarefaction.
+\[q(x,t)= \begin{cases}
+\frac{4}{3} & \text{if~}x/t-\frac{7}{3}\\          3 & \text{if~} x/t >6
+\end{cases}\]
+
+For the middle state,
+\[ f'(q_m) = \frac{x}{t} \]
+\[ 3q_m^2 - 8q_m+3 = \frac{x}{t} \]
+\[q_m = \frac{4}{3} + \sqrt{\frac{7}{9} + \frac{x}{3t}} \]
+
+So, plugging in 3x = -7t and x = 6t,  we get $\frac{4}{3}$ and 3. So, the function is continuous. 
+
+The slope is given by
+\[q_x = \frac{1}{6}  (\frac{7}{9} + \frac{x}{3t})^{-1/2}\]
+
+At 3x = -t, this becomes infinite. This is easily seen in the solution at time =1 plotted below.
+
+
+					\begin{minipage}{\linewidth}
+						\centering
+						\includegraphics[width=8cm]{solcubic.png}
+					%	\caption{Solution at time =1 }
+					\end{minipage}
+
+(e) Consider this same conservation law with initial data
+\[
+q(x,0) = \begin{cases} 
+        4 &\text{if~}x<0,\\ 
+        3 &\text{if~}0<x<1,\\
+        2 &\text{if~}x>1
+         \end{cases}
+\]
+The solution consists of two shocks that merge at some time --- determine
+the time when they merge, and the new shock speed.
+
+\vskip 1cm
+{\bf Solution:}
+\[s_1= \frac{f(q_r)-f(q_l)}{q_r -q_l}= \frac{0-12}{3-4}=12\]
+\[s_2= \frac{f(q_r)-f(q_l)}{q_r -q_l}= \frac{-2-0}{2-3}=2\]
+There is a right going shock from x=0 and a right going shock from x=1 traveling slower. Let us suppose they merge at time t.
+\[0 + s_1 t = 1+ s_2 t \]
+\[12 t = 1 + 2 t \]
+\[t = \frac{1}{10}\]
+
+The new shock speed is 
+\[s=  \frac{f(2)-f(4)}{2 -4}=\frac{-2-12}{-2}=7 \]
+
+
+
+% uncomment the next two lines if you want to insert solution...
+
+
+% insert your solution here!
+
+%--------------------------------------------------------------------------
+\vskip 1cm
+\hrule
+{\bf Problem \#2.}
+
+Some sample code in \verb+$AM574/homeworks/hw3/burgers+ should help
+get you started with this problem.  I will also provide a video.
+
+Modify the code provided to solve the conservation law from Problem \#1
+above, assuming that the initial data satisfies $q(x,0) \geq 4/3$ for all
+$x$.
+
+Test it out on $-2 \leq x \leq 2$  with initial data
+\[
+q(x,0) = \begin{cases} 
+        4/3 &\text{if~}-2\leq x<0,\\ 
+        3 &\text{if~}0\leq x\leq 2,
+         \end{cases}
+\]
+and {\em periodic boundary conditions}.   
+Solve the problem up to time $t=0.25$.
+
+Modify the plotting specified in the provided {\tt setplot.py} file so that
+you plot the true solution to this problem along with the approximate
+solution.
+
+
+\vskip 5pt
+Experiment with this code and comment on what you observe.  You might want
+to try:
+
+\begin{itemize}
+\item Changing the grid resolutions, e.g. using 100, 200, or more grid cells.
+
+\item Use the first order accurate method (specify {\tt clawdata.order = 1})
+in {\tt setrun.py} and compare to the high resolution 
+method with {\tt clawdata.order = 2} and {\tt clawdata.limiter = ['mc']}.
+
+\item Compare results with and without the entropy fix.
+
+\end{itemize} 
+
+What to turn in:
+\begin{itemize}
+\item Create a new directory \verb+cubic+ that has the necessary files, in
+particular {\tt Makefile, setrun.py, setplot.py, rp1\_cubic.f90, qinit.f90,
+setprob.f90}.  Note that {\tt rp1\_cubic.f90} will be a modified version of
+{\tt rp1\_burgers.f90}.  
+\item Turn in a tar file of this directory, set up for the case where the
+high-resolution method is used with the entropy fix and 100 grid cells.
+\item Provide plots of a few other key results to illustrate your
+discussion.
+\item One way to write up your observations would be to
+modify the Jupyter notebook {\tt burgers.ipynb} to make a new notebook {\tt
+cubic.ipynb} that contains some discussion and examples illustrating 
+your results.
+\end{itemize} 
+
+% uncomment the next two lines if you want to insert solution...
+%\vskip 1cm
+%{\bf Solution:}
+
+% insert your solution here!
+
+
+%--------------------------------------------------------------------------
+\newpage
+\vskip 1cm
+\hrule
+{\bf Problem \#3.}
+
+Suppose the solution to a Riemann problem for some system of conservation
+laws $q_t +f(q)_x = 0$ 
+consists of exactly 2 waves with wave speeds $s^1 < 0 < s^2$.  
+Given Riemann data $q_\ell$ and $q_r$, let $q_m$ be the resulting state
+between the two waves.
+Then we can integrate over the space-time region shown below in order to
+find a simple expression for $q_m$ in terms of $q_\ell,~ q_r, ~s^1,$ and
+$s^2$ (in a similar manner to how integrating 
+over the region shown in Figure 11.7 gives the Rankine-Hugoniot condition).
+
+\hfil\includegraphics[width=4.0in]{qbox.png}\hfil
+
+
+(a) Use this approach to compute the formula for $q_m$.
+
+\vskip 1cm
+{\bf Solution:}
+\[ \int_{X}q(x,t_{n+1}) dx- \int_{X}q(x,t_{n})dx=\int_{t_n}^{t_{n+1}}f(q_l)dt- \int_{t_n}^{t_{n+1}}f(q_r)dt\]
+\[ \int_{s^1T}^{s^2T}q_m dx-\int_{s^1T}^{0}q_l dx- \int_{0}^{s^2T}q_rdx=\int_{0}^{T}f(q_l)dt- \int_{0}^{T}f(q_r)dt\]
+
+\[ (s^2-s^1)Tq_m = -s^1Tq_l+s^2q_rT +T(f(q_l)-f(q_r))\]
+\[ q_m =\frac{ -s^1q_l+s^2q_r + f(q_l)-f(q_r)}{s^2-s^1}\]
+
+(b) Define two waves by ${\cal W}^1 = q_m-q_\ell$ and ${\cal W}^2 = q_r -
+q_m$.  Show that
+\[
+s^1{\cal W}^1 + s^2 {\cal W}^2 = f(q_r) - f(q_\ell).
+\]
+
+\vskip 1cm
+{\bf Solution:}
+
+
+\[ (s^2-s^1)q_m = -s^1q_l+s^2q_r +(f(q_l)-f(q_r))\]
+\[ s^1(q_l-q_m) +s^2(q_m-q_r) =f(q_l)-f(q_r)\]
+\[ q_m =\frac{ -s^1q_l+s^2q_r + f(q_l)-f(q_r)}{s^2-s^1}\]
+
+(c) Apply the formula from (a) to the case of constant coefficient
+linear acoustics with $s^1 = -c$ and $s^2 =
++c$ and show that the resulting $q_m$ agrees with what was found in (3.32)
+in the book based on the eigenvectors of the coefficient matrix.
+
+\vskip 1cm
+{\bf Solution:}
+\[ q_m =\frac{ -s^1q_l+s^2q_r + f(q_l)-f(q_r)}{s^2-s^1}\]
+\[ f(q)= \bcm K_0 u\\ \frac{P}{\rho_0}\ecm \]
+\[ q_m(1) =\frac{ -c P_l+c P_r + K_0(u_l -u_r)}{2c}\]
+\[  =\frac{1}{2} (- P_l+ P_r + Z_0(u_l -u_r))\]
+\[ q_m(2) =\frac{ -c u_l+c u_r + \frac{1}{\rho_0}(P_l -P_r)}{2c}\]
+\[=\frac{1}{2} (- u_l+ u_r + \frac{1}{Z_0}(P_l -P_r))\]
+\[q_m = \frac{1}{2} \bcm P_r- P_l - Z_0(u_r -u_l) \\u_r- u_l - \frac{P_r -P_l}{Z_0} \ecm \]
+
+This agrees with 3.32.
+
+
+
+{\em Note:} For any system of $m$ equations we could choose any values $s^1
+< s^2$ and use the formula you found to define a state $q_m$ and hence
+define two waves ${\cal W}^1 = q_m-q_\ell$ and ${\cal W}^2 = q_r - q_m$.
+These waves could then be used to obtain a conservative method (which
+follows from (b), as we will see later).  Limiters
+and high-resolution correction terms can also be based on this waves.
+
+This won't be the exact Riemann solution except for special cases like the
+acoustics equation (or any linear system of two equations where $s^1$ and
+$s^2$ are chosen to be the two eigenvalues).  But it defines an {\em
+approximate Riemann solver} that is very cheap to compute and sometimes
+works well enough.  This is called the {\em HLL solver} after the original
+work on this idea by Harten, Lax, and van Leer.  This is discussed in
+Section 15.3.7 along with some extensions. (You'll find the solution to part
+(a) there too.)
+
+% uncomment the next two lines if you want to insert solution...
+
+% insert your solution here!
+
+
+\end{document}
+

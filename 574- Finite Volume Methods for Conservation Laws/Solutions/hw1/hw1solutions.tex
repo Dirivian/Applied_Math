@@ -1,0 +1,673 @@
+\documentclass[11pt]{article}
+
+\usepackage{graphicx}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{enumitem}
+\usepackage{hyperref}  % for urls and hyperlinks
+\usepackage{listings}
+\usepackage{color}
+
+\setlength{\textwidth}{6.2in}
+\setlength{\oddsidemargin}{0.3in}
+\setlength{\evensidemargin}{0in}
+\setlength{\textheight}{9in}
+\setlength{\voffset}{-1in}
+\setlength{\headsep}{26pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+
+\definecolor{keywords}{RGB}{255,0,90}
+\definecolor{comments}{RGB}{0,0,113}
+\definecolor{red}{RGB}{160,0,0}
+\definecolor{green}{RGB}{0,150,0}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{brown}{rgb}{0.59, 0.29, 0.0}
+\definecolor{beaublue}{rgb}{0.74, 0.83, 0.9}
+\definecolor{orange}{rgb}{1.0, 0.5, 0.0}
+\definecolor{darkslategray}{rgb}{0.18, 0.31, 0.31}
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepgreen}{rgb}{0,0.5,0}
+\lstdefinestyle{myMatlabstyle}{
+	language=Matlab,
+	backgroundcolor=\color{white},   
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{blue},
+	identifierstyle=\color{brown},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{orange},
+	basicstyle=\footnotesize,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,                 
+	numbers=left,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2
+}
+\lstdefinestyle{myPythonstyle}{
+	language=Python, 
+	basicstyle=\ttfamily\small, 
+	keywordstyle=\color{blue},
+	commentstyle=\color{green},
+	stringstyle=\color{red},
+	showstringspaces=false,
+	identifierstyle=\color{black},
+}
+\lstset{language=Matlab,frame=single}
+\lstset{language=Python,frame=single}
+
+% input some useful macros from RJLmacros.tex:
+\input{RJLmacros}
+
+\begin{document}
+
+\hfill\vbox{\hbox{AMath 574}\hbox{Homework 1}
+\hbox{Jithin George, 1622555}}
+
+
+
+%--------------------------------------------------------------------------
+\vskip 1cm
+\hrule
+{\bf Problem \#2.7 in the book}
+
+
+% uncomment the next two lines if you want to insert solution...
+\vskip 1cm
+{\bf Solution:}
+
+\[ v_t - u_x=0 \]
+\[ u_t - {p(v)}_x=0 \]
+This is the same as
+\[ u_t - p'(v)v_x=0 \]
+
+
+
+	\[
+	\begin{bmatrix}
+	v\\
+	u
+	\end{bmatrix}_t +\begin{bmatrix}	0 & 1 \\ - p'(v) &0 \end{bmatrix} 	\begin{bmatrix}	v\\ u \end{bmatrix}_x =0 \]
+	
+\[\lambda^2 = - p'(v)\]
+For the eigenvalues to be real, p'(v) has to be negative.
+Thus, for the matrix to be diagonalizable and the system of equations to be hyperbolic,  p'(v) must be less than 0.
+
+%--------------------------------------------------------------------------
+\vskip 1cm
+\hrule
+{\bf Problem \#3.1 in the book} You might want to do Problem 3.2 first.
+
+
+% uncomment the next two lines if you want to insert solution...
+\vskip 1cm
+{\bf Solution:}
+\begin{enumerate}[label=(\alph*)]
+
+
+
+	\item
+	\begin{itemize}
+		\item  The phase plot of q
+		\begin{minipage}{\linewidth}
+			\centering
+			\includegraphics[width=8cm]{pha.png}
+			%\caption{The phase plot }
+		\end{minipage}
+		
+		\item  Pressure at time =1
+				\begin{minipage}{\linewidth}
+					\centering
+					\includegraphics[width=8cm]{pra.png}
+					%\caption{The phase plot }
+				\end{minipage}
+		\item Velocity at time =1
+				\begin{minipage}{\linewidth}
+					\centering
+					\includegraphics[width=8cm]{va.png}
+					%\caption{The phase plot }
+				\end{minipage}
+	\end{itemize}
+		\item
+	\begin{itemize}
+		\item  The phase plot of q
+		\begin{minipage}{\linewidth}
+			\centering
+			\includegraphics[width=8cm]{phb.png}
+			%\caption{The phase plot }
+		\end{minipage}
+		
+		\item  Pressure at time =1
+		\begin{minipage}{\linewidth}
+			\centering
+			\includegraphics[width=8cm]{prb.png}
+			%\caption{The phase plot }
+		\end{minipage}
+		\item Velocity at time =1
+		\begin{minipage}{\linewidth}
+			\centering
+			\includegraphics[width=8cm]{vb.png}
+			%\caption{The phase plot }
+		\end{minipage}
+	\end{itemize}
+		\item
+	\begin{itemize}
+		\item  The phase plot of q
+		\begin{minipage}{\linewidth}
+			\centering
+			\includegraphics[width=8cm]{phc.png}
+			%\caption{The phase plot }
+		\end{minipage}
+		
+		\item  Pressure at time =1
+		\begin{minipage}{\linewidth}
+			\centering
+			\includegraphics[width=8cm]{prc.png}
+			%\caption{The phase plot }
+		\end{minipage}
+		\item Velocity at time =1
+		\begin{minipage}{\linewidth}
+			\centering
+			\includegraphics[width=8cm]{vc.png}
+			%\caption{The phase plot }
+		\end{minipage}
+	\end{itemize}
+		\item
+	\begin{itemize}
+		\item  The phase plot of q
+		\begin{minipage}{\linewidth}
+			\centering
+			\includegraphics[width=8cm]{phd.png}
+			%\caption{The phase plot }
+		\end{minipage}
+		
+		\item  Pressure at time =1
+		\begin{minipage}{\linewidth}
+			\centering
+			\includegraphics[width=8cm]{prd.png}
+			%\caption{The phase plot }
+		\end{minipage}
+		\item Velocity at time =1
+		\begin{minipage}{\linewidth}
+			\centering
+			\includegraphics[width=8cm]{vd.png}
+			%\caption{The phase plot }
+		\end{minipage}
+	\end{itemize}
+		\item
+	\begin{itemize}
+		\item  The phase plot of q
+		\begin{minipage}{\linewidth}
+			\centering
+			\includegraphics[width=8cm]{phe.png}
+			%\caption{The phase plot }
+		\end{minipage}
+		
+		\item  Pressure at time =1
+		\begin{minipage}{\linewidth}
+			\centering
+			\includegraphics[width=8cm]{pre.png}
+			%\caption{The phase plot }
+		\end{minipage}
+		\item Velocity at time =1
+		\begin{minipage}{\linewidth}
+			\centering
+			\includegraphics[width=8cm]{ve.png}
+			%\caption{The phase plot }
+		\end{minipage}
+	\end{itemize}
+		\item
+		\begin{itemize}
+			\item  The phase plot of q
+			\begin{minipage}{\linewidth}
+				\centering
+				\includegraphics[width=8cm]{phf.png}
+				%\caption{The phase plot }
+			\end{minipage}
+			
+			\item  Pressure at time =1
+			\begin{minipage}{\linewidth}
+				\centering
+				\includegraphics[width=8cm]{prf.png}
+				%\caption{The phase plot }
+			\end{minipage}
+			\item Velocity at time =1
+			\begin{minipage}{\linewidth}
+				\centering
+				\includegraphics[width=8cm]{vf.png}
+				%\caption{The phase plot }
+			\end{minipage}
+		\end{itemize}			
+\end{enumerate}
+
+% insert your solution here!
+
+
+%--------------------------------------------------------------------------
+\vskip 1cm
+\hrule
+{\bf Problem \#3.2 in the book}
+
+You can use Matlab for this one, but I suggest you try writing the program 
+in Python.  A Jupyter notebook will be provided to help you get started.
+
+Note that the module {\tt numpy.linalg} contains an {\tt eig}
+function similar to Matlab.
+
+% uncomment the next two lines if you want to insert solution...
+\vskip 1cm
+{\bf Solution:}
+
+We start with the initial conditions.
+
+\begin{lstlisting}[style=MyPythonstyle]
+import numpy as np
+import pylab as pl
+A = np.array([[2.,2],[0,-3]])
+ql = np.array([1,1])
+qr = np.array([0,3])
+\end{lstlisting}
+
+Make some useful functions
+
+\begin{lstlisting}[style=MyPythonstyle]
+#Get Eigen-values/vectors
+def Reisolve(A,ql,qr):
+	lam,R = np.linalg.eig(A)
+	T= qr-ql
+	Rinv = np.linalg.inv(R)
+	alpha =np.dot(Rinv,T)
+	return alpha,lam ,R
+
+#Phaseplots
+def phaseplot(ql,qr,R,qm):
+	k1= -3
+	k2= 3
+	r1 = R[:,0]
+	r2 = R[:,1]
+	u1 = ql+k1*r1
+	u2 = ql + k2*r1
+	u = np.vstack((u1,u2))
+	v1 = qr+k1*r2
+	v2 = qr + k2*r2
+	v = np.vstack((v1,v2))
+	pl.plot(ql[0],ql[1], 'ro') #ql
+	pl.plot(qr[0],qr[1], 'bo') #qr
+	pl.plot(qm[0],qm[1], 'ko') #qm
+	pl.plot(u[:,0],u[:,1]) #First eigenvector
+	pl.plot(v[:,0],v[:,1]) #Second Eigenvector
+	pl.xlabel("q1")
+	pl.ylabel("q2")
+	
+#Solve for various x at particular time
+def qsolve(xcol,t,lamda,R,alpha):
+	i=0
+	q=np.zeros((2,len(xcol)))
+	for x in xcol:
+		if x/t <lamda[0]: #Naturally, there is a bug at t=0
+			q[:,i]=ql
+		elif x/t <lamda[1]:
+			q[:,i] = ql + alpha[0]*R[:,0]
+		else:
+			q[:,i]=qr
+		i+=1
+	return q
+
+#Solve for middle states
+def qmsolve(R,alpha,ql):
+	i=0
+	qm=np.zeros((2,1))
+	qm[:,i] = ql + alpha[0]*R[:,0]
+	return qm
+\end{lstlisting}
+
+Solve and plot.
+\begin{lstlisting}[style=MyPythonstyle]
+al, lamda, R1= Reisolve(A,ql,qr)
+ind = np.argsort(lamda)
+lamda=lamda[ind]
+R= R1[:,ind]
+al= al[ind] 
+x=np.linspace(-10,10,100)
+t=1
+qm=qmsolve(x,t,lamda,R,al) 
+pl.figure(3)
+phaseplot(ql,qr,R,qm)
+pl.figure(1) 
+pl.plot(x,q[0,:])
+pl.xlabel("x")
+pl.ylabel("q1")
+
+pl.figure(2)
+pl.plot(x,q[1,:])
+pl.xlabel("x")
+pl.ylabel("q2")
+\end{lstlisting}
+%--------------------------------------------------------------------------
+
+\vskip 1cm
+\hrule
+{\bf Problem \#3.3 in the book}
+
+Following the sort of thing done in 
+script \verb+problem_3_5.py+ might be useful if you want to insert a
+figure in your solution, or you can draw with another programming language, or
+sketch the solution by hand and scan.
+
+
+% uncomment the next two lines if you want to insert solution...
+\vskip 1cm
+{\bf Solution:}
+
+The code to plot the figure is given below.
+\begin{lstlisting}[style=MyPythonstyle]
+from pylab import *
+
+clf()  # clear figure
+
+plot([-4,4],[0,0],'k') # x-axis  'k' means black line
+plot([-4,-4],[0,6],'k') # t-axis
+plot([4,4],[0,6],'k') # right boundary
+
+def plot_rightgoing(x1,t1,s):
+"""
+plot right-going wave of slope s starting at (x1,t1) to right boundary
+"""
+	t2 = t1 + s*(4-x1)
+	plot([x1,4], [t1,t2], 'k')
+
+def plot_leftgoing(x1,t1,s):
+"""
+plot left-going wave of slope s starting at (x1,t1) to left boundary
+"""
+	t2 = t1 + s*(-4-x1)
+	plot([x1,-4], [t1,t2], 'k')
+
+plot_rightgoing(0,0,1)
+plot_rightgoing(0,0,1)
+def Reisolve(A,ql,qr):
+	lam,R = linalg.eig(A)
+	T= qr-ql
+	Rinv = linalg.inv(R)
+	alpha =dot(Rinv,T)
+	return alpha,lam ,R
+def qsolve(xcol,t,lamda,R,alpha):
+	i=0
+	q=np.zeros((2,len(xcol)))
+	for x in xcol:
+	if x/t <lamda[0]: #Naturally, there is a bug at t=0
+		q[:,i]=ql
+	elif x/t <lamda[1]:
+		q[:,i] = ql + alpha[0]*R[:,0]
+	else:
+		q[:,i]=qr
+	i+=1
+	return q
+A = np.array([[0,0,4],[0,1,0],[1,0,0]])
+ql = np.array([1,2,0])
+qr = np.array([1,5,1])
+al, lamda, R1= Reisolve(A,ql,qr)
+ind = np.argsort(lamda)
+lamda=lamda[ind]
+R= R1[:,ind] 
+
+#Plotting the regions
+for l in lamda:
+	if l>0:
+		plot_rightgoing(0,0,l)
+	else:
+		plot_leftgoing(0,0,l)
+text(-3, 4, 'q_l')
+text(0, 7, 'q_l*')
+text(3.0, 4, 'q_r*')
+text(3, 1, 'q_r')
+\end{lstlisting}
+
+\begin{enumerate}[label=(\alph*)]
+	
+	
+	
+	\item
+					\begin{minipage}{\linewidth}
+						\centering
+						\includegraphics[width=8cm]{33a.png}
+						%\caption{The phase plot }
+					\end{minipage}
+					
+	\[q_l* = \bcm 0 \\ 2 \\ 0.5\ecm	, q_r* = \bcm 0 \\ 5 \\ 0.5\ecm	\]	
+	\item
+			\begin{minipage}{\linewidth}
+				\centering
+				\includegraphics[width=8cm]{33b.png}
+				%\caption{The phase plot }
+			\end{minipage}
+			
+	\[q_l* = \bcm 1 \\ 1 \\ 1\ecm	, q_r* = \bcm 1 \\ 3 \\ 1\ecm	\]				
+\end{enumerate}
+
+% to insert a figure named X.png, you might use this...
+% \hfil\includegraphics[width=4.0in]{X.png}\hfil
+
+
+%--------------------------------------------------------------------------
+
+\vskip 1cm
+\hrule
+{\bf Problem \#3.5 in the book}
+
+The script \verb+problem_3_5.py+ was used to generate this figure:
+
+% you need to run
+%     python problem_3_5.py
+% at the command line to generate the figure inserted here:
+\hfil\includegraphics[width=3.5in]{problem_3_5.png}\hfil
+
+To solve this problem, determine the states $A,~ B, ~ \ldots,~ M$ and also
+the times $t_1,~t_2,~t_3$.  The times can be written in terms of the
+parameters $\rho_0$ and $K_0$, which were not stated in the problem.
+
+For example,
+\[
+A = \bcm 0 \\ 0 \ecm, \quad, B = \bcm 1 \\ 0 \ecm, \quad, 
+C = \bcm 0 \\ 0 \ecm, \quad \ldots
+\]
+
+% Note that bcm and ecm (begin and end centered matrices) are defined in 
+% RJLmacros.tex
+
+% uncomment the next two lines if you want to insert solution...
+\vskip 1cm
+
+
+{\bf Solution:}
+
+From the initial conditions, we have 
+\[
+A = \bcm 0 \\ 0 \ecm, \quad, B = \bcm 1 \\ 0 \ecm, \quad, 
+C = \bcm 0 \\ 0 \ecm
+\]
+The eigenvalues are $\sqrt{K_0/\rho_0} $ and - $\sqrt{K_0/\rho_0} $.
+\[t_1 = \frac{\Delta x}{-\lambda } = \sqrt{\frac{\rho_0}{K_0}}\]
+\[t_2 = 2\sqrt{\frac{\rho_0}{K_0}}\]
+\[t_3 = 3\sqrt{\frac{\rho_0}{K_0}}\]
+The eigenvector matrix and it's inverse are
+\[
+R = \bcm -Z_0 & Z_0\\ 1 & 1 \ecm, \quad, R^{-1} = \frac{1}{2Z_0}\bcm -1 &Z_0 \\ 1 & Z_0 \ecm \quad, 
+\]
+where 
+\[Z_0 = \sqrt{K_0\rho_0}\]
+D:
+\[\bcm a_1\\ a_2 \ecm = R^{-1}(B-A)= \frac{1}{2Z_0}\bcm -1 &Z_0 \\ 1 & Z_0 \ecm \bcm 1 \\ 0 \ecm= \frac{1}{2Z_0}\bcm -1 \\ 1  \ecm \]
+
+\[W_1 = a_1 R_1= \frac{1}{2Z_0}\bcm Z_0 \\ -1  \ecm  \]
+\[W_2 = a_2 R_2= \frac{1}{2Z_0}\bcm Z_0 \\ 1  \ecm  \]
+
+\[ D = \bcm 0 \\ 0 \ecm + a_1 R_1=\bcm \frac{1}{2} \\ \frac{-1}{2Z_0}  \ecm  \]
+E:
+\[\bcm a_3\\ a_4 \ecm = R^{-1}(C-B)= \frac{1}{2Z_0}\bcm -1 &Z_0 \\ 1 & Z_0 \ecm \bcm- 1 \\ 0 \ecm= \frac{1}{2Z_0}\bcm 1 \\ -1  \ecm \]
+
+\[ E = \bcm 1 \\ 0 \ecm + a_1 R_1=\bcm \frac{1}{2} \\ \frac{1}{2Z_0}  \ecm  \]
+\[W_3 = a_3 R_1= \frac{1}{2Z_0}\bcm -Z_0 \\ 1  \ecm  \]
+\[W_4 = a_4 R_2= \frac{1}{2Z_0}\bcm -Z_0 \\ -1  \ecm  \]
+F:
+At the boundary, the left going wave $W_1$ reflects and we have the new wave $W'_1$
+\[ W'_1 = -W_1= \frac{1}{2Z_0}\bcm -Z_0 \\ 1  \ecm \]
+\[F= D-W'_1= D+W_1= \bcm 1 \\ \frac{-1}{Z_0}  \ecm \]
+G:
+\[G= D+W'_1= D-W_1= \bcm 0 \\ 0  \ecm \]
+H:
+\[H= E+W_1= \bcm 1 \\ 0  \ecm \]
+
+I:
+\[I= F+W_3=\frac{1}{2Z_0} \bcm Z_0 \\ -1  \ecm \]
+J:
+\[J= G+W'_4=G-W_4=  \frac{1}{2Z_0}\bcm Z_0 \\ 1  \ecm \]
+K:
+\[K= I-W'_3=I+W_3=  \bcm 0 \\0  \ecm \]
+L:
+\[L= I+W'_4=I-W_4=  \bcm 1 \\ \frac{-1}{Z_0} \ecm \]
+M:
+\[M= J+W'_2=J-W_2=  \bcm 0 \\0  \ecm \]
+
+
+\hfil\includegraphics[width=6in]{1}\hfil
+
+\vskip 1cm
+\hrule
+{\bf Problem \#3.5A}
+Solve \#3.5 with {\em periodic} boundary conditions instead of reflecting
+walls.  Sketch the solution in the $x$--$t$ plane
+up to at least time $t_3$ (as in \#3.5 the time
+the right-going wave from $x_0=1$ hits the right boundary) 
+and indicate the state in each section.  You might want to modify the
+script \verb+problem_3_5.py+ to make the plot.
+
+
+% uncomment the next two lines if you want to insert solution...
+\vskip 1cm
+{\bf Solution:}
+
+With periodic boundary conditions, we get
+\[ W_2(0,t)= W_1(4,t)\]
+\[ W_1(4,t)= W_2(0,t)\]
+And this following image is obtained.
+
+\hfil\includegraphics[width=3.5in]{BOUND.png}\hfil
+
+A,B,C,D and E remain the same.
+
+\[
+A = \bcm 0 \\ 0 \ecm, \quad, B = \bcm 1 \\ 0 \ecm, \quad, 
+C = \bcm 0 \\ 0 \ecm
+\]
+The eigenvalues are $\sqrt{K_0/\rho_0} $ and - $\sqrt{K_0/\rho_0} $.
+\[t_1 = \frac{\Delta x}{-\lambda } = \sqrt{\frac{\rho_0}{K_0}}\]
+\[t_2 = 2\sqrt{\frac{\rho_0}{K_0}}\]
+\[t_3 = 3\sqrt{\frac{\rho_0}{K_0}}\]
+The eigenvector matrix and it's inverse are
+\[
+R = \bcm -Z_0 & Z_0\\ 1 & 1 \ecm, \quad, R^{-1} = \frac{1}{2Z_0}\bcm -1 &Z_0 \\ 1 & Z_0 \ecm \quad, 
+\]
+where 
+\[Z_0 = \sqrt{K_0\rho_0}\]
+
+D:
+\[\bcm a_1\\ a_2 \ecm = R^{-1}(B-A)= \frac{1}{2Z_0}\bcm -1 &Z_0 \\ 1 & Z_0 \ecm \bcm 1 \\ 0 \ecm= \frac{1}{2Z_0}\bcm -1 \\ 1  \ecm \]
+
+\[W_1 = a_1 R_1= \frac{1}{2Z_0}\bcm Z_0 \\ -1  \ecm  \]
+\[W_2 = a_2 R_2= \frac{1}{2Z_0}\bcm Z_0 \\ 1  \ecm  \]
+
+\[ D = \bcm 0 \\ 0 \ecm + a_1 R_1=\bcm \frac{1}{2} \\ \frac{-1}{2Z_0}  \ecm  \]
+E:
+\[\bcm a_3\\ a_4 \ecm = R^{-1}(C-B)= \frac{1}{2Z_0}\bcm -1 &Z_0 \\ 1 & Z_0 \ecm \bcm- 1 \\ 0 \ecm= \frac{1}{2Z_0}\bcm 1 \\ -1  \ecm \]
+
+\[ E = \bcm 1 \\ 0 \ecm + a_1 R_1=\bcm \frac{1}{2} \\ \frac{1}{2Z_0}  \ecm  \]
+\[W_3 = a_3 R_1= \frac{1}{2Z_0}\bcm -Z_0 \\ 1  \ecm  \]
+\[W_4 = a_4 R_2= \frac{1}{2Z_0}\bcm -Z_0 \\ -1  \ecm  \]
+
+F:
+
+\[F= C+ W_1= \frac{1}{2Z_0}\bcm Z_0 \\ -1  \ecm \]
+
+G:
+\[G= D+ W_3= \bcm 0 \\ 0  \ecm \]
+
+H:
+\[H= E+ W_1= \bcm 1 \\ 0  \ecm \]
+
+%--------------------------------------------------------------------------
+\vskip 1cm
+\hrule
+{\bf Problem \#4.1 in the book}
+
+
+% uncomment the next two lines if you want to insert solution...
+\vskip 1cm
+{\bf Solution:}
+
+
+
+	\[\lambda_1 = u_0 -c_0\]
+		\[\lambda_2 = u_0 +c_0\]
+\begin{itemize}
+	\item
+If the flow is subsonic, there is one positive eigenvalue and one negative one.
+\[A^+ = R\lambda_2R^{-1} = \bcm -Z_0 & Z_0\\ 1 & 1 \ecm \bcm 0 &0\\0 &(u_0 +c_0)\ecm  \frac{1}{2Z_0}\bcm -1 &Z_0 \\ 1 & Z_0 \ecm =\frac{1}{2Z_0}\bcm Z_0\lambda_2 &Z_0^2 \lambda_2  \\ \lambda_2 & Z_0 \lambda_2 \ecm\]
+\[A^- = R\lambda_1R^{-1} = \bcm -Z_0 & Z_0\\ 1 & 1 \ecm \bcm (u_0-c_0) &0\\0 &0\ecm  \frac{1}{2Z_0}\bcm -1 &Z_0 \\ 1 & Z_0 \ecm =\frac{1}{2Z_0}\bcm Z_0\lambda_1 &Z_0^2 \lambda_1  \\ \lambda_1 & Z_0 \lambda_1 \ecm\]
+ If $Q_i$ and $Q_{i-1}$ are given, let
+ \[\Delta Q_{i-1/2}= Q_i - Q_{i-1}\]
+ \[W^1_{i-1/2}=\frac{1}{\lambda_1} A^-\Delta Q_{i-1/2}\]
+ \[W^2_{i-1/2}=\frac{1}{\lambda_2} A^+\Delta Q_{i-1/2}\]
+\item
+If $u_0>c_0$, both eigenvalues are positive,
+\[A^+=R\lambda R^{-1}= A\]
+\[A^- = \bcm 0 &0\\ 0 &0 \ecm \]
+\item 
+If $u_0<-c_0$, 
+\[A^+ =\bcm 0 &0\\ 0 &0 \ecm \]
+\[A^- =R\lambda R^{-1}= A\]
+
+For the last two cases,
+ \[ \bcm a_1 \\ a_2 \ecm = R^{-1}\Delta Q_{i-1/2}\]
+  \[W^1_{i-1/2}= a_1 R_1\]
+  \[W^2_{i-1/2}=a_2 R_2\]
+
+	\end{itemize}
+
+
+%--------------------------------------------------------------------------
+\vskip 1cm
+\hrule
+{\bf Problem \#4.2 in the book}
+
+
+% uncomment the next two lines if you want to insert solution...
+\vskip 1cm
+{\bf Solution:}
+
+\begin{enumerate}[label=(\alph*)]
+	\item
+	
+	
+	
+\hfil\includegraphics[width=3in]{2}\hfil
+
+	
+\hfil\includegraphics[width=6.5in]{3}\hfil
+
+
+\hfil\includegraphics[width=6.5in]{4}\hfil
+\end{enumerate}
+
+
+% insert your solution here!
+
+\end{document}
+

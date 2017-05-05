@@ -1,0 +1,353 @@
+\documentclass[11pt]{article}
+
+\usepackage{graphicx}
+\usepackage{amsmath,amsfonts,amssymb}
+
+\usepackage{hyperref}  % for urls and hyperlinks
+
+
+\setlength{\textwidth}{6.2in}
+\setlength{\oddsidemargin}{0.3in}
+\setlength{\evensidemargin}{0in}
+\setlength{\textheight}{8.9in}
+\setlength{\voffset}{-1in}
+\setlength{\headsep}{26pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+
+% input some useful macros from RJLmacros.tex:
+\input{../hw1/RJLmacros}
+
+\begin{document}
+
+\hfill\vbox{\hbox{AMath 574}\hbox{Homework 2}
+\hbox{Jithin D. George}}
+
+
+
+
+%--------------------------------------------------------------------------
+\vskip 1cm
+\hrule
+{\bf Problem \#6.1 in the book}
+
+
+% uncomment the next two lines if you want to insert solution...
+\vskip 1cm
+{\bf Solution:}
+\[\tilde{q}^n(x,t_n)= Q_i^n +\sigma_i^n(x-x_i)\]
+
+The integral form is 
+\[ \int_{C_i}q(x,t_{n+1}) dx- \int_{C_i}q(x,t_{n})dx=\int_{t_n}^{t_{n+1}}f(q(x_{i-\frac{1}{2}},t))dt- \int_{t_n}^{t_{n+1}}f(q(x_{i+\frac{1}{2}},t))dt\]
+where $C_i$ represents the ith cell.
+\[Q_i^{n+1}= Q_i^{n}- \frac{1}{\Delta x}\int_{t_n}^{t_{n+1}}(f(q(x_{i+\frac{1}{2}},t))-f(q(x_{i-\frac{1}{2}},t)))dt  \]
+
+6.13 looks more upwind than beam-warming so we take that into consideration.
+\[\int_{t_n}^{t_{n+1}}f(q(x_{i-\frac{1}{2}},t)dt= \int_{t_n}^{t_{n+1}}u q(x_{i-\frac{1}{2}},t)dt \]
+\[= \int_{t_n}^{t_{n+1}}u q(x_{i-\frac{1}{2}}-u(\Delta t),t_n)dt \]
+\[= \int_{t_n}^{t_{n+1}}u ( Q_{i-1}^n +\sigma_{i-1}^n(x_{i-\frac{1}{2}}-u(\Delta t)-x_{i-1}))dt \]
+\[= \int_{t_n}^{t_{n+1}}u ( Q_{i-1}^n +\sigma_{i-1}^n(\frac{1}{2}\Delta x-u(\Delta t)))dt \]
+\[\int_{t_n}^{t_{n+1}}f(q(x_{i+\frac{1}{2}},t)dt= \int_{t_n}^{t_{n+1}}u ( Q_{i}^n +\sigma_{i}^n(\frac{1}{2}\Delta x-u(\Delta t)))dt \]
+
+\[Q_i^{n+1}= Q_i^{n}- \frac{1}{\Delta x}\int_{t_n}^{t_{n+1}}(u ( Q_{i}^n-Q_{i-1}^n) -u(\frac{1}{2}\Delta x-u(\Delta t))(\sigma_{i}-\sigma_{i-1}))dt  \]
+\[= Q_i^{n}- \frac{u\Delta t}{\Delta x} ( Q_{i}^n-Q_{i-1}^n) - \frac{u}{\Delta x}(\frac{1}{2}\Delta x\Delta t-\frac{1}{2}u(\Delta t)^2)(\sigma_{i}-\sigma_{i-1})  \]
+\[= Q_i^{n}- \frac{u\Delta t}{\Delta x} ( Q_{i}^n-Q_{i-1}^n) - \frac{u\Delta t}{2\Delta x}(\Delta x-u(\Delta t))(\sigma_{i}-\sigma_{i-1})  \]
+%--------------------------------------------------------------------------
+\vskip 1cm
+\hrule
+{\bf Problem \#6.2 in the book}
+
+
+% uncomment the next two lines if you want to insert solution...
+\vskip 1cm
+{\bf Solution:}
+\begin{enumerate}
+	\item
+	\[TV(q(x))= TV(x=0)+ TV(0<x<3)+TV(x=3)\]
+	\[= |0-1|+ \int_{0}^{3}\pi cos(\pi x)+(2-0)\]
+	\[= 3+ 12\]
+	\[= 15\]
+	\item
+		\[TV(q(x))= TV(x=0)+ TV(x=1)+TV(x=2)+TV(x=3)\]
+		\[= 0+ 2+2+1=5\]
+\end{enumerate}
+
+% insert your solution here!
+
+%--------------------------------------------------------------------------
+
+\vskip 1cm
+\hrule
+{\bf Problem \#6.5 in the book}
+
+
+% uncomment the next two lines if you want to insert solution...
+\vskip 1cm
+{\bf Solution:}
+When $u>0$, we have the equation 
+\[ Q_i^{n+1}= Q_i^{n}- \frac{u\Delta t}{\Delta x} ( Q_{i}^n-Q_{i-1}^n) - \frac{u\Delta t}{2\Delta x}(\Delta x-u(\Delta t))(\sigma_{i}-\sigma_{i-1})  \]
+It can be rewritten as 
+\[Q_i^{n+1}= Q_i^{n}-v(Q_{i}^n-Q_{i-1}^n) -\frac{1}{2} v(1-v)[\phi(\theta_{i+1/2}^n)(Q_{i+1}^n-Q_{i}^n)-\phi(\theta_{i-1/2}^n)(Q_{i}^n-Q_{i-1}^n) ]\]
+where 
+\[ v= u \frac{dt}{dx}\]
+Choosing 
+\[  C_{i+1}^n= v -\frac{1}{2} v(1-v)(\frac{\phi(\theta_{i+1/2}^n)}{\theta_{i+1/2}^n}-\phi(\theta_{i-1/2}^n) ) \] and
+\[D_i^n =0 ,\]
+This equation satisfies Harten's theorem as long as if $ 0 \leq C_{i-1}\leq 1$, and this scheme is TVD. 
+
+To be TVD, the flux limiter should satisfy
+\[ 0 \leq \phi(\theta) \leq minmod(2,2\theta)\]
+For the minmod limiter, 
+\[ \phi(\theta) = minmod(\theta,1) \]
+
+
+This satisfies the TVD condition and thus, the minmod scheme is TVD.
+
+When $u <0$, problem 6.7 (done later) ends with the TVD condition, 
+\[|\phi(\theta_{i+1/2}^n)-\frac{\phi(\theta_{i-1/2}^n)}{\theta_{i-1/2}^n} |\leq 2 \]
+
+from which the previous TVD condition is obtained and again, the minmod limiter satisfies that.
+
+%--------------------------------------------------------------------------
+\vskip 1cm
+\hrule
+{\bf Problem \#6.6 in the book}
+
+% uncomment the next two lines if you want to insert solution...
+\vskip 1cm
+{\bf Solution:}
+For $u>0$,
+\[F_{i-1/2}^n= uQ_{i-1}^n + \frac{1}{2}u(1-\frac{u\Delta t}{\Delta x})\delta_{i-1/2}^n\]
+\[= uQ_{i-1}^n + \frac{1}{2}u(1-\frac{u\Delta t}{\Delta x})(Q_i^n-Q_{i-1}^n)\]
+\[F_{i+1/2}^n= uQ_{i}^n + \frac{1}{2}u(1-\frac{u\Delta t}{\Delta x})(Q_{i+1}^n-Q_{i}^n)\]
+\[ Q_i^{n+1}= Q_i^{n} - \frac{\Delta t}{\Delta x} (F_{i+1/2} -F_{i-1/2} )\]
+\[ Q_i^{n+1}= Q_i^{n} - \frac{u\Delta t}{2\Delta x} (2Q_i^{n} -2Q_{i-1}^{n} + Q_{i+1}^n-Q_{i}^n -Q_i^n+Q_{i-1}^n)\]
+\[+\frac{(u\Delta t)^2}{2\Delta x^2}(Q_{i+1}^n-2Q_{i}^n+Q_{i-1}^n)\]
+\[= Q_i^{n} - \frac{u\Delta t}{2\Delta x} ( Q_{i+1}^n-Q_{i-1}^n)+\frac{(u\Delta t)^2}{2\Delta x^2}(Q_{i+1}^n-2Q_{i}^n+Q_{i-1}^n)\]
+which is the Lax-Wendroff scheme.
+
+
+For $u<0$,
+Taking u as the magnitude of the velocity
+\[F_{i-1/2}^n= -uQ_{i}^n + \frac{1}{2}u(1-\frac{u\Delta t}{\Delta x})\delta_{i-1/2}^n\]
+\[= -uQ_{i`	}^n + \frac{1}{2}u(1-\frac{u\Delta t}{\Delta x})(Q_i^n-Q_{i-1}^n)\]
+\[F_{i+1/2}^n= -uQ_{i+1}^n + \frac{1}{2}u(1-\frac{u\Delta t}{\Delta x})(Q_{i+1}^n-Q_{i}^n)\]
+\[ Q_i^{n+1}= Q_i^{n} - \frac{\Delta t}{\Delta x} (F_{i+1/2} -F_{i-1/2} )\]
+\[ Q_i^{n+1}= Q_i^{n} - \frac{u\Delta t}{2\Delta x} (2Q_i^{n} -2Q_{i+1}^{n} + Q_{i+1}^n-Q_{i}^n -Q_i^n+Q_{i-1}^n)\]
+\[+\frac{(u\Delta t)^2}{2\Delta x^2}(Q_{i+1}^n-2Q_{i}^n+Q_{i-1}^n)\]
+\[= Q_i^{n} + \frac{u\Delta t}{2\Delta x} ( Q_{i+1}^n-Q_{i-1}^n)+\frac{(u\Delta t)^2}{2\Delta x^2}(Q_{i+1}^n-2Q_{i}^n+Q_{i-1}^n)\]
+Taking u as the velocity vector back again, we have 
+\[Q_i^{n+1}= Q_i^{n} - \frac{u\Delta t}{2\Delta x} ( Q_{i+1}^n-Q_{i-1}^n)+\frac{(u\Delta t)^2}{2\Delta x^2}(Q_{i+1}^n-2Q_{i}^n+Q_{i-1}^n)\]
+which is the Lax-Wendroff scheme. 
+% insert your solution here!
+
+%--------------------------------------------------------------------------
+\vskip 1cm
+\hrule
+{\bf Problem \#6.7 in the book}
+
+% uncomment the next two lines if you want to insert solution...
+\vskip 1cm
+{\bf Solution:}
+Since $u<0$, 
+\[ \theta_{i-1/2}^n = \frac{Q_{i+1}^n-Q_{i}^n}{Q_{i}^n-Q_{i-1}^n} \]
+
+\[Q_i^{n+1}= Q_i^{n} -C_{i-1}^n(Q_i^n-Q_{i-1}^n)+D_i^n(Q_{i+1}^n-Q_{i}^n)\]
+\[= Q_i^{n}+(-v +\frac{1}{2} v(1+v)(\phi(\theta_{i+1/2}^n)-\frac{\phi(\theta_{i-1/2}^n)}{\theta_{i-1/2}^n} ))(Q_{i+1}^n-Q_{i}^n)\]
+\[= Q_i^{n}-v(Q_{i+1}^n-Q_{i}^n) +\frac{1}{2} v(1+v)[\phi(\theta_{i+1/2}^n)(Q_{i+1}^n-Q_{i}^n)-\frac{\phi(\theta_{i-1/2}^n)}{\theta_{i-1/2}^n}(Q_{i+1}^n-Q_{i}^n) ]\]
+\[= Q_i^{n}-v(Q_{i+1}^n-Q_{i}^n) +\frac{1}{2} v(1+v)[\phi(\theta_{i+1/2}^n)(Q_{i+1}^n-Q_{i}^n)-\phi(\theta_{i-1/2}^n)(Q_{i}^n-Q_{i-1}^n) ]\]
+ This is 6.41.
+\[  D= -v +\frac{1}{2} v(1+v)(\phi(\theta_{i+1/2}^n)-\frac{\phi(\theta_{i-1/2}^n)}{\theta_{i-1/2}^n} ) \]
+If \[|\phi(\theta_{i+1/2}^n)-\frac{\phi(\theta_{i-1/2}^n)}{\theta_{i-1/2}^n} |\leq 2\] then,
+\[|D_{max}|= |-v+v(1+v)| or |-v-v(1+v) | \]
+\[= |v^2| or |-2v-v^2 | \]
+The first term has a maximum of 1 and the second term has a maximum of 0.25 because the velocity is negative and $-1<v<0$.
+Thus, the conditions for Theorem 6.1 are satisfied and 6.41 is TVD.
+
+
+
+
+% insert your solution here!
+
+%--------------------------------------------------------------------------
+\vskip 1cm
+\hrule
+{\bf Problem \#7.1 in the book}
+
+% uncomment the next two lines if you want to insert solution...
+\vskip 1cm
+{\bf Solution:}
+
+\[
+ F_{1/2}^n =\frac{1}{2}u(Q_{0}^{n} + Q_1^n) -\frac{1}{2}\frac{\Delta t}{\Delta x}u^2(Q_{1}^{n} - Q_{0}^n)
+\]
+Taking unit Courant number,
+\[
+F_{1/2}^n =uQ_{0}^n= ug_0(t_n + \frac{\Delta x}{2u})= ug_0(t_n + \frac{\Delta t}{2})
+\]
+ which is 7.6 exactly.
+% insert your solution here!
+
+%--------------------------------------------------------------------------
+\vskip 1cm
+\hrule
+{\bf Problem \#7.2 in the book}
+
+% uncomment the next two lines if you want to insert solution...
+\vskip 1cm
+{\bf Solution:}
+
+\begin{enumerate}
+	\item
+	For the acoustic equation,
+	\[q_m = q_l +\alpha^1r^1= \frac{1}{2} \bcm (p_l +p_r)-Z_0(u_r-u_l)\\(u_l+u_r)-(p_r-p_l)/Z_0 \ecm =  \bcm p_1 -Z_0 u_1\\0 \ecm \]
+	This middle state condition agrees with the condition of zero velocity at the boundary.
+	\item
+		\[q_m = q_l +\alpha^1r^1= \frac{1}{2} \bcm (p_l +p_r)-Z_0(u_r-u_l)\\(u_l+u_r)-(p_r-p_l)/Z_0 \ecm = \frac{1}{2} \bcm 2 p_1-Z_0(2u_1-2U(t_n))\\2\epsilon sin(wt) \ecm\]
+		\[=  \bcm  p_1-Z_0(u_1-U(t_n))\\\epsilon sin(wt) \ecm  \]
+		
+		Thus, the middle state has an oscillating velocity.
+	
+\end{enumerate}
+% insert your solution here!
+
+%--------------------------------------------------------------------------
+
+\vskip 1cm
+\hrule
+{\bf Additional Problem:}
+
+Show that the flux-limiter method (6.40),(6.41) can be written as a {\em
+wave limiter} method as:
+
+\[
+Q_i^{n+1} = Q_i^n - \dtdx (\bar u^+ \W_{i-1/2}  + \bar u^- \W_{i+1/2})
+-\dtdx (\widetilde F_{i+1/2} - \widetilde F_{i-1/2}),
+\]
+where $\W_{i-1/2} = Q_i^n - Q_{i-1}^n$ and the ``correction flux'' is
+\[
+\widetilde F_{i-1/2} = \half |\bar u| 
+\left(1 - \dtdx |\bar u|\right) \widetilde \W_{i-1/2},
+\]
+with the limited waves $\widetilde \W$ defined by
+\[
+\widetilde \W_{i-1/2} = \phi(\theta_{i-1/2}) \W_{i-1/2}.
+\]
+The ratio $\theta_{i-1/2}$ is defined in (6.35) and the
+function $\phi$ might be one of limiters from (6.39).
+
+% uncomment the next two lines if you want to insert solution...
+\vskip 1cm
+{\bf Solution:}
+\[
+Q_i^{n+1} = Q_i^n - \dtdx (\bar u^+ \W_{i-1/2}  + \bar u^- \W_{i+1/2})
+-\dtdx (\widetilde F_{i+1/2} - \widetilde F_{i-1/2})
+\]
+\[= Q_i^n - \dtdx (\bar u^+ (Q_i^n - Q_{i-1}^n)  + \bar u^-(Q_{i+1}^n - Q_{i}^n))
+\]
+\[-\dtdx\half |\bar u| 
+\left(1 - \dtdx |\bar u|\right) ( \phi(\theta_{i+1/2}) \W_{i+1/2} - \phi(\theta_{i-1/2}) \W_{i-1/2})
+\]
+ 
+Taking v as $\dtdx \half |\bar u| 
+\left(1 - \dtdx |\bar u|\right)$ , we have
+\[
+Q_i^{n+1}= Q_i^n -(v^+ (Q_i^n - Q_{i-1}^n)  +  v^-(Q_{i+1}^n - Q_{i}^n))
+\]
+\[-\half |v| 
+\left(1 -|v|\right) ( \phi(\theta_{i+1/2}) (Q_{i+1}^n - Q_{i}^n) - \phi(\theta_{i-1/2}) (Q_i^n - Q_{i-1}^n))
+\]
+When $u>0$, 
+\[
+Q_i^{n+1}= Q_i^n - v (Q_i^n - Q_{i-1}^n)  
+-\half v 
+\left(1 -v\right) ( \phi(\theta_{i+1/2}) (Q_{i+1}^n - Q_{i}^n) - \phi(\theta_{i-1/2}) (Q_i^n - Q_{i-1}^n))
+\]
+which is 6.40
+
+When $u<0$, 
+\[
+Q_i^{n+1}= Q_i^n - v (Q_i^n - Q_{i-1}^n)  
+-\half |v| 
+\left(1 -|v|\right) ( \phi(\theta_{i+1/2}) (Q_{i+1}^n - Q_{i}^n) - \phi(\theta_{i-1/2}) (Q_i^n - Q_{i-1}^n))
+\]
+\[= Q_i^n - v (Q_i^n - Q_{i-1}^n)  
++\half v 
+\left(1 +v\right) ( \phi(\theta_{i+1/2}) (Q_{i+1}^n - Q_{i}^n) - \phi(\theta_{i-1/2}) (Q_i^n - Q_{i-1}^n))
+\]
+which is 6.41
+% nsert your solution here!
+
+%--------------------------------------------------------------------------
+\newpage
+
+\vskip 1cm
+\hrule
+{\bf Programming problem}
+
+Modify the IPython notebook \verb+$AM574/notebooks/Advection_Examples2.ipynb+
+to create a new notebook \verb+Advection_Limiters.ipynb+ that illustrates
+your solutions to the following:
+
+\renewcommand{\theenumi}{\alph{enumi}}  % use letters for enumeration
+\begin{enumerate}
+
+\item Implement the wave limiter methods for advection, as described in 
+the previous problem.   Note that it's impossible to use half-integer
+indices, so you might want to declare arrays such as \verb+Ftilde+ in which 
+\verb+Ftilde[i]+ holds the correction flux $\widetilde F_{i-1/2}$.  (This is
+the convention used in Clawpack --- the index $i$ often refers to
+information at the left edge of the cell $x_{i-1/2}$.)
+
+Copy the \verb+upwind+ function definition to a new cell in the notebook and
+modify it to create a new function \verb+wave_limiter+ that has one
+additional argument \verb+phi+ in the calling sequence, so that a limiter
+function $\phi(\theta)$ can be passed in.  The function $\phi$ might be one
+of those listed in (6.39a,b) in the book.  
+
+For example:
+\begin{verbatim}
+    def phi_minmod(theta):
+        return(max(0., min(theta,1)))
+\end{verbatim}
+would define the minmax limiter, and then
+\begin{verbatim}
+    figs = wave_limiter(x,tfinal,nsteps,u,qtrue,nplot,phi_minmod)
+\end{verbatim}
+should solve the problem using the minmod wave-limiter method and return a
+list of figures to animate.
+
+\item Test your function by writing a notebook that produces 
+animations up to time $t=10$ that
+correspond to Figures 6.2 and 6.3 from the book.
+This requires trying out several different limiter functions with 2 sets of
+initial conditions.  
+
+\end{enumerate} 
+
+Submit your notebook \verb+Advection_Limiters.ipynb+.
+
+{\bf Note:} Before submitting your notebook, clear all the output (From the
+``Cell'' menu select ``All Output'' and then ``Clear''), and then save the
+notebook.  Otherwise png figures are stored in the notebook file and it may
+be very large.  
+
+\vskip 15pt
+{\bf Installing Clawpack.} You don't need to turn in anything for this, but
+you should make sure you have Clawpack installed and working for future
+assignments. 
+
+I posted two videos at
+\url{http://faculty.washington.edu/rjl/classes/am574w2017/lectures.html}
+with tips on installing and getting started with running the code and
+changing the inputs.
+
+You might want to also clone the {\tt apps} repository, see
+\url{http://www.clawpack.org/apps.html}.  The directory {\tt
+apps/fvmbook/chap6} has the Clawpack code that creates Figures 6.2 and 6.3
+(newly updated for Version 5.4.0).  You might want to use the plots you can
+create in this directory for comparison.
+
+
+\end{document}
+

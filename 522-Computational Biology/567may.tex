@@ -1,0 +1,243 @@
+\documentclass[a4paper]{article}
+
+\usepackage{fullpage} % Package to use full page
+\usepackage{parskip} % Package to tweak paragraph skipping
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{amsmath,amsfonts,amsthm} % Math packages
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{float}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{brown}{rgb}{0.59, 0.29, 0.0}
+\definecolor{beaublue}{rgb}{0.74, 0.83, 0.9}
+\definecolor{orange}{rgb}{1.0, 0.5, 0.0}
+\definecolor{darkslategray}{rgb}{0.18, 0.31, 0.31}
+
+\lstdefinestyle{mystyle}{
+	backgroundcolor=\color{white},   
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{blue},
+	identifierstyle=\color{brown},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{orange},
+	basicstyle=\footnotesize,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,                 
+	numbers=left,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2
+}
+\lstset{style=mystyle}
+
+\title{AMATH 567: Problem Set 7}
+\author{Jithin D. George, No. 1622555}
+\date{11/16/16}
+
+\begin{document}
+
+\maketitle
+\begin{enumerate}
+	
+	\item
+	\begin{enumerate}
+		\item 
+		\[
+				\wp(z)=\frac{1}{z^2}+\sum_{j,k=-\infty}^\infty \left(\frac{1}{(z-j
+					\omega_1-k \omega_2)^2}-\frac{1}{(j \omega_1+k \omega_2)^2}\right)		\]	
+				Here, the term where both j and k are zero is removed.	                         
+			\begin{center}             
+			\begin{gather*}
+		\wp(z+M \omega_1+N \omega_2)=\frac{1}{(z+M \omega_1+N \omega_2)^2}+\sum_{j,k=-\infty}^\infty \left(\frac{1}{(z+(M-j)
+			\omega_1+(N-k) \omega_2)^2}-\frac{1}{(j \omega_1+k \omega_2)^2}\right)	
+		\\= \\	
+	\wp(z+M \omega_1)=\frac{1}{(z+M \omega_1)^2}+\sum_{j,k=-\infty}^\infty \left(\frac{1}{(z+(M-j)
+		\omega_1-k \omega_2)^2} -\frac{1}{(j \omega_1+k \omega_2)^2}\right)	
+		\\= \frac{1}{(z+M \omega_1)^2}+\sum_{j,k=-\infty}^\infty \left(\frac{1}{(z+(M-j)
+			\omega_1-k \omega_2)^2} -\frac{1}{(z-j
+			\omega_1-k \omega_2)^2}+\frac{1}{(z-j
+			\omega_1-k \omega_2)^2}-\frac{1}{(j \omega_1+k \omega_2)^2}\right)	
+		\\= \frac{1}{(z+M \omega_1)^2}+\\\underbrace{\sum_{j,k=-\infty}^\infty \left(\frac{1}{(z+(M-j)
+			\omega_1-k \omega_2)^2} -\frac{1}{(z-j
+			\omega_1-k \omega_2)^2}\right)}_\text{This is a telescoping series and hence not divergent}+\underbrace{\sum_{j,k=-\infty}^\infty \left(\frac{1}{(z-j
+			\omega_1-k \omega_2)^2}-\frac{1}{(j \omega_1+k \omega_2)^2}\right)}_\text{This is the same type sequence as before and hence not divergent} 
+	\\=	\frac{1}{(z+M \omega_1)^2}+\\\underbrace{\sum_{k=0,j-\infty, j\neq 0}^\infty \left(\frac{1}{(z+(M-j)
+			\omega_1-k \omega_2)^2} -\frac{1}{(z-j
+			\omega_1-k \omega_2)^2}\right)}_\text{if $k\neq0$, every term is cancelled by the Mth term after it} 	+\sum_{j,k=-\infty}^\infty \left(\frac{1}{(z-j
+			\omega_1-k \omega_2)^2}-\frac{1}{(j \omega_1+k \omega_2)^2}\right)	
+	\\=	\frac{1}{(z+M \omega_1)^2}+\sum_{j-\infty, j\neq 0}^\infty \left(\frac{1}{(z+(M-j)
+			\omega_1)^2} -\frac{1}{(z-j
+			\omega_1)^2}\right)	+\wp(z) - \frac{1}{z^2}		
+	\\=	\frac{1}{(z+M \omega_1)^2}+ \left(\frac{1}{(z)^2} -\frac{1}{(z+M
+		\omega_1)^2}\right)	+\wp(z) - \frac{1}{z^2}	
+\\	=\wp(z)
+								\end{gather*} 
+						\end{center}
+		
+		\item
+		\[	\wp(z)=\frac{1}{z^2}+\sum_{j,k=-\infty}^\infty \left(\frac{1}{(z-j
+			\omega_1-k \omega_2)^2}-\frac{1}{(j \omega_1+k \omega_2)^2}\right)\]
+		                         	\begin{center}             
+		                         		\begin{gather*}
+	\wp(z)	=\frac{1}{z^2}+ \frac{1}{(z- \omega_1)^2}+ \frac{1}{(z+ \omega_1)^2}+ \frac{1}{(z- \omega_2)^2}+ \frac{1}{(z+ \omega_2)^2}+ \frac{2}{( \omega_1)^2} + \frac{2}{(\omega_2)^2}
+	 \\ +\sum_{j,k=1}^\infty \left(\frac{1}{(z-j
+				\omega_1-k \omega_2)^2}-\frac{1}{(j \omega_1+k \omega_2)^2}\right)		+ \sum_{j,k=-1}^{-\infty} \left(\frac{1}{(z-j
+		\omega_1-k \omega_2)^2}-\frac{1}{(j \omega_1+k \omega_2)^2}\right)		
+		\\		=\frac{1}{z^2}+ \frac{1}{(z- \omega_1)^2}+ \frac{1}{(z+ \omega_1)^2}+ \frac{1}{(z- \omega_2)^2}+ \frac{1}{(z+ \omega_2)^2}+ \frac{2}{( \omega_1)^2} + \frac{2}{(\omega_2)^2}
+		\\+\sum_{j,k=1}^\infty \left(\frac{1}{(z-j
+			\omega_1-k \omega_2)^2}-\frac{1}{(j \omega_1+k \omega_2)^2}\right)		+ \sum_{j,k=1}^{\infty} \left(\frac{1}{(z+j
+			\omega_1+k \omega_2)^2}-\frac{1}{(j \omega_1+k \omega_2)^2}\right)								\end{gather*} 
+		\end{center}
+			
+		                         	\begin{center}             
+                \begin{gather*}
+   \wp(-z)		=\frac{1}{z^2}+ \frac{1}{(-z- \omega_1)^2}+ \frac{1}{(-z+ \omega_1)^2}+ \frac{1}{(-z- \omega_2)^2}+ \frac{1}{(-z+ \omega_2)^2}+ \frac{2}{( \omega_1)^2} \frac{2}{(\omega_2)^2}
+		\\	+\sum_{j,k=1}^\infty \left(\frac{1}{(-z-j
+				\omega_1-k \omega_2)^2}-\frac{1}{(j \omega_1+k \omega_2)^2}\right)	 \\	 + \sum_{j,k=1}^{\infty} \left(\frac{1}{(-z+j
+				\omega_1+k \omega_2)^2}-\frac{1}{(j \omega_1+k \omega_2)^2}\right)		
+		\\	=\frac{1}{z^2}+ \frac{1}{(z+ \omega_1)^2}+ \frac{1}{(z- \omega_1)^2}+ \frac{1}{(z+ \omega_2)^2}+ \frac{1}{(z- \omega_2)^2}+ \frac{2}{( \omega_1)^2} + \frac{2}{(\omega_2)^2}
+		\\	+\sum_{j,k=1}^\infty \left(\frac{1}{(z+j
+				\omega_1+k \omega_2)^2}-\frac{1}{(j \omega_1+k \omega_2)^2}\right)		+ \sum_{j,k=-1}^{\infty} \left(\frac{1}{(z-j
+				\omega_1-k \omega_2)^2}-\frac{1}{(j \omega_1+k \omega_2)^2}\right)
+		\\	=	   \wp(z)	
+				\end{gather*} 
+				\end{center}
+	\item 
+	$\wp(z)$ has a singularity at the origin. But
+	\[ f(z) =\wp(z) - \frac{1}{z^2}	
+	\] has no singularity around the origin and we can obtain a taylor series around the origin.
+	\[ f'(z)= -2 \sum_{j,k=-\infty}^\infty \frac{1}{(z-j
+		\omega_1-k \omega_2)^3} \]
+		                         	\begin{center}             
+		                         		\begin{gather*}
+      f'(0)= -2  \sum_{j,k=-\infty}^\infty \frac{1}{(-j
+		\omega_1-k \omega_2)^3} \\= -2 \left(\frac{1}{(\omega_1)^3}+ \frac{1}{(- \omega_1)^3}+ \frac{1}{( \omega_2)^3}+ \frac{1}{(- \omega_2)^3} 
+		+\sum_{j,k=1}^\infty \frac{1}{(j
+		\omega_1+k \omega_2)^3}	+ \sum_{j,k=1}^{\infty} \frac{1}{(-j
+		\omega_1-k \omega_2)^3} \right)
+	\\=0
+	\end{gather*} 
+	\end{center}
+	Similarly, $f'''(z)=0$ and $f^{2n+1}(z)=0$ where n is a non-negative integer.	
+	\[ f^{2n}(z) = (2n+1)! \sum_{j,k=-\infty}^\infty \frac{1}{(j
+		\omega_1+k \omega_2)^{2n+2}} , f(0)=0  \]
+	\[ \wp(z) = \frac{1}{z^2} + \sum_{n=1}^\infty \frac{f^{2n}}{2n!} z^{2n} \]	
+		\[ \wp(z) = \frac{1}{z^2} + \alpha_0 +\alpha_2 z^2 + \alpha_4 z^4 ... \]
+		\[ \alpha_0 = 0\]
+		\[ \alpha_2 = 3 \sum_{j,k=-\infty}^\infty \frac{1}{(j
+			\omega_1+k \omega_2)^{4}}\]
+		\[ \alpha_4 = 5 \sum_{j,k=-\infty}^\infty \frac{1}{(j
+			\omega_1+k \omega_2)^{6}}\]		
+	\[ \wp'(z) = \frac{-2}{z^3} + \sum_{n=1}^\infty 2n \frac{f^{2n}}{2n!} z^{2n-1} \]
+	\[
+	\wp'(z)=-\frac{2}{z^3}+\beta_1 z+\beta_3 z^3+\ldots.
+	\]
+
+			\[ \beta_1 = 6 \sum_{j,k=-\infty}^\infty \frac{1}{(j
+				\omega_1+k \omega_2)^{4}}\]
+			\[ \beta_2 = 20 \sum_{j,k=-\infty}^\infty \frac{1}{(j
+				\omega_1+k \omega_2)^{6}}\]	
+	
+\item
+\[
+(\wp')^2=a \wp^3+b \wp^2+c \wp+d,
+\]
+\[
+(-\frac{2}{z^3}+\beta_1 z+\beta_3 z^3+\ldots)^2=a (\frac{1}{z^2}  +\alpha_2 z^2 ..)^3+b (\frac{1}{z^2}  +\alpha_2 z^2 ..)^2+c(\frac{1}{z^2}  +\alpha_2 z^2 ..) +d
+\]
+		                         	\begin{center}             
+		                         		\begin{gather*}
+(\frac{4}{z^6} -\frac{4\beta_1}{z^2} -4  \beta_3+\beta_1^2z^2+2\beta_1\beta_3 z^4 +\beta_3^2 z^6 ...)\\=a (\alpha_4^3 z^{12}+3 \alpha_4^2 \alpha_2 z^{10}+3 \alpha_4^2 z^6+3 \alpha_4 \alpha_2^2 z^8+6 \alpha_4 \alpha_2z^4+3 \alpha_4+\alpha_2^3 z^6+3 \alpha_2^2 z^2+\frac{3 \alpha_2}{z^2}+\frac{1}{z^6}..)\\+b (\alpha_4^2 z^6+2 \alpha_4 \alpha_2 z^5+2 \alpha_4 z+\alpha_2^2 z^4+2 \alpha_2+\frac{1}{z^4} ..)+c(\frac{1}{z^2}  +\alpha_2 z^2 ..) +d 	\end{gather*} 
+\end{center}
+Equating the coefficients of $z^{-6}$,
+\[a=4\]
+Since the first term on the right side and the left side does not have a $z^{-4}$ term.
+\[b=0\]
+Equating the coefficients of $z^{-2}$,
+\[c =-4\beta_1+a3\alpha_2= -4\beta_1+12\alpha_2 \]
+Equating constants,
+\[d= -4 \beta_3 +a3\alpha_4 = -4 \beta_3 +12\alpha_4 \]
+
+
+
+
+			
+\end{enumerate} 
+\item 
+\begin {enumerate}
+\item 
+Substituting U(x) into the KdV equation
+\[  U_t = 6UU_x +U_{xxx} \]
+\[  0 = 6UU_x +U_{xxx} \]
+On integration,
+\[  C = 3U^2 +U_{xx} \]
+Multiplying with $U_x$,
+\[  CU_x = 3U^2U_x +U_{xx}U_x \]
+Integrating,
+\[ k+ CU = U^3  + \frac{U_x ^2}{2} \]
+\[ U_x ^2= -2 U^3 +CU +k  \]
+\item 
+Substituting $U = U_0 \wp(x)$ (taking $x_0=0$),
+\[U_0^2\wp_x^2= -2U_0^3\wp^3 +CU_0\wp+k\]
+Substituting $(\wp')^2=a \wp^3+b \wp^2+c \wp+d $ ,
+\[
+U_0^2(a \wp^3+b \wp^2+c \wp+d)=-2U_0^3\wp^3 +CU_0\wp+k
+\]
+Equating coefficients of $\wp^3$,
+\[a = -2U_0\]
+\[U_0= -\frac{a}{2}=-2 \]
+
+
+\end{enumerate} 
+\item
+\begin{enumerate}
+\item
+\[ -ln(\Gamma) = ln(z) + \gamma z + \sum_{n=1}^\infty \left(ln(\frac{n+z}{n}) -\frac{z}{n} \right) \]
+\[ ln(\Gamma) = -ln(z) - \gamma z - \sum_{n=1}^\infty \left(ln(\frac{n+z}{n}) -\frac{z}{n} \right) \]
+Differentiating,
+\[ \frac{\Gamma'(z)}{\Gamma(z)} = -\frac{1}{z} - \gamma - \sum_{n=1}^\infty \left( \frac{1}{n}\frac{n}{n+z} -\frac{1}{n} \right) \]
+\[ \frac{\Gamma'(z)}{\Gamma(z)} = -\frac{1}{z} - \gamma - \sum_{n=1}^\infty \left( \frac{1}{z+n} -\frac{1}{n} \right) \]
+\item 
+\[ \frac{\Gamma'(z)}{\Gamma(z)} = -\frac{1}{z} - \gamma - \sum_{n=1}^\infty \left( \frac{1}{z+n} -\frac{1}{n} \right) \]
+		                         	\begin{center}             
+		                         		\begin{gather*}
+ \frac{\Gamma'(z+1)}{\Gamma(z+1)} = -\frac{1}{z+1} - \gamma - \sum_{n=1}^\infty \left( \frac{1}{z+1+n} -\frac{1}{n} \right)
+			\\ = -\frac{1}{z+1} - \gamma - \sum_{1+n=2}^\infty \left( \frac{1}{z+1+n} -\frac{1}{n} \right)
+			\\ = -\frac{1}{z+1} - \gamma - \sum_{j=2}^\infty \left( \frac{1}{z+j} -\frac{1}{j-1} \right)
+			\\ =  - \gamma - \sum_{j=1}^\infty \left( \frac{1}{z+j} -\frac{1}{j} \right)
+			\\ =  - \gamma - \sum_{n=1}^\infty \left( \frac{1}{z+n} -\frac{1}{n} \right)
+			\\=\frac{\Gamma'(z)}{\Gamma(z)}  +\frac{1}{z}				                         			\end{gather*} 
+		                         		\end{center}
+		                         		
+			\[ \frac{\Gamma'(z+1)}{\Gamma(z+1)} -\frac{\Gamma'(z)}{\Gamma(z)} -\frac{1}{z} =0 \]	
+			Integrating,
+			\[\ln(\Gamma(z+1))-\ln(\Gamma(z))-ln(z)=b	\] 	   
+			\[\frac{\Gamma(z+1)}{\Gamma(z)} = Cz\]   
+			\[   \Gamma(z+1)= Cz\Gamma(z) \]  
+\item 
+\[\lim_{z\to0} z\Gamma(z) = \lim_{z\to 0} \frac{1}{e^{\gamma z} \prod_{n=1}^{\infty} (1+ \frac{z}{n})e^{\frac{-z}{n}} } =1 \]
+\[\lim_{z\to0}  \Gamma(z+1)= \lim_{z\to0}  Cz\Gamma(z) \]   
+\[ \Gamma(1)=  C \]     
+\item
+Choosing C such that
+ \[ \Gamma(1)=  1 \] 
+ \[\frac{1}{e^{\gamma} \prod_{n=1}^{\infty} (1+ \frac{1}{n})e^{\frac{-1}{n}} } =1 \]
+ \[e^{-\gamma}   =\prod_{n=1}^{\infty} (1+ \frac{1}{n})e^{\frac{-1}{n}} \]
+ \item
+    \[\prod_{n=1}^{\infty} (1+ \frac{1}{n})e^{\frac{-1}{n}}=\lim_{N\to \infty}\prod_{n=1}^{N} (1+ \frac{1}{n})e^{\frac{-1}{n}} = \lim_{N\to \infty}\frac{2}{1}\frac{3}{2}\frac{4}{3}..\frac{N+1}{N}e^{-S_N} = \lim_{N\to \infty}(N+1)e^{-S_N} \]     
+    where \[S_N = 1+ \frac{1}{2}   + \frac{1}{3} +  ...   + \frac{1}{N}	\]	
+     \[e^{-\gamma}   =\prod_{n=1}^{\infty} (1+ \frac{1}{n})e^{\frac{-1}{n}} \]
+     \[ \gamma = -ln(\lim_{N\to \infty}(N+1)e^{-S_N})\]
+     \[ \gamma =\lim_{N\to \infty} -ln((N+1)e^{-S_N}) =\lim_{N\to \infty}\sum_{k=1}^\infty \frac{1}{k} -ln(N+1)  \] 
+\end{enumerate}
+	\end{enumerate} 
+\end{document}

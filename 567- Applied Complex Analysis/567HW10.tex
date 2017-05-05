@@ -1,0 +1,253 @@
+\documentclass[a4paper]{article}
+
+\usepackage{fullpage} % Package to use full page
+\usepackage{parskip} % Package to tweak paragraph skipping
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{amsmath,amsfonts,amsthm} % Math packages
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{float}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{brown}{rgb}{0.59, 0.29, 0.0}
+\definecolor{beaublue}{rgb}{0.74, 0.83, 0.9}
+\definecolor{orange}{rgb}{1.0, 0.5, 0.0}
+\definecolor{darkslategray}{rgb}{0.18, 0.31, 0.31}
+\def\Xint#1{\mathchoice
+	{\XXint\displaystyle\textstyle{#1}}%
+	{\XXint\textstyle\scriptstyle{#1}}%
+	{\XXint\scriptstyle\scriptscriptstyle{#1}}%
+	{\XXint\scriptscriptstyle\scriptscriptstyle{#1}}%
+	\!\int}
+\def\XXint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$}
+		\vcenter{\hbox{$#2#3$}}\kern-.5\wd0}}
+\def\dashint{\Xint-}
+
+% Swap the definition of \abs* and \norm*, so that \abs
+% and \norm resizes the size of the brackets, and the 
+% starred version does not.
+\makeatletter
+\let\oldabs\abs
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}
+%
+\let\oldnorm\norm
+\def\norm{\@ifstar{\oldnorm}{\oldnorm*}}
+\makeatother
+\lstdefinestyle{mystyle}{
+	backgroundcolor=\color{white},   
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{blue},
+	identifierstyle=\color{brown},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{orange},
+	basicstyle=\footnotesize,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,                 
+	numbers=left,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2
+}
+\lstset{style=mystyle}
+
+\title{AMATH 567: Problem Set 10}
+\author{Jithin D. George, No. 1622555}
+%\date{23/11/16}
+
+\begin{document}
+
+\maketitle
+\begin{enumerate}
+
+	
+	\item 
+\begin{enumerate}
+	
+	\item
+		\[\psi^{+}(x)= \lim_{\epsilon \to 0+} \frac{1}{2\pi i} \int_{-\infty}^\infty \frac{f(t)}{t - (x+i\epsilon)}dt\]
+		The function inside the integral has a singularity
+		\[P^{+}= \lim_{\epsilon \to 0+} \frac{1}{2\pi i} \int_{-\infty}^\infty \frac{1}{t - (x+i\epsilon)}dt\]	
+		\[P^{+}\psi^{+}(x)= \lim_{\epsilon \to 0+} \frac{1}{2\pi i} \int_{-\infty}^\infty \frac{\psi^{+}(t)}{t - (x+i\epsilon)}dt\]	
+We decide to do the integral in the complex plan with the upper semicircle as the contour because $\psi^{+}(z) $ is analytic in the upper half plane. Assuming the function on the arc decays as the arc goes to $\infty$ , we can ignore the integral along it.	
+		\[P^{+}\psi^{+}(x)= \lim_{\epsilon \to 0+} \frac{1}{2\pi i} Res_{t = z+i\epsilon} \frac{\psi^{+}(t)}{t - (x+i\epsilon)}dt\]		
+		\[P^{+}\psi^{+}(x)= \lim_{\epsilon \to 0+} \psi^{+}(x+i\epsilon) =\psi^{+}(x) \]	
+		
+			\[\psi^{-}(x)= \lim_{\epsilon \to 0+} \frac{1}{2\pi i} \int_{-\infty}^\infty \frac{f(t)}{t - (x-i\epsilon)}dt\]		
+	\[P^{-}= \lim_{\epsilon \to 0+} \frac{1}{2\pi i} \int_{-\infty}^\infty \frac{1}{t - (x-i\epsilon)}dt\]	
+	\[P^{-}\psi^{-}(x)= \lim_{\epsilon \to 0+} \frac{1}{2\pi i} \int_{-\infty}^\infty \frac{\psi^{-}(t)}{t - (x-i\epsilon)}dt\]	
+We decide to do the integral in the complex plan with the lower semicircle as the contour because $\psi^{-}(z) $ is analytic in the lower half plane. Assuming the similar decay as before,
+		\[P^{-}\psi^{-}(x)= -\lim_{\epsilon \to 0+} \frac{1}{2\pi i} Res_{t = x-i\epsilon} \frac{\psi^{-}(t)}{t - (x-i\epsilon)}dt\]
+		The minus sign comes because the integral in the lower semicircle is clockwise.		
+		\[P^{-}\psi^{-}(x)= -\lim_{\epsilon \to 0+} \psi^{-}(x-i\epsilon) =-\psi^{-}(x) \]
+Also, 		
+	\[P^{-}\psi^{+}(x)= \lim_{\epsilon \to 0+} \frac{1}{2\pi i} \int_{-\infty}^\infty \frac{\psi^{+}(t)}{t - (x-i\epsilon)}dt =0\]
+	since there is no residue in the upper half plane.
+	
+Similarly, 	
+	\[P^{+}\psi^{-}(x) =0\]
+	
+	\item  \[\psi^{+}(x) -\psi^{-}(x)= \frac{1}{x^4+1}\]
+	\[P^{+}\psi^{+}(x) -P^{+}\psi^{-}(x)= P^{+}\frac{1}{x^4+1}\]
+	\[P^{+}\psi^{+}(x)=P^{+}(\frac{1}{x^4+1})\]
+		\[\psi^{+}(x)=P^{+}(\frac{1}{x^4+1})\]		
+ 	\[\psi^{-}(x)=P^{-}(\frac{1}{x^4+1})\]	
+ 		\[\psi^{+}(x)=\lim_{\epsilon \to 0+}\frac{1}{2\pi i}\int_{-\infty}^\infty \frac{1}{(t^4+1)(t - (x+i\epsilon))}dt\]
+	
+  		Taking the upper semicircle as the contour,
+    		\[\psi^{+}(x)=\lim_{\epsilon \to 0+} (\lim_{t \to \frac{1+i}{\sqrt{2}}} \frac{1}{(t+\frac{1+i}{\sqrt{2}})(t-\frac{1-i}{\sqrt{2}})(t-\frac{-1+i}{\sqrt{2}})(t - (x+i\epsilon))})\]	
+   	\[+\lim_{\epsilon \to 0+} (\lim_{t \to \frac{-1+i}{\sqrt{2}}} \frac{1}{(t+\frac{1+i}{\sqrt{2}})(t-\frac{1-i}{\sqrt{2}})(t-\frac{1+i}{\sqrt{2}})(t - (x+i\epsilon))})\]
+   	\[+\lim_{\epsilon \to 0+} (\lim_{t \to x+i\epsilon} \frac{1}{(t+\frac{1+i}{\sqrt{2}})(t-\frac{1-i}{\sqrt{2}})(t-\frac{-1+i}{\sqrt{2}})(t-\frac{1-i}{\sqrt{2}})})\]    									
+   	
+   	\[\psi^{+}(x)= \frac{1}{(2(1+i)i(1+i-\sqrt{2}x))}-\frac{1}{(2(-1+i)i(-1+i-\sqrt{2}x))} +\frac{1}{x^4+1}\]
+   	
+ 		\[\psi^{-}(x)=\lim_{\epsilon \to 0+}\frac{1}{2\pi i}\int_{-\infty}^\infty \frac{1}{(t^4+1)(t - (x-i\epsilon))}dt\]
+ 		
+ 		Taking the lower semicircle as the contour,
+ 		\[\psi^{-}(x)=\lim_{\epsilon \to 0+} (\lim_{t \to -\frac{1+i}{\sqrt{2}}} \frac{1}{(t-\frac{1+i}{\sqrt{2}})(t-\frac{1-i}{\sqrt{2}})(t-\frac{-1+i}{\sqrt{2}})(t - (x+i\epsilon))})\]	
+ 		\[+\lim_{\epsilon \to 0+} (\lim_{t \to \frac{1-i}{\sqrt{2}}} \frac{1}{(t+\frac{1+i}{\sqrt{2}})(t-\frac{-1+i}{\sqrt{2}})(t-\frac{1+i}{\sqrt{2}})(t - (x+i\epsilon))})\]
+ 		\[+\lim_{\epsilon \to 0+} (\lim_{t \to x-i\epsilon} \frac{1}{(t+\frac{1+i}{\sqrt{2}})(t-\frac{1-i}{\sqrt{2}})(t-\frac{-1+i}{\sqrt{2}})(t-\frac{1-i}{\sqrt{2}})})\]    									
+ 		
+ 		\[\psi^{-}(x)= \frac{1}{(2(1+i)i(1+i+\sqrt{2}x))}-\frac{1}{(2(1-i)i(1-i-\sqrt{2}x))} +\frac{1}{x^4+1}\]  
+ 		
+ 		\[\psi^{+}(x)-\psi^{-}(x)=	\frac{1}{(2(1+i)i(1+i-\sqrt{2}x))}-\frac{1}{(2(-1+i)i(-1+i-\sqrt{2}x))} \]
+ 		\[- \frac{1}{(2(1+i)i(1+i+\sqrt{2}x))}+\frac{1}{(2(1-i)i(1-i-\sqrt{2}x))} \]
+ 
+From Mathematica, we get that the right hand side is the partial fraction expansion of $\frac{1}{x^4+1}$. So,	
+ \[\psi^{+}(x)-\psi^{-}(x)= \frac{1}{x^4+1}\] 	
+\item
+		\[\psi^{+}(x)= \lim_{\epsilon \to 0+} \frac{1}{2\pi i} \int_{-\infty}^\infty \frac{f(t)}{t - (x+i\epsilon)}dt \] 
+		\vspace{30mm}
+		
+		$C_R$ is a tiny circle centered at x with radius $\delta$.There is no singularity in the region A because the singularity is currently at x+i$\epsilon$. So, the integral along the dotted line is the same as the integral along $C_R$.
+		\[\psi^{+}(x)=	\lim_{\epsilon \to 0+} \frac{1}{2\pi i}\lim_{\delta\to 0} \big(\int_{-\infty}^{x-\delta} \frac{f(t)}{t - (x+i\epsilon)}dt +\int_{x+\delta}^\infty \frac{f(t)}{t - (x+i\epsilon)}dt + \int_{C_R} \frac{f(t)}{t - (x+i\epsilon)}dt \big)\]
+				
+		\[=	\lim_{\epsilon \to 0+} \frac{1}{2\pi i} \dashint_{-\infty}^{\infty} \frac{f(t)}{t - (x+i\epsilon)}dt  +  \lim_{\epsilon \to 0+} \frac{1}{2\pi i}\lim_{\delta\to 0} \int_{C_R} \frac{f(t)}{t - (x+i\epsilon)}dt\]	
+Switching the limits and using the baby limit theorem on the second term,				
+\[=	\lim_{\epsilon \to 0+} \frac{1}{2\pi i} \dashint_{-\infty}^{\infty} \frac{f(t)}{t - (x+i\epsilon)}dt  + \frac{1}{2\pi i}\pi i f(x) \]
+\[=	 \frac{1}{2\pi i} \dashint_{-\infty}^{\infty} \frac{f(t)}{t - x}dt  + \frac{1}{2} f(x) \]	
+
+Similarly, for $\psi^{-}$, the contour $C_R$  is in the upper plane making the integral along it negative.
+\[\psi^{-}=	 \frac{1}{2\pi i} \dashint_{-\infty}^{\infty} \frac{f(t)}{t - x}dt - \frac{1}{2} f(x) \]	
+
+The first term is closely related to the Hilbert Transform
+\[H(f(x)) = \frac{1}{\pi } \dashint_{-\infty}^{\infty} \frac{f(t)}{t - x}dt\] 
+\[\psi^{+}=	 \frac{1}{2i}  H(f(x)) + \frac{1}{2} f(x) \]	
+\[\psi^{-}=	 \frac{1}{2i}  H(f(x)) - \frac{1}{2} f(x) \]		 
+\end{enumerate}
+\item		
+\begin{enumerate}
+	
+	\item
+	\[\hat{F}(k)=\int_{-\infty}^\infty e^{-ikx}f(x)dx\]
+	\[=\int_{-\infty}^0 e^{-ikx}0dx+\int_{0+}^\infty e^{-ikx}e^{-x}dx\]
+		\[=0+\int_{0+}^\infty e^{(-ik-1)x}dx\]
+	\[=\frac{1}{1+ik}\]
+		\item
+			\[\hat{F}(k)=\frac{1}{1+ik}\]
+			
+			This has a singularity at  k=i.
+\[	f(x) = \frac{1}{2\pi}\int_{-\infty}^\infty\frac{e^{ikx}}{1+ik}dk \]
+Since this is tough to integrate on the real line, we use integrals along complex contours. 
+The numerator is
+\[ e^{ikx}= e^{i(k_x+ik_y)x} =e^{ik_xx}e^{-k_yx}\]
+When x $>$ 0, this decays to 0 for positive $k_y$
+So, we take the closed semicircle in the upper k plane as our contour. Since the integral over the arc decays to 0 for large k and there is only residue at i,
+\[			 \int_{-\infty}^\infty \frac{e^{ikx}}{1+ik}dk= Res_{k=i}\frac{e^{ikx}}{1+ik} \]
+\[			= 2 \pi i \lim_{k \to i} (k-i)\frac{e^{ikx}}{1+ik} \]
+\[			= 2 \pi i  \frac{e^{-x}}{i} \]
+\[			= 2 \pi e^{-x} \]
+
+When x $<$ 0, we have to use negative $k_y$ for the decay,
+So, we take the closed semicircle in the lower k plane as our contour. Since there is no residue in it,
+\[			 \int_{-\infty}^\infty \frac{e^{ikx}}{1+ik}dk= 0 \]
+
+There is obviously a jump at x=0.
+\[	f(0) = \frac{1}{2\pi} \dashint_{-\infty}^\infty\frac{1}{1+ik}dk =\frac{1}{2\pi} \dashint_{-\infty}^\infty\frac{1-ik}{1+k^2}dk =\frac{1}{2\pi} \dashint_{-\infty}^\infty\frac{1}{1+k^2}dk  -\frac{i}{2\pi} \dashint_{-\infty}^\infty\frac{k}{1+k^2}dk \]
+\[=\frac{1}{2\pi} \dashint_{-\infty}^\infty\frac{1}{1+k^2}dk  -\frac{i}{2\pi} \lim_ {R \to \infty}\int_{-R}^R\frac{k}{1+k^2}dk \]
+\[=\frac{1}{2\pi} \left[arctan(x)\right]_{-\infty}^{\infty}  -0 \text{(odd function)} \]
+\[= \frac{1}{2}\]
+
+
+\[   
+f(x) = 
+\begin{cases}
+e^{-x} &\quad\text{if x} >0 \\
+\frac{1}{2} &\quad\text{if x} =0 \\
+0 &\quad\text{if x} <0\\
+\end{cases}
+\]
+
+
+
+
+\end{enumerate}
+
+\item 
+\[f(z)= -4z\]
+\[g(z) = e^z-1\] 
+On $|z|=1$, \[ \lvert f(z)\rvert =4 \] and \[ \lvert g(z) \rvert \leq \lvert e^{e^{i\theta}}\rvert +1 =e+1 \]
+Thus, by Roche's theorem, f(z)+g(z) has same number of zeros inside the circle as f(z) which has exactly one at 0.
+ So, $e^z-4z-1$ has exactly one zero inside $|z|=1$
+\item \[f(z)= z^4 +z^3 +5z^2+ 2z+4\]
+We take the infinite quarter circle.
+\vspace{50mm}
+
+On the real line, from 0 to $\infty$, f(z) is real. So , the change in argument is 0.
+On the arc, 
+\[f(z) = R^4 e^{4i\theta}+R^3 e^{3i\theta}+5R^2 e^{2i\theta}+2R e^{i\theta}+4\] 
+\[ = R^4 (e^{4i\theta}+\frac {e^{3i\theta}}{R}+\frac{5e^{2i\theta}}{R^2}+\frac{2 e^{i\theta}}{R^3}+\frac{4}{R^4})\]
+As R goes to $\infty$, f(z) has an argument of 4$\theta$.
+
+From 0 to $\frac{\pi}{2}$, the change in argument is $2\pi$.
+
+On the y axis, \[f(z)  = y^4 -iy^3-5y^2+iy+4\]
+\[tan(\theta) = \frac{-y^3+y}{y^4-5y^2+4}\]
+For very large y, $tan(\theta) =0 $ because of the term on the bottom. This matches with the value of $\theta = 2\pi $ which we got from the arc. Furthermore, the derivative is negative because of the dominance of $y^3$ in the numerator. So, the argument decreases.
+
+At 0, $tan(\theta) =0 $. So, the argument decreases to a value $k\pi$. 
+
+$y^4-5y^2+4$ has zeros at 2,-2,1,-1. As y goes from $\infty$ to 0, $tan(\theta)$ crosses over 2 of these at 2 and 1. Thus,$ tan(\theta) $has two singularities on the y axis.
+\vspace{50mm}
+
+
+Looking at the graph of tan, we see that after crossing two singularities, the argument comes to 0.
+
+Total change in argument is 0. Thus,by the argument principle, f(z) has no roots in the first quadrant.
+\item
+\begin{enumerate}
+	
+	\item
+\[p(t) =\frac{t f'(t)}{f(t)-w} \]
+This has a singularity when f(t) =w. There is only singularity for a particular w because f(t) is bijective.
+\[g(w)=\frac{1}{2\pi i}\oint_{C(z_0,R)}\frac{t f'(t)}{f(t)-w}dt\]
+because w= f(z), this evaluates to 
+\[ =Res_{t=z}\frac{t f'(t)}{f(t)-w}\]
+\[ =\lim_{t\to z} (t-z)\frac{t f'(t)}{f(t)-w}\]
+\[ =\lim_{t\to z} \frac{t f'(t)}{\frac{f(t)-w}{(t-z)}}\]
+\[ = \frac{z f'(z)}{f'(z)}\]
+\[= z\]
+\item
+\[g(w)=\frac{1}{2\pi i}\oint_{C(z_0,R)}\frac{t f'(t)}{f(t)-w}dt\]
+\[=\frac{1}{2\pi i}\oint_{C(z_0,R)}\frac{t (t+1)e^t}{te^t-w}dt\]
+\[=\frac{1}{2\pi i}\oint_{C(z_0,R)}\frac{ (t+1)}{1-\frac{w}{te^t}}dt\]
+\[=\frac{1}{2\pi i}\oint_{C(z_0,R)} (t+1)(1+\frac{w}{te^t}+({\frac{w}{te^t}})^2 +\ldots)dt\]
+Except the first term, all term have a singularity at t=0. So, 
+\[=\frac{1}{2\pi i} Res_{t \to 0} (t+1)(\frac{w}{te^t}+({\frac{w}{te^t}})^2 +\ldots)\]
+\[=w\frac{1}{2\pi i} Res_{t \to 0}(\frac{(t+1)}{te^t})+w^2\frac{1}{2\pi i} Res_{t \to 0}{\frac{(t+1)}{e^{2t}}}+\frac{w^3}{2!}\frac{1}{2\pi i} Res_{t \to 0}{\frac{(t+1)}{e^{3t}}}+\ldots\]
+\[ g(w)=\sum_{0}^{\infty} a_n w^n\]
+\[ a_0 = 0\]
+\[ a_n =
+\frac{1}{2\pi i} Res_{t \to 0}\frac{(t+1)}{e^{nt}}\]
+
+
+\end{enumerate}
+	\end{enumerate} 
+\end{document}
