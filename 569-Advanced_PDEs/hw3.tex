@@ -1,0 +1,214 @@
+\documentclass[a4paper,12 pt]{article}
+
+\usepackage{fullpage} % Package to use full page
+\usepackage{parskip} % Package to tweak paragraph skipping
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{amsmath,amsfonts,amsthm} % Math packages
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{float}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{brown}{rgb}{0.59, 0.29, 0.0}
+\definecolor{beaublue}{rgb}{0.74, 0.83, 0.9}
+\definecolor{orange}{rgb}{1.0, 0.5, 0.0}
+\definecolor{darkslategray}{rgb}{0.18, 0.31, 0.31}
+\def\Xint#1{\mathchoice
+	{\XXint\displaystyle\textstyle{#1}}%
+	{\XXint\textstyle\scriptstyle{#1}}%
+	{\XXint\scriptstyle\scriptscriptstyle{#1}}%
+	{\XXint\scriptscriptstyle\scriptscriptstyle{#1}}%
+	\!\int}
+\def\XXint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$}
+		\vcenter{\hbox{$#2#3$}}\kern-.5\wd0}}
+\def\dashint{\Xint-}
+
+% Swap the definition of \abs* and \norm*, so that \abs
+% and \norm resizes the size of the brackets, and the 
+% starred version does not.
+\makeatletter
+\let\oldabs\abs
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}
+%
+\let\oldnorm\norm
+\def\norm{\@ifstar{\oldnorm}{\oldnorm*}}
+\makeatother
+\lstdefinestyle{mystyle}{
+	backgroundcolor=\color{white},   
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{blue},
+	identifierstyle=\color{brown},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{orange},
+	basicstyle=\footnotesize,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,                 
+	numbers=left,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2
+}
+\lstset{style=mystyle}
+
+\title{AMATH 569: Problem Set 3}
+\author{Jithin D. George, No. 1622555}
+%\date{23/11/16}
+% matrix environment
+\newenvironment{mat}{\left[ \begin{array}{ccccccccccccc}}{\end{array}\right]}
+\newcommand\bcm{\begin{mat}}
+	\newcommand\ecm{\end{mat}}
+
+\begin{document}
+
+\maketitle
+\begin{enumerate}
+
+	
+	\item We have 
+	\[ u_{tt} = u_{xx}+ u_{yy}\]
+	We assume the solution is of the form 
+	\[u = T(t)X(x)Y(y)\]
+	Plugging this in, we get
+	\[T''XY=TX''Y +TXY'' \]
+	\[\frac{T''}{T}= \frac{X''}{X}+ \frac{Y''}{Y}\]
+	Since all the three terms contain terms independent of each other, each of the terms must equal a constant.
+	\[\frac{T''}{T}= k\]
+	\[ \frac{X''}{X}=k_1\]
+	\[\frac{Y''}{Y}=k_2\]
+	\[k=k_1 +k_2\]
+	\[X'' -k_1 X=0\]
+	From the boundary conditions, we have
+	\[ X(0)= X(a)=0\]
+	For a non-trivial solution, $k_1$ has to be negative.
+	\[ k_1 = -\lambda^2\]
+	Then, for n = 1,2,$\ldots$
+	\[ X_n = sin(\frac{n\pi x}{a})\]
+	is a solution.
+	
+	Similarly,
+	\[ Y_m = sin(\frac{m\pi x}{b})\]
+	\[k = k_1 +k_2 = \frac{n^2\pi^2}{a^2} + \frac{m^2\pi^2}{b^2}\]
+	\[T_{n,m} = \alpha_{n,m} cos(\pi\sqrt{\frac{n^2}{a^2} +\frac{m^2}{b^2}}t)+\beta_{n,m} sin(\pi\sqrt{\frac{n^2}{a^2} +\frac{m^2}{b^2}}t)\]
+	\[u(x,y,t)= \sum_{n,m=1}^{\infty}\big(\alpha_{n,m} cos(\pi\sqrt{\frac{n^2}{a^2} +\frac{m^2}{b^2}}t)+\beta_{n,m} sin(\pi\sqrt{\frac{n^2}{a^2} +\frac{m^2}{b^2}}t)\big)sin(\frac{n\pi x}{a})sin(\frac{n\pi y}{b}) \]
+	\[u(x,y,0)= \phi(x,y)\]
+	\[\sum_{n,m=1}^{\infty}\alpha_{n,m} sin(\frac{n\pi x}{a})sin(\frac{n\pi y}{b})= \phi(x,y) \]
+	\[u_t(x,y,0)= \psi(x,y)\]
+	\[\sum_{n,m=1}^{\infty}\beta_{n,m}\pi\sqrt{\frac{n^2}{a^2} +\frac{m^2}{b^2}} sin(\frac{n\pi x}{a})sin(\frac{n\pi y}{b})= \psi(x,y) \]
+	
+	Assuming $\phi$ and $\psi$ have 2-D fourier series,
+	\[\beta_{n,m} = \frac{4}{ab}\int_{0}^{a}\int_{0}^{b}\phi(x,y)sin(\frac{n\pi x}{a})sin(\frac{m\pi y}{b})dy dx \]
+	\[\alpha_{n,m} = \frac{4}{ab\pi\sqrt{\frac{n^2}{a^2} +\frac{m^2}{b^2}}}\int_{0}^{a}\int_{0}^{b}\psi(x,y)sin(\frac{n\pi x}{a})sin(\frac{m\pi y}{b})dy dx \]
+\item
+\begin{enumerate}
+	\item
+
+ We have 
+ \[ u_{tt}+ku_{t} = c^2 u_{xx}\]
+ We assume the solution is of the form 
+ \[u = T(t)X(x)\]
+ Plugging this in, we get
+ \[T''X+ kT'X =c^2TX'' \]
+ \[\frac{T''}{T}+ k\frac{T'}{T}=c^2\frac{X''}{X}\]
+ \[ \frac{X''}{X}=k_1\]
+ From the boundary conditions, we find
+\[ X_n = sin(\frac{n\pi x}{L})\]
+is a solution. 
+
+We have 
+\[T'' +kT'= c^2k_1T\]
+\[T'' +kT'- c^2\frac{n^2\pi^2}{L}T =0\]
+
+The solution to this ode (Mathematica) is 
+
+\[T=  a_n e^{\frac{1}{2} t (\sqrt{\frac{4 \pi^2 c^2 n^2 + k^2 L}{L}} - k)}+ a_n e^{\frac{1}{2} t (-\sqrt{\frac{4 \pi^2 c^2 n^2 + k^2 L}{L}} - k)} \]
+\[u(x,t)= (a_n e^{\frac{1}{2} t (\sqrt{\frac{4 \pi^2 c^2 n^2 + k^2 L}{L}} - k)}+ b_n e^{\frac{1}{2} t (-\sqrt{\frac{4 \pi^2 c^2 n^2 + k^2 L}{L}} - k)}sin(\frac{n\pi x}{L})\]
+\[u(x,0)= f(x)\]
+\[\sum_{n=1}^{\infty}(a_n+b_n)sin(\frac{n\pi x}{L})= f(x)\]
+\[u_t(x,0)=g(x)\]
+\[\sum_{n=1}^{\infty} (a_nw_1+b_nw_2)sin(\frac{n\pi x}{L})= g(x) \]
+
+where 
+\[w_1=\sqrt{\frac{4 \pi^2 c^2 n^2 + k^2 L}{L}} - k,w_2=- \sqrt{\frac{4 \pi^2 c^2 n^2 + k^2 L}{L}} - k\]
+\[a_n+b_n = \frac{2}{L}\int_{0}^{L}f(x)sin(\frac{n\pi x}{L})= f_n\]
+\[a_nw_1+b_nw_2= \frac{2}{L}\int_{0}^{L}g(x)sin(\frac{n\pi x}{L})= g_n\]
+\[a_n= \frac{f_nw_2-g_n}{w_2-w_1}\]
+\[b_n= \frac{f_nw_1-g_n}{w_1-w_2}\]
+\item 
+\newpage
+\end{enumerate}
+\item
+ We have 
+ \[ u_{rr}+\frac{1}{r}u_{r}+\frac{1}{r^2}u_{\theta \theta} = 0\]
+ We assume the solution is of the form 
+ \[u = v(r)w(\theta)\]
+ Pluggin this in, 
+ 
+\[v''w +\frac{v'w}{r}+\frac{vw''}{r^2}=0 \]
+\[\frac{v''}{v} +\frac{v'}{rv}+\frac{w''}{r^2w}=0 \]
+\[\frac{r^2v''+rv'}{v}+\frac{w''}{w}=0 \]
+\[\frac{w''}{w}=k \]
+w($\theta$) has to be periodic since our boundary is on a disk. Thus, it cannot be an exponential or linear. This means k is negative.
+\[ w_n = a_n sin(\frac{n\pi \theta}{\pi })+ b_n cos(\frac{n\pi \theta}{\pi })= a_nsin(n \theta)+ b_ncos(n \theta)\]
+The boundary condition only depends on $\theta$ as r is constant. Thus, 
+\[f=f(\theta)\]
+\[ a_n = \frac{1}{2\pi}\int_{0}^{2\pi}f(\theta)sin(\theta)d\theta\]
+\[ b_n = \frac{1}{2\pi} \int_{0}^{2\pi}f(\theta)cos(\theta)d\theta\]
+
+
+
+\[k =-\lambda^2 = -n^2 \]
+\[\frac{r^2v''+rv'}{v}-n^2=0 \]
+\[r^2v''+rv'-n^2v=0 \]
+We assume a solution of the form $r^k$
+\[r^{k}k(k-1)+ kr^{k}-n^2r^{k}=0\]
+\[k=  \pm n\]
+\[v(r)= c_1 r^n + c_2 r^{-n}\]
+\[v(1)= constant= \frac{f(\theta)}{w(\theta)}\]
+\[u(r,\theta)= v(r)w w(\theta) = (c_1 r^n + c_2 r^{-n})(a_nsin(n \theta)+ b_ncos(n \theta)) \]
+where $c_1 + c_2$ is constant.
+
+
+\item
+Taking the Fourier transform (with respect to x)
+\[ \hat{u}_{tt}+c^2w^2\hat{u} = \hat{F}\]
+We choose
+\[ \hat{v}=\hat{u}-\frac{\hat{F}}{c^2w^2}\]
+
+\[\hat{v}_{tt} +c^2w^2\hat{v}=0 \]
+Although the solutions are sines and cosines, we'll keep it in exponential form to make the inverse fourier transform easier.
+\[\hat{v} = ae^{icwt}+ be^{-icwt}\]
+\[\hat{u} = ae^{icwt}+ be^{-icwt}+\frac{\hat{F}}{c^2w^2}\]
+a and b can be found using boundary conditions
+\[a+b +\frac{\hat{F}}{c^2w^2} = \hat{f}\]
+\[aicw- bicw = \hat{g}\]
+\[a= \frac{\hat{f}}{2}-\frac{\hat{F}}{2c^2w^2} + \frac{\hat{g}}{2icw}\]
+\[b= \frac{\hat{f}}{2}-\frac{\hat{F}}{2c^2w^2} -\frac{\hat{g}}{2icw}\]
+Plugging this in,
+\[\hat{u} = ae^{icwt}+ be^{-icwt}+\frac{\hat{F}}{c^2w^2}\]
+\[= \frac{e^{icwt}+ e^{-icwt}}{2}\hat{f} + \frac{e^{icwt}-e^{-icwt}}{2icw}\hat{g} -\frac{e^{icwt}+ e^{-icwt}-2}{2c^2w^2}\hat{F} \]
+\[F^{-1} [e^{icwt}\hat{f}] = \int_{-\infty}^{\infty}e^{iw(ct+x)}\hat{f}dw=f(x+ct) \]
+\[F^{-1} [\frac{e^{icwt}-e^{-icwt}}{2icw}\hat{g}] = \int_{-\infty}^{\infty}e^{iwx}\frac{e^{icwt}-e^{-icwt}}{2icw}\hat{g}\]
+\[ =\int_{-\infty}^{\infty}e^{iwx}\frac{e^{icwt}-e^{-icwt}}{2icw}\hat{g}dw \]
+\[=\int_{-\infty}^{\infty}\int_{-t}^{t}(\frac{1}{2}e^{icws}ds)  e^{iwx}\hat{g}dw\]
+\[=\int_{-t}^{t}\int_{-\infty}^{\infty}\frac{1}{2}e^{icws} e^{iwx}\hat{g}dwds\]
+\[=\frac{1}{2} \int_{-t}^{t}g(x+ct)ds\]
+
+\[F^{-1} [\frac{e^{icwt}+ e^{-icwt}-2}{2c^2w^2}\hat{F}] = \int_{-\infty}^{\infty}e^{iwx}\frac{e^{icwt}+ e^{-icwt}-2}{2c^2w^2}\hat{F} dw\]
+The $c^2w^2$ implies a double integral inside.
+\[F^{-1} [\frac{e^{icwt}+ e^{-icwt}-2}{2c^2w^2}\hat{F}] = \frac{1}{2} \int_{-\infty}^{\infty}\int_{0}^{t}(\int_{-s}^{s}e^{icwr}drds)\hat{F} e^{iwx}dw\]
+\[= \frac{1}{2} \int_{0}^{t}(\int_{-s}^{s}\int_{-\infty}^{\infty}e^{icwr}\hat{F} e^{iwx}dwdrds)\]
+\[= \frac{1}{2} \int_{0}^{t}\int_{-s}^{s}F(x+cr )drds\]
+\[u(t,x)= F^{-1} [\hat{u}]= \frac{1}{2} (f(x+ct)+f(x-ct)+ \int_{-t}^{t}g(x+ct)ds-\int_{0}^{t}\int_{-s}^{s}F(x+cr )drds)\]
+
+	\end{enumerate} 
+	
+
+\end{document}

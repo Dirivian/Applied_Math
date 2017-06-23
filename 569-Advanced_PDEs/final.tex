@@ -1,0 +1,176 @@
+\documentclass[a4paper,12 pt]{article}
+
+\usepackage{fullpage} % Package to use full page
+\usepackage{parskip} % Package to tweak paragraph skipping
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{amsmath,amsfonts,amsthm} % Math packages
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{float}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{brown}{rgb}{0.59, 0.29, 0.0}
+\definecolor{beaublue}{rgb}{0.74, 0.83, 0.9}
+\definecolor{orange}{rgb}{1.0, 0.5, 0.0}
+\definecolor{darkslategray}{rgb}{0.18, 0.31, 0.31}
+\def\Xint#1{\mathchoice
+	{\XXint\displaystyle\textstyle{#1}}%
+	{\XXint\textstyle\scriptstyle{#1}}%
+	{\XXint\scriptstyle\scriptscriptstyle{#1}}%
+	{\XXint\scriptscriptstyle\scriptscriptstyle{#1}}%
+	\!\int}
+\def\XXint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$}
+		\vcenter{\hbox{$#2#3$}}\kern-.5\wd0}}
+\def\dashint{\Xint-}
+
+% Swap the definition of \abs* and \norm*, so that \abs
+% and \norm resizes the size of the brackets, and the 
+% starred version does not.
+\makeatletter
+\let\oldabs\abs
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}
+%
+\let\oldnorm\norm
+\def\norm{\@ifstar{\oldnorm}{\oldnorm*}}
+\makeatother
+\lstdefinestyle{mystyle}{
+	backgroundcolor=\color{white},   
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{blue},
+	identifierstyle=\color{brown},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{orange},
+	basicstyle=\footnotesize,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,                 
+	numbers=left,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2
+}
+\lstset{style=mystyle}
+
+\title{AMATH 569: Final Exam}
+\author{Jithin D. George, No. 1622555}
+%\date{23/11/16}
+% matrix environment
+\newenvironment{mat}{\left[ \begin{array}{ccccccccccccc}}{\end{array}\right]}
+\newcommand\bcm{\begin{mat}}
+	\newcommand\ecm{\end{mat}}
+
+\begin{document}
+
+\maketitle
+\begin{enumerate}
+	\item
+ 
+ \begin{enumerate}
+	
+	\item \[(-\partial_t +A)\Gamma(t,x,y)  =0\]
+	\[\Gamma(0,x,y) =\delta_y(x)\]
+	Taking the fourier transform of the pde,
+	\[-\int_R dx e^{-iwx} \partial_t \Gamma(t,x,y) -\int_R dx e^{-iwx} x\partial_x \Gamma(t,x,y)+ \frac{1}{2}\int_R dx e^{-iwx} \partial_x^2 \Gamma(t,x,y) =0\]
+		\[-\partial_t\hat{\Gamma} -i \frac{d(iw\hat{\Gamma})}{dw} -\frac{w^2}{2} \hat{\Gamma} =0\]
+			\[-\partial_t\hat{\Gamma} + \frac{d(w\hat{\Gamma})}{dw} -\frac{w^2}{2} \hat{\Gamma} =0\]
+				\[-\partial_t\hat{\Gamma} + \hat{\Gamma}+w\hat{\Gamma}_w -\frac{w^2}{2} \hat{\Gamma} =0\]
+				Taking the fourier transform of the initial condition,
+				\[\int_R dx e^{-iwx }\Gamma(0,x,y)=\int_R dx e^{-iwx}\delta_y(x) = e^{-iwy}\]
+				
+								\[\textbf{PDE :     }   \partial_t\hat{\Gamma} - \hat{\Gamma}-w\hat{\Gamma}_w +\frac{w^2}{2} \hat{\Gamma} =0\]
+								\[\textbf{IC :     }  \Gamma(0,w,y)= e^{-iwy}\]
+
+
+	\item
+\[\partial_t\hat{\Gamma} -w\hat{\Gamma}_w  = \big( 1-\frac{w^2}{2} \big) \hat{\Gamma}\]
+We use method of characteristics to solve this pde
+\[\frac{dw}{dt}=-w\]
+\[w=w_0 e^{-t}\]
+\[\frac{d\hat{\Gamma}}{dt}= \big( 1-\frac{w^2}{2} \big)\hat{\Gamma}\]
+\[\frac{d\hat{\Gamma}}{dw}\frac{dw}{dt}= \big( 1-\frac{w^2}{2} \big) \hat{\Gamma}\]
+\[\frac{d\hat{\Gamma}}{dw}-w= \big( 1-\frac{w^2}{2} \big) \hat{\Gamma}\]
+\[\frac{d\hat{\Gamma}}{dw}= \big( \frac{w}{2} -\frac{1}{w}\big) \hat{\Gamma}\]
+\[\frac{d\hat{\Gamma}}{\hat{\Gamma}}= \big( \frac{w}{2} -\frac{1}{w}\big) d w\]
+Integrating,
+\[ln{\hat{\Gamma}}=  w^2 -ln(w) +C\]
+\[\hat{\Gamma}= A\frac{e^{w^2}}{w}\]
+At t=0,
+\[\hat{\Gamma}(0,w_0) = A\frac{e^{w_0^2}}{w_0}\]
+\[e^{-iw_0y}= A\frac{e^{w_0^2}}{w_0}\]
+\[A=w_0e^{-iw_0y-w_0^2}\]
+\[A=we^te^{-iwe^ty-w^2e^{2t}}\]
+\[ \hat{\Gamma}= we^te^{-iwe^ty-w^2e^{2t}}\frac{e^{w^2}}{w}\]
+\hspace{4mm}
+\[\boxed{ \hat{\Gamma} = e^te^{-iwe^ty-w^2e^{2t}+w^2}}\]
+	\item
+\[ \hat{\Gamma} = e^te^{-iwe^ty-w^2e^{2t}+w^2}\]
+\[\Gamma = \frac{1}{2\pi}\int_{R} \hat{\Gamma} e^{iwx}dw\]
+\[= \frac{1}{2\pi}\int_{R} e^te^{-iwe^ty-w^2e^{2t}+w^2} e^{iwx}dw\]
+\[\Gamma(t,x,y)= \frac{e^t}{2\pi}\int_{R} e^{w(ix-ie^ty)-(e^{2t}-1)w^2} dw\]
+\[\boxed{\Gamma(t,x,y)= \frac{e^t}{\sqrt{4\pi(e^{2t}-1)}}exp(\frac{(e^ty-x)^2}{4(e^{2t}-1)})}\]
+
+	\end{enumerate}
+	\newpage
+	\item
+\begin{enumerate}
+	\item
+	\[ A = \frac{1}{2}\partial_x^2 -\lambda\]
+	Let us assume the eigenfunction are of the form $e^{iwx}$. For the boundary conditions, f(0)= f($\pi$)=0, we have
+	\[w=n\]
+	So, \[\phi_n = e^{inx}\]
+	\[A\phi_n= \lambda_n\phi_n\]
+	\[(-\frac{n^2}{2}-\lambda)\phi_n= \lambda_n\phi_n\]
+	\[\lambda_n=-\frac{n^2}{2}-\lambda\]
+	When $\lambda$ is $-\frac{n^2}{2}$, $\phi_n$ is not neccesarily zero. So, at this value, there is no unique solution.
+	\[\boxed{\lambda =-\frac{n^2}{2}}\]
+	\item
+	For at least one solution, the solution must not blow up if the eigenvalue is zero.
+	When eigenvalue is zero,
+	\[\lambda =-\frac{n^2}{2}\]
+	\[n=\sqrt{-2\lambda} \] 
+	 \[\phi = e^{i \sqrt{-2\lambda} x}\]
+	 We need 
+	 \[<\phi, g>=0\]
+	 \[\boxed{\int_R dx e^{-i \sqrt{-2\lambda} x}g=0}\]
+	\item
+	Any solution of the following form would satisfy the pde.
+	\[u = \sum_{n=-\infty, n\neq \sqrt{-2\lambda}}^{\infty}\lambda_ne^{inx} + ce^{i \sqrt{-2\lambda} x}\]
+	where c can be any number.
+		\[\boxed{u = \sum_{n=-\infty, n\neq \sqrt{-2\lambda}}^{\infty}(-\frac{n^2}{2}-\lambda)e^{inx} + ce^{i \sqrt{-2\lambda} x}}\]
+\end{enumerate}
+\newpage
+\item
+
+\begin{enumerate}
+	\item 
+	\[A = \frac{1}{2} e^{x^2}\partial_xe^{-x^2}\partial_x = x\partial_x + \frac{1}{2}\partial_x^2 \]
+	Naturally, we see that $\Gamma$ from (1) is the Green's function for this equation.
+
+	\[\boxed{ u(t,x)= \int_{R} dy\Gamma(t,x,y)f(x)+\int_0^t ds \Gamma(t-s,x,y)g(s,x)} \]
+	\item If A is expressed in the following form, \[\frac{1}{m(x)}\partial_x\frac{1}{s(x)}\partial_x\]
+	then it is formally self-adjoint in L(, m)
+	\[A = \frac{1}{2} e^{x^2}\partial_xe^{-x^2}\partial_x\]
+	Looking at this, we can get the following expression for m.
+	\[\boxed{m(x)= \frac{c}{2} e^{-x^2}}\]
+	
+	\item
+	$\Gamma$ solves this pde
+	\[(-\partial_t +A)u  =0\]
+	Treating A like a constant and solving it like and ode, we have
+	\[\Gamma = e^{At}\delta_y(x)\]
+	\[= \sum_{n}e^{\lambda_nt}<\phi_n(x),\delta_y(x)>\phi_n\]
+	\[= \sum_{n}e^{\lambda_nt}<\phi_n(x),\delta_y(x)>\phi_n\]
+		\[\boxed{\Gamma= \sum_{n}e^{\lambda_nt}\phi_n(y)\phi_n}\]
+\end{enumerate}
+
+	\end{enumerate} 
+	
+
+\end{document}

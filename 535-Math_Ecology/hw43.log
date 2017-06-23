@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.7.18)  30 APR 2017 20:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.7.18)  7 JUN 2017 12:38
 entering extended mode
 **hw43.tex
 (hw43.tex
@@ -365,70 +365,22 @@ LaTeX Info: Redefining \nameref on input line 68.
  (hw43.out) (hw43.out)
 \@outlinefile=\write3
 
-(G:\MiTeX\tex\context\base\supp-pdf.mkii
-[Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count123
-\scratchdimen=\dimen130
-\scratchbox=\box33
-\nofMPsegments=\count124
-\nofMParguments=\count125
-\everyMPshowfont=\toks30
-\MPscratchCnt=\count126
-\MPscratchDim=\dimen131
-\MPnumerator=\count127
-\makeMPintoPDFobject=\count128
-\everyMPtoPDFconversion=\toks31
-)
-\c@lstlisting=\count129
-LaTeX Font Info:    Try loading font information for U+msa on input line 71.
- (G:\MiTeX\tex\latex\amsfonts\umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Try loading font information for U+msb on input line 71.
- (G:\MiTeX\tex\latex\amsfonts\umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-[1
+! I can't write on file `hw43.pdf'.
+Please type another file name for output
+! Emergency stop.
+<to be read again> 
+                   \edef 
+l.68 \begin{document}
+                     
+*** (job aborted, file error in nonstop mode)
 
-{C:/Users/user/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-<curves.png, id=15, 373.395pt x 256.96pt>
-File: curves.png Graphic file (type png)
- <use curves.png>
-Package pdftex.def Info: curves.png used on input line 127.
-(pdftex.def)             Requested size: 256.0748pt x 176.23218pt.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 131.
- [2pdfTeX warning (ext4): destination with the same identifier (name{figure.1})
- has been already used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.131 \end{document}
-                     <./curves.png>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 131.
- (hw43.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 131.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 131.
-Package rerunfilecheck Info: File `hw43.out' has not changed.
-(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 131.
- ) 
+ 
 Here is how much of TeX's memory you used:
- 7426 strings out of 493698
- 105548 string characters out of 3152098
- 202999 words of memory out of 3000000
- 10675 multiletter control sequences out of 15000+200000
- 11490 words of font info for 45 fonts, out of 3000000 for 9000
+ 7046 strings out of 493698
+ 100660 string characters out of 3152098
+ 195799 words of memory out of 3000000
+ 10331 multiletter control sequences out of 15000+200000
+ 3938 words of font info for 15 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 29i,7n,32p,221b,329s stack positions out of 5000i,500n,10000p,200000b,50000s
-<G:/MiTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><G:/MiTeX/fonts/type1/pub
-lic/amsfonts/cm/cmex10.pfb><G:/MiTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb>
-<G:/MiTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><G:/MiTeX/fonts/type1/public
-/amsfonts/cm/cmr12.pfb><G:/MiTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><G:/Mi
-TeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><G:/MiTeX/fonts/type1/public/amsfon
-ts/cm/cmsy10.pfb><G:/MiTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on hw43.pdf (2 pages, 99397 bytes).
-PDF statistics:
- 55 PDF objects out of 1000 (max. 8388607)
- 4 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
-
+ 29i,1n,32p,221b,220s stack positions out of 5000i,500n,10000p,200000b,50000s
+!  ==> Fatal error occurred, no output PDF file produced!

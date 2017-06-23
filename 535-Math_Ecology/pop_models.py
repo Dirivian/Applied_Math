@@ -7,8 +7,28 @@ Created on Tue Apr  4 22:16:27 2017
 
 from pylab import *
 
-x = linspace(-1,1, 1000)
+x = linspace(-4,4, 1000)
 t= linspace(0,100,10000)
+def func(x,p,c=4,a=1):
+    return (c*p*x)
+
+def func1(x,p,c=4,a=1):
+    return (c*p*x)/(a+x)
+
+def func2(x,p,c=4,a=1):
+    return (c*p*x**2)/(a+x**2)
+
+def log1(x,r=2,K=8):
+    return r*x*(1-x/K)
+
+def mult_plot(v,f,x):
+    plot(x,v(x),'r')
+    pspace=linspace(0,1.5,7)
+    for p in [0.8]:
+        plot(x,f(x,p),'g')
+        #ylim([0,5])
+    
+mult_plot(log1,func1,x)  
 
 def plot_sys(v,x,t):
     for w in x:
@@ -74,6 +94,6 @@ def log_map(x):
 #plot_eq(Foxz,x)
 #plot_bif(bif_1,x)
 #plot_steps(bif_2,arange(-2, 2, 0.01),1500,0.05, [-2,2])
-#plot_steps(log_map,[3],10,1, [-5,5])
+#plot_steps(log_map,[3,2],10,1, [-5,5])
     
     

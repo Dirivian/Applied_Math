@@ -1,0 +1,6 @@
+\select@language {english}
+\beamer@sectionintoc {1}{Introduction}{2}{0}{1}
+\beamer@subsectionintoc {1}{1}{Background}{3}{0}{1}
+\beamer@subsectionintoc {1}{2}{Model Equation}{4}{0}{1}
+\beamer@subsectionintoc {1}{3}{The nature of the source term}{5}{0}{1}
+\beamer@subsectionintoc {1}{4}{The Steady state solution}{6}{0}{1}

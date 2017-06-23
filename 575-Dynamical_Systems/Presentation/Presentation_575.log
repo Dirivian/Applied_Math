@@ -1,0 +1,1240 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.7.18)  1 JUN 2017 14:05
+entering extended mode
+**Presentation_575.tex
+(Presentation_575.tex
+LaTeX2e <2014/05/01>
+Babel <3.9l> and hyphenation patterns for 68 languages loaded.
+(G:\MiTeX\tex\latex\beamer\beamer.cls
+Document Class: beamer 2017/01/23 v3.41 A class for typesetting presentations
+(G:\MiTeX\tex\latex\etoolbox\etoolbox.sty
+Package: etoolbox 2015/08/02 v2.2a e-TeX tools for LaTeX (JAW)
+ (G:\MiTeX\tex\latex\misc\etex.sty
+Package: etex 2015/03/02 v2.1 eTeX basic definition package (PEB,DPC)
+\et@xins=\count79
+)
+\etb@tempcnta=\count80
+)
+(G:\MiTeX\tex\latex\beamer\beamerbasemodes.sty
+\beamer@tempbox=\box26
+\beamer@tempcount=\count81
+\c@beamerpauses=\count82
+
+(G:\MiTeX\tex\latex\beamer\beamerbasedecode.sty
+\beamer@slideinframe=\count83
+\beamer@minimum=\count84
+)
+\beamer@commentbox=\box27
+\beamer@modecount=\count85
+)
+(G:\MiTeX\tex\generic\oberdiek\ifpdf.sty
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+)
+\headheight=\dimen102
+\headdp=\dimen103
+\footheight=\dimen104
+\sidebarheight=\dimen105
+\beamer@tempdim=\dimen106
+\beamer@finalheight=\dimen107
+\beamer@animht=\dimen108
+\beamer@animdp=\dimen109
+\beamer@animwd=\dimen110
+\beamer@leftmargin=\dimen111
+\beamer@rightmargin=\dimen112
+\beamer@leftsidebar=\dimen113
+\beamer@rightsidebar=\dimen114
+\beamer@boxsize=\dimen115
+\beamer@vboxoffset=\dimen116
+\beamer@descdefault=\dimen117
+\beamer@descriptionwidth=\dimen118
+\beamer@lastskip=\skip41
+\beamer@areabox=\box28
+\beamer@animcurrent=\box29
+\beamer@animshowbox=\box30
+\beamer@sectionbox=\box31
+\beamer@logobox=\box32
+\beamer@linebox=\box33
+\beamer@sectioncount=\count86
+\beamer@subsubsectionmax=\count87
+\beamer@subsectionmax=\count88
+\beamer@sectionmax=\count89
+\beamer@totalheads=\count90
+\beamer@headcounter=\count91
+\beamer@partstartpage=\count92
+\beamer@sectionstartpage=\count93
+\beamer@subsectionstartpage=\count94
+\beamer@animationtempa=\count95
+\beamer@animationtempb=\count96
+\beamer@xpos=\count97
+\beamer@ypos=\count98
+\beamer@showpartnumber=\count99
+\beamer@currentsubsection=\count100
+\beamer@coveringdepth=\count101
+\beamer@sectionadjust=\count102
+\beamer@tocsectionnumber=\count103
+
+(G:\MiTeX\tex\latex\beamer\beamerbaseoptions.sty
+(G:\MiTeX\tex\latex\graphics\keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks14
+))
+\beamer@paperwidth=\skip42
+\beamer@paperheight=\skip43
+
+(G:\MiTeX\tex\latex\geometry\geometry.sty
+Package: geometry 2010/09/12 v5.6 Page Geometry
+
+(G:\MiTeX\tex\generic\oberdiek\ifvtex.sty
+Package: ifvtex 2010/03/01 v1.5 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+)
+(G:\MiTeX\tex\generic\ifxetex\ifxetex.sty
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+\Gm@cnth=\count104
+\Gm@cntv=\count105
+\c@Gm@tempcnt=\count106
+\Gm@bindingoffset=\dimen119
+\Gm@wd@mp=\dimen120
+\Gm@odd@mp=\dimen121
+\Gm@even@mp=\dimen122
+\Gm@layoutwidth=\dimen123
+\Gm@layoutheight=\dimen124
+\Gm@layouthoffset=\dimen125
+\Gm@layoutvoffset=\dimen126
+\Gm@dimlist=\toks15
+
+(G:\MiTeX\tex\latex\geometry\geometry.cfg)) (G:\MiTeX\tex\latex\base\size11.clo
+File: size11.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+) (G:\MiTeX\tex\latex\pgf\basiclayer\pgfcore.sty
+(G:\MiTeX\tex\latex\graphics\graphicx.sty
+Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+
+(G:\MiTeX\tex\latex\graphics\graphics.sty
+Package: graphics 2014/10/28 v1.0p Standard LaTeX Graphics (DPC,SPQR)
+ (G:\MiTeX\tex\latex\graphics\trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+) (G:\MiTeX\tex\latex\00miktex\graphics.cfg
+File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
+)
+Package graphics Info: Driver file: pdftex.def on input line 91.
+
+(G:\MiTeX\tex\latex\pdftex-def\pdftex.def
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+(G:\MiTeX\tex\generic\oberdiek\infwarerr.sty
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+(G:\MiTeX\tex\generic\oberdiek\ltxcmds.sty
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count107
+))
+\Gin@req@height=\dimen127
+\Gin@req@width=\dimen128
+)
+(G:\MiTeX\tex\latex\pgf\systemlayer\pgfsys.sty
+(G:\MiTeX\tex\latex\pgf\utilities\pgfrcs.sty
+(G:\MiTeX\tex\generic\pgf\utilities\pgfutil-common.tex
+\pgfutil@everybye=\toks16
+\pgfutil@tempdima=\dimen129
+\pgfutil@tempdimb=\dimen130
+
+(G:\MiTeX\tex\generic\pgf\utilities\pgfutil-common-lists.tex))
+(G:\MiTeX\tex\generic\pgf\utilities\pgfutil-latex.def
+\pgfutil@abb=\box34
+
+(G:\MiTeX\tex\latex\ms\everyshi.sty
+Package: everyshi 2001/05/15 v3.00 EveryShipout Package (MS)
+))
+(G:\MiTeX\tex\generic\pgf\utilities\pgfrcs.code.tex
+Package: pgfrcs 2015/08/07 v3.0.1a (rcs-revision 1.31)
+))
+(G:\MiTeX\tex\generic\pgf\systemlayer\pgfsys.code.tex
+Package: pgfsys 2014/07/09 v3.0.1a (rcs-revision 1.48)
+
+(G:\MiTeX\tex\generic\pgf\utilities\pgfkeys.code.tex
+\pgfkeys@pathtoks=\toks17
+\pgfkeys@temptoks=\toks18
+
+(G:\MiTeX\tex\generic\pgf\utilities\pgfkeysfiltered.code.tex
+\pgfkeys@tmptoks=\toks19
+))
+\pgf@x=\dimen131
+\pgf@y=\dimen132
+\pgf@xa=\dimen133
+\pgf@ya=\dimen134
+\pgf@xb=\dimen135
+\pgf@yb=\dimen136
+\pgf@xc=\dimen137
+\pgf@yc=\dimen138
+\w@pgf@writea=\write3
+\r@pgf@reada=\read1
+\c@pgf@counta=\count108
+\c@pgf@countb=\count109
+\c@pgf@countc=\count110
+\c@pgf@countd=\count111
+\t@pgf@toka=\toks20
+\t@pgf@tokb=\toks21
+\t@pgf@tokc=\toks22
+
+(G:\MiTeX\tex\generic\pgf\systemlayer\pgf.cfg
+File: pgf.cfg 2008/05/14  (rcs-revision 1.7)
+)
+Driver file for pgf: pgfsys-pdftex.def
+
+(G:\MiTeX\tex\generic\pgf\systemlayer\pgfsys-pdftex.def
+File: pgfsys-pdftex.def 2014/10/11  (rcs-revision 1.35)
+
+(G:\MiTeX\tex\generic\pgf\systemlayer\pgfsys-common-pdf.def
+File: pgfsys-common-pdf.def 2013/10/10  (rcs-revision 1.13)
+)))
+(G:\MiTeX\tex\generic\pgf\systemlayer\pgfsyssoftpath.code.tex
+File: pgfsyssoftpath.code.tex 2013/09/09  (rcs-revision 1.9)
+\pgfsyssoftpath@smallbuffer@items=\count112
+\pgfsyssoftpath@bigbuffer@items=\count113
+)
+(G:\MiTeX\tex\generic\pgf\systemlayer\pgfsysprotocol.code.tex
+File: pgfsysprotocol.code.tex 2006/10/16  (rcs-revision 1.4)
+))
+(G:\MiTeX\tex\latex\xcolor\xcolor.sty
+Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
+ (G:\MiTeX\tex\latex\00miktex\color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
+Package xcolor Info: Model `RGB' extended on input line 1364.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
+)
+(G:\MiTeX\tex\generic\pgf\basiclayer\pgfcore.code.tex
+Package: pgfcore 2010/04/11 v3.0.1a (rcs-revision 1.7)
+
+(G:\MiTeX\tex\generic\pgf\math\pgfmath.code.tex
+(G:\MiTeX\tex\generic\pgf\math\pgfmathcalc.code.tex
+(G:\MiTeX\tex\generic\pgf\math\pgfmathutil.code.tex)
+(G:\MiTeX\tex\generic\pgf\math\pgfmathparser.code.tex
+\pgfmath@dimen=\dimen139
+\pgfmath@count=\count114
+\pgfmath@box=\box35
+\pgfmath@toks=\toks23
+\pgfmath@stack@operand=\toks24
+\pgfmath@stack@operation=\toks25
+)
+(G:\MiTeX\tex\generic\pgf\math\pgfmathfunctions.code.tex
+(G:\MiTeX\tex\generic\pgf\math\pgfmathfunctions.basic.code.tex)
+(G:\MiTeX\tex\generic\pgf\math\pgfmathfunctions.trigonometric.code.tex)
+(G:\MiTeX\tex\generic\pgf\math\pgfmathfunctions.random.code.tex)
+(G:\MiTeX\tex\generic\pgf\math\pgfmathfunctions.comparison.code.tex)
+(G:\MiTeX\tex\generic\pgf\math\pgfmathfunctions.base.code.tex)
+(G:\MiTeX\tex\generic\pgf\math\pgfmathfunctions.round.code.tex)
+(G:\MiTeX\tex\generic\pgf\math\pgfmathfunctions.misc.code.tex)
+(G:\MiTeX\tex\generic\pgf\math\pgfmathfunctions.integerarithmetics.code.tex)))
+(G:\MiTeX\tex\generic\pgf\math\pgfmathfloat.code.tex
+\c@pgfmathroundto@lastzeros=\count115
+))
+(G:\MiTeX\tex\generic\pgf\basiclayer\pgfcorepoints.code.tex
+File: pgfcorepoints.code.tex 2013/10/07  (rcs-revision 1.27)
+\pgf@picminx=\dimen140
+\pgf@picmaxx=\dimen141
+\pgf@picminy=\dimen142
+\pgf@picmaxy=\dimen143
+\pgf@pathminx=\dimen144
+\pgf@pathmaxx=\dimen145
+\pgf@pathminy=\dimen146
+\pgf@pathmaxy=\dimen147
+\pgf@xx=\dimen148
+\pgf@xy=\dimen149
+\pgf@yx=\dimen150
+\pgf@yy=\dimen151
+\pgf@zx=\dimen152
+\pgf@zy=\dimen153
+)
+(G:\MiTeX\tex\generic\pgf\basiclayer\pgfcorepathconstruct.code.tex
+File: pgfcorepathconstruct.code.tex 2013/10/07  (rcs-revision 1.29)
+\pgf@path@lastx=\dimen154
+\pgf@path@lasty=\dimen155
+)
+(G:\MiTeX\tex\generic\pgf\basiclayer\pgfcorepathusage.code.tex
+File: pgfcorepathusage.code.tex 2014/11/02  (rcs-revision 1.24)
+\pgf@shorten@end@additional=\dimen156
+\pgf@shorten@start@additional=\dimen157
+)
+(G:\MiTeX\tex\generic\pgf\basiclayer\pgfcorescopes.code.tex
+File: pgfcorescopes.code.tex 2015/05/08  (rcs-revision 1.46)
+\pgfpic=\box36
+\pgf@hbox=\box37
+\pgf@layerbox@main=\box38
+\pgf@picture@serial@count=\count116
+)
+(G:\MiTeX\tex\generic\pgf\basiclayer\pgfcoregraphicstate.code.tex
+File: pgfcoregraphicstate.code.tex 2014/11/02  (rcs-revision 1.12)
+\pgflinewidth=\dimen158
+)
+(G:\MiTeX\tex\generic\pgf\basiclayer\pgfcoretransformations.code.tex
+File: pgfcoretransformations.code.tex 2015/08/07  (rcs-revision 1.20)
+\pgf@pt@x=\dimen159
+\pgf@pt@y=\dimen160
+\pgf@pt@temp=\dimen161
+)
+(G:\MiTeX\tex\generic\pgf\basiclayer\pgfcorequick.code.tex
+File: pgfcorequick.code.tex 2008/10/09  (rcs-revision 1.3)
+)
+(G:\MiTeX\tex\generic\pgf\basiclayer\pgfcoreobjects.code.tex
+File: pgfcoreobjects.code.tex 2006/10/11  (rcs-revision 1.2)
+)
+(G:\MiTeX\tex\generic\pgf\basiclayer\pgfcorepathprocessing.code.tex
+File: pgfcorepathprocessing.code.tex 2013/09/09  (rcs-revision 1.9)
+)
+(G:\MiTeX\tex\generic\pgf\basiclayer\pgfcorearrows.code.tex
+File: pgfcorearrows.code.tex 2015/05/14  (rcs-revision 1.43)
+\pgfarrowsep=\dimen162
+)
+(G:\MiTeX\tex\generic\pgf\basiclayer\pgfcoreshade.code.tex
+File: pgfcoreshade.code.tex 2013/07/15  (rcs-revision 1.15)
+\pgf@max=\dimen163
+\pgf@sys@shading@range@num=\count117
+)
+(G:\MiTeX\tex\generic\pgf\basiclayer\pgfcoreimage.code.tex
+File: pgfcoreimage.code.tex 2013/07/15  (rcs-revision 1.18)
+
+(G:\MiTeX\tex\generic\pgf\basiclayer\pgfcoreexternal.code.tex
+File: pgfcoreexternal.code.tex 2014/07/09  (rcs-revision 1.21)
+\pgfexternal@startupbox=\box39
+))
+(G:\MiTeX\tex\generic\pgf\basiclayer\pgfcorelayers.code.tex
+File: pgfcorelayers.code.tex 2013/07/18  (rcs-revision 1.7)
+)
+(G:\MiTeX\tex\generic\pgf\basiclayer\pgfcoretransparency.code.tex
+File: pgfcoretransparency.code.tex 2013/09/30  (rcs-revision 1.5)
+)
+(G:\MiTeX\tex\generic\pgf\basiclayer\pgfcorepatterns.code.tex
+File: pgfcorepatterns.code.tex 2013/11/07  (rcs-revision 1.5)
+)))
+(G:\MiTeX\tex\latex\pgf\utilities\xxcolor.sty
+Package: xxcolor 2003/10/24 ver 0.1
+\XC@nummixins=\count118
+\XC@countmixins=\count119
+)
+(G:\MiTeX\tex\generic\oberdiek\atbegshi.sty
+Package: atbegshi 2011/10/05 v1.16 At begin shipout hook (HO)
+)
+(G:\MiTeX\tex\latex\hyperref\hyperref.sty
+Package: hyperref 2012/11/06 v6.83m Hypertext links for LaTeX
+
+(G:\MiTeX\tex\generic\oberdiek\hobsub-hyperref.sty
+Package: hobsub-hyperref 2012/04/25 v1.12 Bundle oberdiek, subset hyperref (HO)
+
+
+(G:\MiTeX\tex\generic\oberdiek\hobsub-generic.sty
+Package: hobsub-generic 2012/04/25 v1.12 Bundle oberdiek, subset generic (HO)
+Package: hobsub 2012/04/25 v1.12 Construct package bundles (HO)
+Package hobsub Info: Skipping package `infwarerr' (already loaded).
+Package hobsub Info: Skipping package `ltxcmds' (already loaded).
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+Package hobsub Info: Skipping package `ifvtex' (already loaded).
+Package: intcalc 2007/09/27 v1.1 Expandable calculations with integers (HO)
+Package hobsub Info: Skipping package `ifpdf' (already loaded).
+Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
+Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
+Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+Package: pdfescape 2011/11/25 v1.13 Implements pdfTeX's escape features (HO)
+Package: bigintcalc 2012/04/08 v1.3 Expandable calculations on big integers (HO
+)
+Package: bitset 2011/01/30 v1.1 Handle bit-vector datatype (HO)
+Package: uniquecounter 2011/01/30 v1.2 Provide unlimited unique counter (HO)
+)
+Package hobsub Info: Skipping package `hobsub' (already loaded).
+Package: letltxmacro 2010/09/02 v1.4 Let assignment for LaTeX macros (HO)
+Package: hopatch 2011/06/24 v1.1 Wrapper for package hooks (HO)
+Package: xcolor-patch 2011/01/30 xcolor patch
+Package: atveryend 2011/06/30 v1.8 Hooks at the very end of document (HO)
+Package hobsub Info: Skipping package `atbegshi' (already loaded).
+Package: refcount 2011/10/16 v3.4 Data extraction from label references (HO)
+Package: hycolor 2011/01/30 v1.7 Color options for hyperref/bookmark (HO)
+)
+(G:\MiTeX\tex\latex\oberdiek\auxhook.sty
+Package: auxhook 2011/03/04 v1.3 Hooks for auxiliary files (HO)
+)
+(G:\MiTeX\tex\latex\oberdiek\kvoptions.sty
+Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
+)
+\@linkdim=\dimen164
+\Hy@linkcounter=\count120
+\Hy@pagecounter=\count121
+
+(G:\MiTeX\tex\latex\hyperref\pd1enc.def
+File: pd1enc.def 2012/11/06 v6.83m Hyperref: PDFDocEncoding definition (HO)
+)
+\Hy@SavedSpaceFactor=\count122
+
+(G:\MiTeX\tex\latex\00miktex\hyperref.cfg
+File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
+)
+Package hyperref Info: Option `bookmarks' set `true' on input line 4319.
+Package hyperref Info: Option `bookmarksopen' set `true' on input line 4319.
+Package hyperref Info: Option `implicit' set `false' on input line 4319.
+Package hyperref Info: Hyper figures OFF on input line 4443.
+Package hyperref Info: Link nesting OFF on input line 4448.
+Package hyperref Info: Hyper index ON on input line 4451.
+Package hyperref Info: Plain pages OFF on input line 4458.
+Package hyperref Info: Backreferencing OFF on input line 4463.
+Package hyperref Info: Implicit mode OFF; no redefinition of LaTeX internals.
+Package hyperref Info: Bookmarks ON on input line 4688.
+\c@Hy@tempcnt=\count123
+ (G:\MiTeX\tex\latex\url\url.sty
+\Urlmuskip=\muskip10
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 5041.
+\XeTeXLinkMargin=\dimen165
+\Fld@menulength=\count124
+\Field@Width=\dimen166
+\Fld@charsize=\dimen167
+Package hyperref Info: Hyper figures OFF on input line 6295.
+Package hyperref Info: Link nesting OFF on input line 6300.
+Package hyperref Info: Hyper index ON on input line 6303.
+Package hyperref Info: backreferencing OFF on input line 6310.
+Package hyperref Info: Link coloring OFF on input line 6315.
+Package hyperref Info: Link coloring with OCG OFF on input line 6320.
+Package hyperref Info: PDF/A mode OFF on input line 6325.
+LaTeX Info: Redefining \ref on input line 6365.
+LaTeX Info: Redefining \pageref on input line 6369.
+\Hy@abspage=\count125
+
+
+Package hyperref Message: Stopped early.
+
+)
+
+Package hyperref Message: Driver (autodetected): hpdftex.
+
+(G:\MiTeX\tex\latex\hyperref\hpdftex.def
+File: hpdftex.def 2012/11/06 v6.83m Hyperref driver for pdfTeX
+\Fld@listcount=\count126
+\c@bookmark@seq@number=\count127
+
+(G:\MiTeX\tex\latex\oberdiek\rerunfilecheck.sty
+Package: rerunfilecheck 2011/04/15 v1.7 Rerun checks for auxiliary files (HO)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+82.
+))
+(G:\MiTeX\tex\latex\beamer\beamerbaserequires.sty
+(G:\MiTeX\tex\latex\beamer\beamerbasecompatibility.sty)
+(G:\MiTeX\tex\latex\beamer\beamerbasefont.sty
+(G:\MiTeX\tex\latex\amsfonts\amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+(G:\MiTeX\tex\latex\amsfonts\amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\@emptytoks=\toks26
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+(G:\MiTeX\tex\latex\sansmathaccent\sansmathaccent.sty
+Package: sansmathaccent 2013/03/28
+
+(G:\MiTeX\tex\latex\filehook\filehook.sty
+Package: filehook 2011/10/12 v0.5d Hooks for input files
+)))
+(G:\MiTeX\tex\latex\beamer\beamerbasetranslator.sty
+(G:\MiTeX\tex\latex\beamer\translator\translator.sty
+Package: translator 2010/06/12 ver 1.10
+
+(G:\MiTeX\tex\latex\beamer\translator\translator-language-mappings.tex)))
+(G:\MiTeX\tex\latex\beamer\beamerbasemisc.sty)
+(G:\MiTeX\tex\latex\beamer\beamerbasetwoscreens.sty)
+(G:\MiTeX\tex\latex\beamer\beamerbaseoverlay.sty
+\beamer@argscount=\count128
+\beamer@lastskipcover=\skip44
+\beamer@trivlistdepth=\count129
+)
+(G:\MiTeX\tex\latex\beamer\beamerbasetitle.sty)
+(G:\MiTeX\tex\latex\beamer\beamerbasesection.sty
+\c@lecture=\count130
+\c@part=\count131
+\c@section=\count132
+\c@subsection=\count133
+\c@subsubsection=\count134
+)
+(G:\MiTeX\tex\latex\beamer\beamerbaseframe.sty
+\beamer@framebox=\box40
+\beamer@frametitlebox=\box41
+\beamer@zoombox=\box42
+\beamer@zoomcount=\count135
+\beamer@zoomframecount=\count136
+\beamer@frametextheight=\dimen168
+\c@subsectionslide=\count137
+\beamer@frametopskip=\skip45
+\beamer@framebottomskip=\skip46
+\beamer@frametopskipautobreak=\skip47
+\beamer@framebottomskipautobreak=\skip48
+\beamer@envbody=\toks27
+\framewidth=\dimen169
+\c@framenumber=\count138
+)
+(G:\MiTeX\tex\latex\beamer\beamerbaseverbatim.sty
+\beamer@verbatimfileout=\write4
+)
+(G:\MiTeX\tex\latex\beamer\beamerbaseframesize.sty
+\beamer@splitbox=\box43
+\beamer@autobreakcount=\count139
+\beamer@autobreaklastheight=\dimen170
+\beamer@frametitletoks=\toks28
+\beamer@framesubtitletoks=\toks29
+)
+(G:\MiTeX\tex\latex\beamer\beamerbaseframecomponents.sty
+\beamer@footins=\box44
+)
+(G:\MiTeX\tex\latex\beamer\beamerbasecolor.sty)
+(G:\MiTeX\tex\latex\beamer\beamerbasenotes.sty
+\beamer@frameboxcopy=\box45
+)
+(G:\MiTeX\tex\latex\beamer\beamerbasetoc.sty)
+(G:\MiTeX\tex\latex\beamer\beamerbasetemplates.sty
+\beamer@sbttoks=\toks30
+
+(G:\MiTeX\tex\latex\beamer\beamerbaseauxtemplates.sty
+(G:\MiTeX\tex\latex\beamer\beamerbaseboxes.sty
+\bmb@box=\box46
+\bmb@colorbox=\box47
+\bmb@boxshadow=\box48
+\bmb@boxshadowball=\box49
+\bmb@boxshadowballlarge=\box50
+\bmb@temp=\dimen171
+\bmb@dima=\dimen172
+\bmb@dimb=\dimen173
+\bmb@prevheight=\dimen174
+)
+\beamer@blockheadheight=\dimen175
+))
+(G:\MiTeX\tex\latex\beamer\beamerbaselocalstructure.sty
+(G:\MiTeX\tex\latex\tools\enumerate.sty
+Package: enumerate 2014/10/28 v3.00 enumerate extensions (DPC)
+\@enLab=\toks31
+)
+\c@figure=\count140
+\c@table=\count141
+\abovecaptionskip=\skip49
+\belowcaptionskip=\skip50
+)
+(G:\MiTeX\tex\latex\beamer\beamerbasenavigation.sty
+\beamer@section@min@dim=\dimen176
+)
+(G:\MiTeX\tex\latex\beamer\beamerbasetheorems.sty
+(G:\MiTeX\tex\latex\amsmath\amsmath.sty
+Package: amsmath 2013/01/14 v2.14 AMS math features
+\@mathmargin=\skip51
+
+For additional information on amsmath, use the `?' option.
+(G:\MiTeX\tex\latex\amsmath\amstext.sty
+Package: amstext 2000/06/29 v2.01
+ (G:\MiTeX\tex\latex\amsmath\amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0
+\@emptytoks=\toks32
+\ex@=\dimen177
+)) (G:\MiTeX\tex\latex\amsmath\amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d
+\pmbraise@=\dimen178
+)
+(G:\MiTeX\tex\latex\amsmath\amsopn.sty
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count142
+LaTeX Info: Redefining \frac on input line 210.
+\uproot@=\count143
+\leftroot@=\count144
+LaTeX Info: Redefining \overline on input line 306.
+\classnum@=\count145
+\DOTSCASE@=\count146
+LaTeX Info: Redefining \ldots on input line 378.
+LaTeX Info: Redefining \dots on input line 381.
+LaTeX Info: Redefining \cdots on input line 466.
+\Mathstrutbox@=\box51
+\strutbox@=\box52
+\big@size=\dimen179
+LaTeX Font Info:    Redeclaring font encoding OML on input line 566.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
+\macc@depth=\count147
+\c@MaxMatrixCols=\count148
+\dotsspace@=\muskip11
+\c@parentequation=\count149
+\dspbrk@lvl=\count150
+\tag@help=\toks33
+\row@=\count151
+\column@=\count152
+\maxfields@=\count153
+\andhelp@=\toks34
+\eqnshift@=\dimen180
+\alignsep@=\dimen181
+\tagshift@=\dimen182
+\tagwidth@=\dimen183
+\totwidth@=\dimen184
+\lineht@=\dimen185
+\@envbody=\toks35
+\multlinegap=\skip52
+\multlinetaggap=\skip53
+\mathdisplay@stack=\toks36
+LaTeX Info: Redefining \[ on input line 2665.
+LaTeX Info: Redefining \] on input line 2666.
+) (G:\MiTeX\tex\latex\amscls\amsthm.sty
+Package: amsthm 2009/07/02 v2.20.1
+\thm@style=\toks37
+\thm@bodyfont=\toks38
+\thm@headfont=\toks39
+\thm@notefont=\toks40
+\thm@headpunct=\toks41
+\thm@preskip=\skip54
+\thm@postskip=\skip55
+\thm@headsep=\skip56
+\dth@everypar=\toks42
+)
+\c@theorem=\count154
+) (G:\MiTeX\tex\latex\beamer\beamerbasethemes.sty))
+(G:\MiTeX\tex\latex\beamer\themes\theme\beamerthemedefault.sty
+(G:\MiTeX\tex\latex\beamer\themes\font\beamerfontthemedefault.sty)
+(G:\MiTeX\tex\latex\beamer\themes\color\beamercolorthemedefault.sty)
+(G:\MiTeX\tex\latex\beamer\themes\inner\beamerinnerthemedefault.sty
+\beamer@dima=\dimen186
+\beamer@dimb=\dimen187
+)
+(G:\MiTeX\tex\latex\beamer\themes\outer\beamerouterthemedefault.sty)))
+(G:\MiTeX\tex\latex\beamer\multimedia\xmpmulti.sty
+\@mpm@count=\count155
+)
+(G:\MiTeX\tex\latex\movie15\movie15.sty
+Package: movie15 2012/05/16
+ (G:\MiTeX\tex\latex\base\ifthen.sty
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+(G:\MiTeX\tex\latex\oberdiek\ifdraft.sty
+Package: ifdraft 2008/08/11 v1.3 Detect class options draft and final (HO)
+)
+\@MXV@page=\count156
+\@MXV@adict=\count157
+\@MXV@aadict=\count158
+\@MXV@includes=\count159
+\@MXV@players=\count160
+\@MXV@links=\count161
+\@MXV@width=\dimen188
+\@MXV@height=\dimen189
+\@MXV@depth=\dimen190
+\@MXV@totalheight=\dimen191
+\@MXV@@boxdepth=\dimen192
+\@MXV@traiselen=\dimen193
+\@MXV@braiselen=\dimen194
+\@MXV@start=\dimen195
+\@MXV@end=\dimen196
+\@MXV@textbox=\box53
+){C:/Users/user/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}{G:/MiTeX/fon
+ts/map/dvips/sansmathaccent/sansmathaccent.map} (G:\MiTeX\tex\latex\babel\babel
+.sty
+Package: babel 2014/09/25 3.9l The Babel package
+
+*************************************
+* Local config file bblopts.cfg used
+*
+(G:\MiTeX\tex\latex\00miktex\bblopts.cfg
+File: bblopts.cfg 2006/07/31 v1.0 MiKTeX 'babel' configuration
+)
+(G:\MiTeX\tex\latex\babel-english\english.ldf
+Language: english 2012/08/20 v3.3p English support from the babel system
+
+(G:\MiTeX\tex\latex\babel\babel.def
+File: babel.def 2014/09/25 3.9l Babel common definitions
+\babel@savecnt=\count162
+\U@D=\dimen197
+LaTeX Info: Redefining \textlatin on input line 1431.
+)
+\l@canadian = a dialect from \language\l@american 
+\l@australian = a dialect from \language\l@british 
+\l@newzealand = a dialect from \language\l@british 
+)) (G:\MiTeX\tex\latex\base\inputenc.sty
+Package: inputenc 2014/04/30 v1.2b Input encoding file
+\inpenc@prehook=\toks43
+\inpenc@posthook=\toks44
+
+(G:\MiTeX\tex\latex\ucs\utf8x.def
+File: utf8x.def 2004/10/17 UCS: Input encoding UTF-8
+)) (G:\MiTeX\tex\latex\ucs\ucs.sty
+Package: ucs 2013/05/11 v2.2 UCS: Unicode input support
+
+(G:\MiTeX\tex\latex\ucs\uni-global.def
+File: uni-global.def 2013/05/13 UCS: Unicode global data
+)
+\uc@secondtry=\count163
+\uc@combtoks=\toks45
+\uc@combtoksb=\toks46
+\uc@temptokena=\toks47
+)
+(G:\MiTeX\tex\latex\beamer\multimedia\multimedia.sty
+Package: multimedia 2012/05/02 ver 0.02
+\mm@movie=\count164
+
+
+! LaTeX Error: Command \movie already defined.
+               Or name \end... illegal, see p.192 of the manual.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.140 }
+       
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: Command \hyperlinkmovie already defined.
+               Or name \end... illegal, see p.192 of the manual.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.175 }
+       
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+) (G:\MiTeX\tex\latex\pgf\frontendlayer\tikz.sty
+(G:\MiTeX\tex\latex\pgf\basiclayer\pgf.sty
+Package: pgf 2015/08/07 v3.0.1a (rcs-revision 1.15)
+
+(G:\MiTeX\tex\generic\pgf\modules\pgfmoduleshapes.code.tex
+File: pgfmoduleshapes.code.tex 2014/03/21  (rcs-revision 1.35)
+\pgfnodeparttextbox=\box54
+)
+(G:\MiTeX\tex\generic\pgf\modules\pgfmoduleplot.code.tex
+File: pgfmoduleplot.code.tex 2015/08/03  (rcs-revision 1.13)
+)
+(G:\MiTeX\tex\latex\pgf\compatibility\pgfcomp-version-0-65.sty
+Package: pgfcomp-version-0-65 2007/07/03 v3.0.1a (rcs-revision 1.7)
+\pgf@nodesepstart=\dimen198
+\pgf@nodesepend=\dimen199
+)
+(G:\MiTeX\tex\latex\pgf\compatibility\pgfcomp-version-1-18.sty
+Package: pgfcomp-version-1-18 2007/07/23 v3.0.1a (rcs-revision 1.1)
+))
+(G:\MiTeX\tex\latex\pgf\utilities\pgffor.sty
+(G:\MiTeX\tex\latex\pgf\utilities\pgfkeys.sty
+(G:\MiTeX\tex\generic\pgf\utilities\pgfkeys.code.tex))
+(G:\MiTeX\tex\latex\pgf\math\pgfmath.sty
+(G:\MiTeX\tex\generic\pgf\math\pgfmath.code.tex))
+(G:\MiTeX\tex\generic\pgf\utilities\pgffor.code.tex
+Package: pgffor 2013/12/13 v3.0.1a (rcs-revision 1.25)
+
+(G:\MiTeX\tex\generic\pgf\math\pgfmath.code.tex)
+\pgffor@iter=\dimen200
+\pgffor@skip=\dimen201
+\pgffor@stack=\toks48
+\pgffor@toks=\toks49
+))
+(G:\MiTeX\tex\generic\pgf\frontendlayer\tikz\tikz.code.tex
+Package: tikz 2015/08/07 v3.0.1a (rcs-revision 1.151)
+
+(G:\MiTeX\tex\generic\pgf\libraries\pgflibraryplothandlers.code.tex
+File: pgflibraryplothandlers.code.tex 2013/08/31 v3.0.1a (rcs-revision 1.20)
+\pgf@plot@mark@count=\count165
+\pgfplotmarksize=\dimen202
+)
+\tikz@lastx=\dimen203
+\tikz@lasty=\dimen204
+\tikz@lastxsaved=\dimen205
+\tikz@lastysaved=\dimen206
+\tikzleveldistance=\dimen207
+\tikzsiblingdistance=\dimen208
+\tikz@figbox=\box55
+\tikz@figbox@bg=\box56
+\tikz@tempbox=\box57
+\tikz@tempbox@bg=\box58
+\tikztreelevel=\count166
+\tikznumberofchildren=\count167
+\tikznumberofcurrentchild=\count168
+\tikz@fig@count=\count169
+
+(G:\MiTeX\tex\generic\pgf\modules\pgfmodulematrix.code.tex
+File: pgfmodulematrix.code.tex 2013/09/17  (rcs-revision 1.8)
+\pgfmatrixcurrentrow=\count170
+\pgfmatrixcurrentcolumn=\count171
+\pgf@matrix@numberofcolumns=\count172
+)
+\tikz@expandcount=\count173
+
+(G:\MiTeX\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibrarytopaths.code.
+tex
+File: tikzlibrarytopaths.code.tex 2008/06/17 v3.0.1a (rcs-revision 1.2)
+))) (Presentation_575.aux)
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: custom
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: includehead includefoot 
+* h-part:(L,W,R)=(28.45274pt, 307.28987pt, 28.45274pt)
+* v-part:(T,H,B)=(0.0pt, 273.14662pt, 0.0pt)
+* \paperwidth=364.19536pt
+* \paperheight=273.14662pt
+* \textwidth=307.28987pt
+* \textheight=244.6939pt
+* \oddsidemargin=-43.81725pt
+* \evensidemargin=-43.81725pt
+* \topmargin=-72.26999pt
+* \headheight=14.22636pt
+* \headsep=0.0pt
+* \topskip=11.0pt
+* \footskip=14.22636pt
+* \marginparwidth=4.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+(G:\MiTeX\tex\context\base\supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count174
+\scratchdimen=\dimen209
+\scratchbox=\box59
+\nofMPsegments=\count175
+\nofMParguments=\count176
+\everyMPshowfont=\toks50
+\MPscratchCnt=\count177
+\MPscratchDim=\dimen210
+\MPnumerator=\count178
+\makeMPintoPDFobject=\count179
+\everyMPtoPDFconversion=\toks51
+) ABD: EveryShipout initializing macros
+\AtBeginShipoutBox=\box60
+Package hyperref Info: Link coloring OFF on input line 33.
+
+(G:\MiTeX\tex\latex\hyperref\nameref.sty
+Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
+
+(G:\MiTeX\tex\generic\oberdiek\gettitlestring.sty
+Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
+)
+\c@section@level=\count180
+)
+LaTeX Info: Redefining \ref on input line 33.
+LaTeX Info: Redefining \pageref on input line 33.
+LaTeX Info: Redefining \nameref on input line 33.
+ (Presentation_575.out)
+(Presentation_575.out)
+\@outlinefile=\write5
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 33.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 33.
+\symnumbers=\mathgroup6
+\sympureletters=\mathgroup7
+LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
+(Font)                  OT1/cmss/m/n --> OT1/cmr/m/n on input line 33.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 33.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 33.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 33.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 33.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT1/cmss/m/n --> OT1/cmss/m/n on input line 33.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/cmss/bx/n --> OT1/cmss/m/n on input line 33.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 33.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/cmr/m/it --> OT1/cmss/m/it on input line 33.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/cmr/bx/it --> OT1/cmss/m/it on input line 33.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 33.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 33.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 33.
+LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
+(Font)                  OT1/cmss/m/n --> OT1/cmss/bx/n on input line 33.
+LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
+(Font)                  OT1/cmss/m/it --> OT1/cmss/bx/it on input line 33.
+LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
+(Font)                  OT1/cmss/bx/n --> OT1/cmr/bx/n on input line 33.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
+(Font)                  OT1/cmss/bx/n --> OT1/cmss/bx/n on input line 33.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/cmss/m/n --> OT1/cmss/bx/n on input line 33.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/cmss/m/it --> OT1/cmss/bx/it on input line 33.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/bx/n on input line 33.
+LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 33.
+LaTeX Font Info:    Overwriting symbol font `pureletters' in version `normal'
+(Font)                  OT1/cmss/m/it --> OT1/mathkerncmss/m/sl on input line 3
+3.
+LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
+(Font)                  OT1/cmss/bx/it --> OT1/mathkerncmss/m/sl on input line 
+33.
+LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
+(Font)                  OT1/mathkerncmss/m/sl --> OT1/mathkerncmss/bx/sl on inp
+ut line 33.
+
+(G:\MiTeX\tex\latex\beamer\translator\dicts\translator-basic-dictionary\transla
+tor-basic-dictionary-English.dict
+Dictionary: translator-basic-dictionary, Language: English 
+)
+(G:\MiTeX\tex\latex\beamer\translator\dicts\translator-bibliography-dictionary\
+translator-bibliography-dictionary-English.dict
+Dictionary: translator-bibliography-dictionary, Language: English 
+)
+(G:\MiTeX\tex\latex\beamer\translator\dicts\translator-environment-dictionary\t
+ranslator-environment-dictionary-English.dict
+Dictionary: translator-environment-dictionary, Language: English 
+)
+(G:\MiTeX\tex\latex\beamer\translator\dicts\translator-months-dictionary\transl
+ator-months-dictionary-English.dict
+Dictionary: translator-months-dictionary, Language: English 
+)
+(G:\MiTeX\tex\latex\beamer\translator\dicts\translator-numbers-dictionary\trans
+lator-numbers-dictionary-English.dict
+Dictionary: translator-numbers-dictionary, Language: English 
+)
+(G:\MiTeX\tex\latex\beamer\translator\dicts\translator-theorem-dictionary\trans
+lator-theorem-dictionary-English.dict
+Dictionary: translator-theorem-dictionary, Language: English 
+)
+LaTeX Info: Redefining \includegraphics on input line 33.
+ (G:\MiTeX\tex\latex\ucs\ucsencs.def
+File: ucsencs.def 2011/01/21 Fixes to fontencodings LGR, T3
+)
+(Presentation_575.nav)
+
+LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <4> not available
+(Font)              size <5> substituted on input line 37.
+
+[1
+
+] (Presentation_575.toc
+LaTeX Font Info:    Try loading font information for U+msa on input line 7.
+ (G:\MiTeX\tex\latex\amsfonts\umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 7.
+
+(G:\MiTeX\tex\latex\amsfonts\umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Try loading font information for OT1+mathkerncmss on input 
+line 7.
+
+(G:\MiTeX\tex\latex\sansmathaccent\ot1mathkerncmss.fd
+File: ot1mathkerncmss.fd 2013/03/27 Fontinst v1.933 font definitions for OT1/ma
+thkerncmss.
+)) [2
+
+]
+<detonation.jpg, id=104, 602.25pt x 412.54124pt>
+File: detonation.jpg Graphic file (type jpg)
+ <use detonation.jpg>
+Package pdftex.def Info: detonation.jpg used on input line 57.
+(pdftex.def)             Requested size: 145.9857pt x 100.0pt.
+ [3
+
+ <./detonation.jpg>] [4
+
+] <shiftinit.png, id=119, 394.47375pt x 272.01625pt>
+File: shiftinit.png Graphic file (type png)
+
+<use shiftinit.png>
+Package pdftex.def Info: shiftinit.png used on input line 90.
+(pdftex.def)             Requested size: 217.53906pt x 150.0pt.
+ [5
+
+ <./shiftinit.png>] [6
+
+]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 104.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\beta' on input line 104.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 104.
+
+[7
+
+] [8
+
+] (Presentation_575.toc) [9
+
+]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 124.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\alpha' on input line 124.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 124.
+
+<2.png, id=162, 419.5675pt x 272.01625pt>
+File: 2.png Graphic file (type png)
+ <use 2.png>
+Package pdftex.def Info: 2.png used on input line 130.
+(pdftex.def)             Requested size: 308.50323pt x 200.0pt.
+
+Overfull \hbox (1.21336pt too wide) in paragraph at lines 130--130
+ [] 
+ []
+
+[10
+
+ <./2.png>] <485.png, id=169, 416.55624pt x 277.035pt>
+File: 485.png Graphic file (type png)
+ <use 485.png>
+Package pdftex.def Info: 485.png used on input line 139.
+(pdftex.def)             Requested size: 307.28987pt x 204.37706pt.
+
+Overfull \vbox (0.64839pt too high) detected at line 139
+ []
+
+[11
+
+<<alpha2.avi>> <./485.png>]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 141.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\alpha' on input line 141.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 141.
+
+<3b.png, id=187, 419.5675pt x 277.035pt>
+File: 3b.png Graphic file (type png)
+ <use 3b.png>
+Package pdftex.def Info: 3b.png used on input line 147.
+(pdftex.def)             Requested size: 302.90143pt x 200.0pt.
+ [12
+
+ <./3b.png>]
+File: 485.png Graphic file (type png)
+
+<use 485.png>
+Package pdftex.def Info: 485.png used on input line 156.
+(pdftex.def)             Requested size: 307.28987pt x 204.37706pt.
+
+Overfull \vbox (0.64839pt too high) detected at line 156
+ []
+
+[13
+
+<<sineframes.avi>>]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 157.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\alpha' on input line 157.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 157.
+
+File: 485.png Graphic file (type png)
+<use 485.png>
+Package pdftex.def Info: 485.png used on input line 166.
+(pdftex.def)             Requested size: 307.28987pt x 204.37706pt.
+
+Overfull \vbox (0.64839pt too high) detected at line 166
+ []
+
+[14
+
+] <46.png, id=224, 416.55624pt x 277.035pt>
+File: 46.png Graphic file (type png)
+ <use 46.png>
+Package pdftex.def Info: 46.png used on input line 172.
+(pdftex.def)             Requested size: 300.7275pt x 200.0pt.
+ [15
+
+ <./46.png>]
+<lim46.png, id=231, 418.56375pt x 277.035pt>
+File: lim46.png Graphic file (type png)
+ <use lim46.png>
+Package pdftex.def Info: lim46.png used on input line 178.
+(pdftex.def)             Requested size: 302.17677pt x 200.0pt.
+ [16
+
+ <./lim46.png>]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 179.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\alpha' on input line 179.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 179.
+
+[17
+
+<<sines.avi>>]
+File: 485.png Graphic file (type png)
+ <use 485.png>
+Package pdftex.def Info: 485.png used on input line 190.
+(pdftex.def)             Requested size: 300.7275pt x 200.0pt.
+ [18
+
+]
+<lim485.png, id=258, 418.56375pt x 277.035pt>
+File: lim485.png Graphic file (type png)
+ <use lim485.png>
+Package pdftex.def Info: lim485.png used on input line 196.
+(pdftex.def)             Requested size: 302.17677pt x 200.0pt.
+ [19
+
+ <./lim485.png>]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 197.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\alpha' on input line 197.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 197.
+
+File: 485.png Graphic file (type png)
+<use 485.png>
+Package pdftex.def Info: 485.png used on input line 206.
+(pdftex.def)             Requested size: 307.28987pt x 204.37706pt.
+
+Overfull \vbox (0.64839pt too high) detected at line 206
+ []
+
+[20
+
+] <51.png, id=280, 416.55624pt x 277.035pt>
+File: 51.png Graphic file (type png)
+ <use 51.png>
+Package pdftex.def Info: 51.png used on input line 212.
+(pdftex.def)             Requested size: 300.7275pt x 200.0pt.
+ [21
+
+ <./51.png>]
+<lim51.png, id=287, 418.56375pt x 277.035pt>
+File: lim51.png Graphic file (type png)
+ <use lim51.png>
+Package pdftex.def Info: lim51.png used on input line 218.
+(pdftex.def)             Requested size: 302.17677pt x 200.0pt.
+ [22
+
+ <./lim51.png>]
+\tf@nav=\write6
+\tf@toc=\write7
+\tf@snm=\write8
+
+Package movie15 Warning: @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+(movie15)                @@ Package `movie15' is obsolete and @@
+(movie15)                @@ superseded by `media9'.           @@
+(movie15)                @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@.
+
+
+Package movie15 Warning: @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+(movie15)                @@ Rerun to get object references right! @@
+(movie15)                @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@.
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 219.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 219.
+(Presentation_575.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 219.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 219.
+Package rerunfilecheck Info: File `Presentation_575.out' has not changed.
+(rerunfilecheck)             Checksum: EC7BB9A01DCBD8C85497889CAE6DFDA8;778.
+
+
+LaTeX Font Warning: Size substitutions with differences
+(Font)              up to 1.0pt have occurred.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 21218 strings out of 493698
+ 403668 string characters out of 3152098
+ 524169 words of memory out of 3000000
+ 23978 multiletter control sequences out of 15000+200000
+ 16416 words of font info for 60 fonts, out of 3000000 for 9000
+ 1025 hyphenation exceptions out of 8191
+ 56i,11n,59p,801b,428s stack positions out of 5000i,500n,10000p,200000b,50000s
+<G:/MiTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><G:/MiTeX/fonts/type1/pub
+lic/amsfonts/cm/cmmi10.pfb><G:/MiTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb>
+<G:/MiTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><G:/MiTeX/fonts/type1/public
+/amsfonts/cm/cmmi8.pfb><G:/MiTeX/fonts/type1/public/amsfonts/cm/cmss10.pfb><G:/
+MiTeX/fonts/type1/public/amsfonts/cm/cmss12.pfb><G:/MiTeX/fonts/type1/public/am
+sfonts/cm/cmss8.pfb><G:/MiTeX/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><G:/M
+iTeX/fonts/type1/public/amsfonts/cm/cmssi10.pfb><G:/MiTeX/fonts/type1/public/am
+sfonts/cm/cmssi12.pfb><G:/MiTeX/fonts/type1/public/amsfonts/cm/cmssi8.pfb><G:/M
+iTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><G:/MiTeX/fonts/type1/public/ams
+fonts/cm/cmsy6.pfb><G:/MiTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><G:/MiTeX
+/fonts/type1/public/amsfonts/symbols/msam10.pfb>
+Output written on Presentation_575.pdf (22 pages, 4992902 bytes).
+PDF statistics:
+ 360 PDF objects out of 1000 (max. 8388607)
+ 63 named destinations out of 1000 (max. 500000)
+ 353 words of extra memory for PDF output out of 10000 (max. 10000000)
+

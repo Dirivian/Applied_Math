@@ -99,37 +99,48 @@
 
 \begin{document}
 
-\begin{figure}[h!] 
-	\centering
-	\includegraphics[width=8cm]{gompertz.png}
-		\caption{Gompertz curves}
-\end{figure}
+
 
 \begin{figure}[h!] 
 	\centering
-	\includegraphics[width=8cm]{logistic.png}
-	\caption{Logistic curves for K= 10}
+	\includegraphics[width=8cm]{refuge}
+	\caption{The phase portrait}
 \end{figure}
 
 \begin{lstlisting}[style=myPythonstyle]
-from pylab import *
+import matplotlib.pyplot as plt
+import numpy as np
 
-x = linspace(0,20, 20)
-t= linspace(0,100,10000)
+# initialize lists containing values
+x = []
+y = []
 
-def plot_sys(v,x,t):
-	for w in x:
-		plot(t,v(w,t))
-		xlabel('Time')
-		ylabel('Population Growth')
 
-def logistic(x,t, k=10,r=0.06):
-	return k/(1+((k/x) -1)*exp(-r*t))
+def Refuge(X, r=1,c=1,b=1,m=1,s=1):
+	# here X[0] = x and x[1] = y    
+	return np.array([ r*X[0] - c*(X[0]-s)*X[1] , b*(X[0]-s)*X[1] -m*X[1] ])
 
-def gompertz(x,t,r=1,a=1):
-	return x*exp((r/a)-(r/a)*exp(-a*t))
+#plot
+fig2 = plt.figure(figsize=(8,6))
+ax4 = fig2.add_subplot(1,1,1)
 
-plot_sys(logistic,x,t) 
+ax4.set_title("Quiverplot")
+ax4.legend(loc='best')
+
+# quiverplot
+# define a grid and compute direction at each point
+x = np.linspace(0, 5, 20)
+y = np.linspace(0, 5, 20)
+
+X1 , Y1  = np.meshgrid(x, y)                    # create a grid
+DX1, DY1 = Refuge([X1, Y1])                        # compute growth rate on the grid
+M = (np.hypot(DX1, DY1))                        # norm growth rate 
+M[ M == 0] = 1.                                 # avoid zero division errors 
+DX1 /= M                                        # normalize each arrows
+DY1 /= M
+
+ax4.quiver(X1, Y1, DX1, DY1, M, pivot='mid')
+ax4.grid()
 \end{lstlisting}
 
 \end{document}

@@ -1,0 +1,178 @@
+\documentclass[a4paper,12 pt]{article}
+
+\usepackage{fullpage} % Package to use full page
+\usepackage{parskip} % Package to tweak paragraph skipping
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{amsmath,amsfonts,amsthm} % Math packages
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{float}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{brown}{rgb}{0.59, 0.29, 0.0}
+\definecolor{beaublue}{rgb}{0.74, 0.83, 0.9}
+\definecolor{orange}{rgb}{1.0, 0.5, 0.0}
+\definecolor{darkslategray}{rgb}{0.18, 0.31, 0.31}
+\def\Xint#1{\mathchoice
+	{\XXint\displaystyle\textstyle{#1}}%
+	{\XXint\textstyle\scriptstyle{#1}}%
+	{\XXint\scriptstyle\scriptscriptstyle{#1}}%
+	{\XXint\scriptscriptstyle\scriptscriptstyle{#1}}%
+	\!\int}
+\def\XXint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$}
+		\vcenter{\hbox{$#2#3$}}\kern-.5\wd0}}
+\def\dashint{\Xint-}
+
+% Swap the definition of \abs* and \norm*, so that \abs
+% and \norm resizes the size of the brackets, and the 
+% starred version does not.
+\makeatletter
+\let\oldabs\abs
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}
+%
+\let\oldnorm\norm
+\def\norm{\@ifstar{\oldnorm}{\oldnorm*}}
+\makeatother
+\lstdefinestyle{mystyle}{
+	backgroundcolor=\color{white},   
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{blue},
+	identifierstyle=\color{brown},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{orange},
+	basicstyle=\footnotesize,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,                 
+	numbers=left,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2
+}
+\lstset{style=mystyle}
+
+\title{AMATH 569: Problem Set 4}
+\author{Jithin D. George, No. 1622555}
+%\date{23/11/16}
+% matrix environment
+\newenvironment{mat}{\left[ \begin{array}{ccccccccccccc}}{\end{array}\right]}
+\newcommand\bcm{\begin{mat}}
+	\newcommand\ecm{\end{mat}}
+
+\begin{document}
+
+\maketitle
+\begin{enumerate}
+	\item
+ 
+ \begin{enumerate}
+	
+	\item 
+	We assume  u is of the form $A e^{ikx-iwt}$
+	\[u_t=-u_{xxxx}\]
+	\[-iw = - (ik)^4\]
+	\[w= -ik^4\]
+	\[\int_{-\infty}^{\infty}|u(x)|^2 dx= \frac{1}{2\pi}\int_{-\infty}^{\infty}|\hat{u(k)}|^2 dk\]
+	\[= \frac{1}{2\pi}\int_{-\infty}^{\infty}|A(k)|^2|e^{2(ikx-k^4t)}| dk\]
+	\[= \frac{1}{2\pi}\int_{-\infty}^{\infty}|A(k)|^2e^{-2k^4t} dk\]
+	This decays to zero for all k as time goes to infinity. So, the pde is well-posed.
+	\item
+	We assume  u is of the form $A e^{ikx-iwt}$
+	\[u_t=iu_{x}\]
+	\[-iw = i(ik)\]
+	\[w= -ik\]
+	\[\int_{-\infty}^{\infty}|u(x)|^2 dx= \frac{1}{2\pi}\int_{-\infty}^{\infty}|\hat{u(k)}|^2 dk\]
+	\[= \frac{1}{2\pi}\int_{-\infty}^{\infty}|A(k)|^2|e^{2(ikx-kt)}| dk\]
+	\[= \frac{1}{2\pi}\int_{-\infty}^{\infty}|A(k)|^2 e^{-2kt}dk\]
+	This blows up for negative k as time goes to infinity. So, the pde is ill-posed.
+	\item
+	We assume  u is of the form $A e^{ik_xx+ik_yy-iwt}$
+	\[u_t=u_{xx}-u_{yy}\]
+	\[-iw = -k_x^2+k_y^2\]
+	\[w= -ik_x^2+ik_y^2\]
+	\[\int_{-\infty}^{\infty}|u(x)|^2 dx= \frac{1}{2\pi}\int_{-\infty}^{\infty}|\hat{u(k)}|^2 dk\]
+	\[= \frac{1}{2\pi}\int_{-\infty}^{\infty}|A(k)|^2|e^{2(ik_xx+ik_yy-iwt)}| dk\]
+	\[= \frac{1}{2\pi}\int_{-\infty}^{\infty}|A(k)|^2|e^{2(ik_xx+ik_yy-(k_x^2-k_y^2)t)}| dk\]
+	\[= \frac{1}{2\pi}\int_{-\infty}^{\infty}|A(k)|^2e^{-2(k_x^2-k_y^2)t} dk\]
+
+	When $k_x^2< k_y^2$, this blows up as time goes to infinity and the pde is ill-posed.
+	\item
+	We assume  u is of the form $A e^{ik_xx+ik_yy-iwt}$
+	\[u_t=u_{xx}-u_{y}\]
+	\[-iw = -k_x^2+ik_y\]
+	\[w= -ik_x^2-k_y\]
+	\[\int_{-\infty}^{\infty}|u(x)|^2 dx= \frac{1}{2\pi}\int_{-\infty}^{\infty}|\hat{u(k)}|^2 dk\]
+	\[= \frac{1}{2\pi}\int_{-\infty}^{\infty}|A(k)|^2|e^{2(ik_xx+ik_yy-ik_yt-k_x^2t)}| dk\]
+	\[= \frac{1}{2\pi}\int_{-\infty}^{\infty}|A(k)|^2e^{-2k_x^2t} dk\]
+	This decays to zero for all k as time goes to infinity. So, the pde is well-posed.
+	
+	\end{enumerate}
+	\item
+	\[u_t =L(u)\]
+	L is of the form $\sum_{p=0}^{n}c_n\partial_{x_p}$
+	\[u_t =\sum_{p=0}^{n}c_p\partial_{x_p}u\]
+	\[u(x,0)=f(x)\]
+	We assume  u is of the form $A e^{ikx-iwt}$. We get the following dispersion relationship.
+	\[-iw= \sum_{p=0}^{n} c_p i^pk^p\]
+
+	\[u(x,t)= \frac{1}{2\pi}\int_{-\infty}^{\infty}A(k) e^{ikx+\sum_{p=0}^{n} c_p i^pk^p t} dk\]
+	At t=0,
+	\[\frac{1}{2\pi}\int_{-\infty}^{\infty}A(k) e^{ikx}dk= f(x) \]
+	\[A(k)= \int_{-\infty}^{\infty} e^{-iky} f(y)dy \]
+	
+	\[u(x,t)= \frac{1}{2\pi}\int_{-\infty}^{\infty}A(k) e^{ikx+\sum_{p=0}^{n} c_p i^pk^pt} dk\]
+	\[= \frac{1}{2\pi}\int_{-\infty}^{\infty} e^{ikx+\sum_{p=0}^{n} c_p i^pk^pt} \int_{-\infty}^{\infty} e^{-iky} f(y)dy dk\]
+	\[= \frac{1}{2\pi}\int_{-\infty}^{\infty} e^{ikx+\sum_{p=0}^{n} c_p i^pk^pt} \int_{-\infty}^{\infty} e^{-iky} f(y)dy dk\]
+	\[= \int_{-\infty}^{\infty} \frac{1}{2\pi} \int_{-\infty}^{\infty} e^{ikx-iky+\sum_{p=0}^{n} c_p i^pk^pt}dk f(y)dy \]
+	The Green's function is given by
+	\[G(x,y,t)=\frac{1}{2\pi} \int_{-\infty}^{\infty} e^{ikx-iky+\sum_{p=0}^{n} c_p i^pk^pt}dk \]
+	\[G(x,y,t)=\frac{1}{2\pi} \int_{-\infty}^{\infty} e^{\sum_{p=0}^{n} c_p i^pk^pt}cos(k(x-y))dk \]
+	\item We solve the homogeneous case first.
+	\[ u_{t} = \sigma u_{xx}\]
+
+ We assume the solution is of the form 
+ \[u = T(t)X(x)\]
+ Plugging this in, we get
+ \[T'X =\sigma TX'' \]
+ \[\frac{T''}{\sigma T}=\frac{X''}{X}=-\lambda^2\]
+ \[ X''+\lambda^2X =0\]
+
+\[ X= a sin(\lambda X)+ b cos(\lambda X)\]
+\[X(0)=0 \text{ and }X'(L)=0\]
+So, b=0 and the typical solution is of the form
+\[\lambda_n = \frac{(2n-1)\pi}{2L}\]
+\[x_n=sin(\lambda_n x)\]
+
+
+\[T' = -\sigma \lambda_n^2 T\]
+\[T_n= a_n e^{-\sigma \lambda_n^2t}\]
+\[u(x,t)=\sum_{n=1}^{\infty}a_n e^{-\sigma \lambda_n^2t}sin(\lambda_n x)\]
+\[u(x,0)=\sum_{n=1}^{\infty}a_nsin(\lambda_n x)=0\]
+So, all $a_n$ are zeros. So, we have a trivial solution.
+However, the non-homogeneous case will have a particular solution arising from the forcing term. Let us assume it is of the following form.
+\[u_p(x,t)=\sum_{n=1}^{\infty} d_n(t) sin(\lambda_n x)\]
+We assume F has a fourier representation.
+\[F= \sum_{n=1}^{\infty} F_n(t) sin(\lambda_n x)\]
+Here, $\lambda_n$ is the same as before and the cosine terms dissappear to be in tune with the boundary conditions. Furthermore, \[F_n(0)=0\]
+Plugging these together, we have
+\[\sum_{n=1}^{\infty} d'_n(t) sin(\lambda_n x)= -\sigma \lambda^2\sum_{n=1}^{\infty} d_n(t) sin(\lambda_n x)+ \sum_{n=1}^{\infty} F_n(t) sin(\lambda_n x)\]
+\[d_n'+\sigma \lambda^2d_n = F_n\]
+\[(e^{\sigma \lambda_n^2 t}d_n)'= e^{\sigma \lambda_n^2 t}F_n(t) \]
+\[e^{\sigma \lambda_n^2 t}d_n= \int_{0}^{t} e^{\sigma \lambda_n^2 \tau}F_n(\tau)d\tau \]
+\[d_n=e^{-\sigma \lambda_n^2 t} \int_{0}^{t} e^{\sigma \lambda_n^2 \tau}F_n(\tau)d\tau \]
+\[d_n= \int_{0}^{t}e^{-\sigma \lambda^2(t-\tau)}F_n(\tau)d\tau\]
+And the solution becomes
+\[u(x,t)=\sum_{n=1}^{\infty}  sin(\lambda_n x)\int_{0}^{t}e^{-\sigma \lambda^2(t-\tau)}F_n(\tau) d\tau\]
+We do a verification by seeing that the boundary conditions are satisfied with this particular solution.
+
+	\end{enumerate} 
+	
+
+\end{document}
