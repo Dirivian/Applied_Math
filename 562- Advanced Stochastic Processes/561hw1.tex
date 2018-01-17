@@ -1,0 +1,189 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage{fullpage} % Package to use full page
+\usepackage{parskip} % Package to tweak paragraph skipping
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{amsmath,amsfonts,amsthm} % Math packages
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{color}
+\usepackage{float}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{brown}{rgb}{0.59, 0.29, 0.0}
+\definecolor{beaublue}{rgb}{0.74, 0.83, 0.9}
+\definecolor{orange}{rgb}{1.0, 0.5, 0.0}
+\definecolor{darkslategray}{rgb}{0.18, 0.31, 0.31}
+\def\Xint#1{\mathchoice
+	{\XXint\displaystyle\textstyle{#1}}%
+	{\XXint\textstyle\scriptstyle{#1}}%
+	{\XXint\scriptstyle\scriptscriptstyle{#1}}%
+	{\XXint\scriptscriptstyle\scriptscriptstyle{#1}}%
+	\!\int}
+\def\XXint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$}
+		\vcenter{\hbox{$#2#3$}}\kern-.5\wd0}}
+\def\dashint{\Xint-}
+
+% Swap the definition of \abs* and \norm*, so that \abs
+% and \norm resizes the size of the brackets, and the 
+% starred version does not.
+\makeatletter
+\let\oldabs\abs
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}
+%
+\let\oldnorm\norm
+\def\norm{\@ifstar{\oldnorm}{\oldnorm*}}
+\makeatother
+\definecolor{keywords}{RGB}{255,0,90}
+\definecolor{comments}{RGB}{0,0,113}
+\definecolor{red}{RGB}{160,0,0}
+\definecolor{green}{RGB}{0,150,0}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{brown}{rgb}{0.59, 0.29, 0.0}
+\definecolor{beaublue}{rgb}{0.74, 0.83, 0.9}
+\definecolor{orange}{rgb}{1.0, 0.5, 0.0}
+\definecolor{darkslategray}{rgb}{0.18, 0.31, 0.31}
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepgreen}{rgb}{0,0.5,0}
+\lstdefinestyle{myMatlabstyle}{
+	language=Matlab,
+	backgroundcolor=\color{white},   
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{blue},
+	identifierstyle=\color{brown},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{orange},
+	basicstyle=\footnotesize,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,                 
+	numbers=left,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2
+}
+\lstdefinestyle{myPythonstyle}{
+	language=Python, 
+	basicstyle=\ttfamily\small, 
+	keywordstyle=\color{blue},
+	commentstyle=\color{green},
+	stringstyle=\color{red},
+	showstringspaces=false,
+	identifierstyle=\color{black},
+}
+\lstset{language=Matlab,frame=single}
+\lstset{language=Python,frame=single}
+
+\title{AMATH 562: Homework 1}
+\author{Jithin D. George, No. 1622555}
+%\date{23/11/16}
+% matrix environment
+\newenvironment{mat}{\left[ \begin{array}{ccccccccccccc}}{\end{array}\right]}
+\newcommand\bcm{\begin{mat}}
+	\newcommand\ecm{\end{mat}}
+
+\begin{document}
+
+\maketitle
+\begin{enumerate}
+
+\item {\bf 6.2}
+
+Let us define
+\[A := \{s\in S : \lim_{n \to \infty} |X_n(s)-X(s)|=0\}\]
+\[A := \{s\in S : \lim_{n \to \infty} |X_n(s)-s|=0\}\]
+For all s $\in (0,1)$,
+\[\lim_{n \to \infty} X_n(s) = s\]
+Even 
+\[\lim_{n \to \infty} X_n(1) = 1\]
+But,
+\[\lim_{n \to \infty} X_n(0) = 0\]
+Thus,
+\[A = S-\{0\}\]
+Since the probability distribution is uniform and so, the probability at any particular point is zero,
+\[P(A)=1\]
+Thus, the sequence $X_n$ converges almost surely to X under this probability measure.
+
+\item
+{\bf 6.3} 
+
+We know there exists A and B such that
+\[A := \{s\in S : \lim_{n \to \infty} |X_n(s)-X(s)|=0\}\]
+\[B := \{s\in S : \lim_{n \to \infty} |Y_n(s)-Y(s)|=0\}\]
+and P(A)=P(B)=1
+\[\lim_{n \to \infty} |X_n(s)-X(s)+ Y_n(s)-Y(s)|\leq\lim_{n \to \infty} |X_n(s)-X(s)|+|Y_n(s)-Y(s)| \]
+So,
+\[C := \{s\in S : \lim_{n \to \infty} |X_n(s)+Y_n(s)-X(s)-Y(s)|=0\} \supseteq A \cap B\]
+\[P(C) \geq P(A\cap B) = P(A)+P(B)-P(A\cup B)=1\]
+Thus, the sequence $X_n + Y_n$ converges almost surely to X+Y under this probability measure.
+\item
+{\bf 6.6}
+\begin{enumerate}
+\item
+For convergence in probability to 0, we need
+\[\lim_{n \to \infty} P(|X_n|>\epsilon)=0\]
+\[\lim_{n \to \infty} P(|X_n|>\epsilon)=\lim_{n \to \infty} P(|X_n|=1)=\lim_{n \to \infty} p_n\]
+
+Thus by definition, for this problem, convergence in probability occurs if and only if $p_n$ go to zero.
+\item
+Since this converges in probability, we can get almost sure convergence by Theorem 6.6.2, if 
+\[\sum_{n}^{\infty} P(|X_n|>\epsilon) <\infty\]
+
+\[\sum_{n}^{\infty}  P(|X_n|>\epsilon)= \sum_{n}^{\infty}  P(|X_n|=1)=\sum_{n}^{\infty}  p_n  <\infty\]
+
+Now, we have to show if $X_n$ converges to 0 almost surely, then $\sum_{n}^{\infty}  p_n  <\infty$.
+
+We try to prove the contra-positive.
+If $\sum_{n}^{\infty}  p_n  = \infty$, then $X_n$ does not converge to 0.
+Since the events are independent, by Borel Cantelli,
+\[P(|X_n|>\epsilon,i.o)=1\]
+So,
+\[P(\limsup_{n \to \infty}|X_n|>\epsilon)=0\]
+which is the same as 
+\[P(\liminf_{n \to \infty}|X_n|<\epsilon)=1\]
+
+which is the definition of almost sure convergence (From Wikipedia).
+\end{enumerate}
+\item {\bf 6.7}
+
+For $\limsup_{n \to \infty} \frac{log X_n}{log n}= C$, we need
+\[P\bigg(\frac{log X_n}{log n} <C +\epsilon, a.b.f.m \bigg)=1\]
+\[P\bigg(\frac{log X_n}{log n} <C -\epsilon, i.o \bigg)=1\]
+Let $Y_n = \frac{log X_n}{log n}$
+\[P(Y_n> y)= P(\frac{log X_n}{log n}>y)= P(X_n>n^y)=\frac{1}{n^{5y}}\]
+If y$>\frac{1}{5}$
+\[\sum_{n}^{\infty}P(Y_n> y)<\infty\]
+Thus, by Borel-Cantelli, for y$>\frac{1}{5}$,
+\[P(Y_n> y, i.o)=0\]
+So,
+\[P(Y_n \leq y, a.b.f.m)=1\]
+\begin{equation}
+P(Y_n < \frac{1}{5} + \epsilon, a.b.f.m)=1
+\end{equation}
+If y$\leq\frac{1}{5}$
+\[\sum_{n}^{\infty}P(Y_n\leq y)=\infty\]
+Thus, by Borel-Cantelli, for y$\leq\frac{1}{5}$,
+\[P(Y_n> y, i.o)=1\]
+
+\begin{equation}
+P(Y_n > \frac{1}{5} - \epsilon, i.o)=1
+\end{equation}
+
+From [1] and [2], we can say
+\[\limsup_{n \to \infty} \frac{log X_n}{log n}= C=\frac{1}{5}\]
+
+
+\end{enumerate}  
+\end{document}

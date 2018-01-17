@@ -1,0 +1,225 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage{fullpage} % Package to use full page
+\usepackage{parskip} % Package to tweak paragraph skipping
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{amsmath,amsfonts,amsthm} % Math packages
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{color}
+\usepackage{float}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{brown}{rgb}{0.59, 0.29, 0.0}
+\definecolor{beaublue}{rgb}{0.74, 0.83, 0.9}
+\definecolor{orange}{rgb}{1.0, 0.5, 0.0}
+\definecolor{darkslategray}{rgb}{0.18, 0.31, 0.31}
+\def\Xint#1{\mathchoice
+	{\XXint\displaystyle\textstyle{#1}}%
+	{\XXint\textstyle\scriptstyle{#1}}%
+	{\XXint\scriptstyle\scriptscriptstyle{#1}}%
+	{\XXint\scriptscriptstyle\scriptscriptstyle{#1}}%
+	\!\int}
+\def\XXint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$}
+		\vcenter{\hbox{$#2#3$}}\kern-.5\wd0}}
+\def\dashint{\Xint-}
+
+% Swap the definition of \abs* and \norm*, so that \abs
+% and \norm resizes the size of the brackets, and the 
+% starred version does not.
+\makeatletter
+\let\oldabs\abs
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}
+%
+\let\oldnorm\norm
+\def\norm{\@ifstar{\oldnorm}{\oldnorm*}}
+\makeatother
+\definecolor{keywords}{RGB}{255,0,90}
+\definecolor{comments}{RGB}{0,0,113}
+\definecolor{red}{RGB}{160,0,0}
+\definecolor{green}{RGB}{0,150,0}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{brown}{rgb}{0.59, 0.29, 0.0}
+\definecolor{beaublue}{rgb}{0.74, 0.83, 0.9}
+\definecolor{orange}{rgb}{1.0, 0.5, 0.0}
+\definecolor{darkslategray}{rgb}{0.18, 0.31, 0.31}
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepgreen}{rgb}{0,0.5,0}
+\lstdefinestyle{myMatlabstyle}{
+	language=Matlab,
+	backgroundcolor=\color{white},   
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{blue},
+	identifierstyle=\color{brown},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{orange},
+	basicstyle=\footnotesize,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,                 
+	numbers=left,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2
+}
+\lstdefinestyle{myPythonstyle}{
+	language=Python, 
+	basicstyle=\ttfamily\small, 
+	keywordstyle=\color{blue},
+	commentstyle=\color{green},
+	stringstyle=\color{red},
+	showstringspaces=false,
+	identifierstyle=\color{black},
+}
+\lstset{language=Matlab,frame=single}
+\lstset{language=Python,frame=single}
+
+\title{AMATH 561: Homework 3}
+\author{Jithin D. George, No. 1622555}
+%\date{23/11/16}
+% matrix environment
+\newenvironment{mat}{\left[ \begin{array}{ccccccccccccc}}{\end{array}\right]}
+\newcommand\bcm{\begin{mat}}
+	\newcommand\ecm{\end{mat}}
+
+\begin{document}
+
+\maketitle
+\begin{enumerate}
+
+
+	\item
+	We need the probability at each value of X to create the generating function. 
+But the probability of the binomial distribution itself is a random variable with a uniform distribution over (0,1). 
+Since it is a uniform distribution over (0,1), it has a probability of 1. 	
+\[P(X=k)=\int_{0}^{1} P(X=K,U=r)P_U(r)dr\]
+\[=\int_{0}^{1} \binom{n}{k} r^k (1-r)^{n-k}1dr\]
+\[=\int_{0}^{1} \binom{n}{k} r^k (1-r)^{n-k}dr\]
+The generating function is given by
+\[G(s)= \sum_k s^kP(X=k)\]
+\[= \sum_k s^k\int_{0}^{1} \binom{n}{k} r^k (1-r)^{n-k}dr\]
+Assuming uniform convergrence (because these are probability distributions)
+\[= \int_{0}^{1} \sum_k  \binom{n}{k} (sr)^k (1-r)^{n-k}dr\]
+\[= \int_{0}^{1} (sr+1-r)^{n}dr\]
+\[= \frac{ s^{n+1} -1}{(n+1)(s-1)}\]
+Luckily, this is the sum of a finite geometric series.
+\[G(s) = \frac{1}{n+1}(1+s+s^2+\ldots +s^n)\]
+Thus, P(X=k) for any value of k is $\frac{1}{n+1}$
+\item
+\[\mathbb{E}[Z_n Z_m]=\mathbb{E}[\mathbb{E}[Z_n Z_m|Z_m]]\]
+\[=\mathbb{E}[Z_m\mathbb{E}[Z_n|Z_m]]\]
+We want to know what $\mathbb{E}[Z_n|Z_m]$ is
+\[\mathbb{E}[Z_n|Z_m]=G_{Z_n|Z_m}'(1)\]
+\[=G_{Z_{n-1}|Z_m}'(1)G'(1)\]
+\[=G_{Z_{n-1}|Z_m}'(1)\mu\]
+\[=G_{Z_{m}|Z_m}'(1)\mu^{n-m}\]
+\[=\mathbb{E}{Z_{m}|Z_m}\mu^{n-m}\]
+\[=Z_{m}\mu^{n-m}\]
+Thus,
+\[\mathbb{E}[Z_n Z_m]=\mathbb{E}[Z_mZ_{m}\mu^{n-m}\]
+\[= \mu^{n-m}\mathbb{E}{Z_m}^2\]
+
+\[\rho(Z_m,Z_n)= \frac{CoV(Z_m,Z_n)}{\sqrt{Var(Z_m) Var(Z_n)}}\]
+\[= \frac{\mathbb{E}{Z_mZ_n}-\mathbb{E}{Z_m}\mathbb{E}{Z_n}}{\sqrt{Var(Z_m) Var(Z_n)}}\]
+
+\[= \frac{\mu^{n-m}\mathbb{E}{Z_m}^2-\mu^{n+m}}{\sqrt{Var(Z_m) Var(Z_n)}}\]
+\[= \frac{\mu^{n-m}\mathbb{E}{Z_m}^2-\mu^{n-m}\mu^{2m}}{\sqrt{Var(Z_m) Var(Z_n)}}\]
+\[= \frac{\mu^{n-m}\mathbb{E}{Z_m}^2-\mu^{n-m}(\mathbb{E}{Z_m})^2}{\sqrt{Var(Z_m) Var(Z_n)}}\]
+\[= \mu^{n-m} \frac{\sqrt{Var(Z_m)}}{ \sqrt{Var(Z_n)}}\]
+
+If $\mu = 1, Var(Z_k)=kVar(Z_1) $. Then,
+\[\rho(Z_m,Z_n)=\mu^{n-m} \sqrt{\frac{m}{n}} \]
+Otherwise, 
+\[Var(Z_k)= Var(Z_1) \frac{(\mu^k-1)\mu^{k-1}}{\mu-1}\]
+Then,
+\[\rho(Z_m,Z_n)=\mu^{n-m} \sqrt{\frac{(\mu^m-1)\mu^{m-1}}{(\mu^n-1)\mu^{n-1}}} \]
+\[\rho(Z_m,Z_n)=\mu^{\frac{n-m}{2}} \sqrt{\frac{\mu^m-1}{\mu^n-1}} \]
+
+\item
+	Not required
+	\item
+\[G_{Z_{n+1}}(s)= \mathbb{E}[s^{Z_{n+1}}]\]
+\[ = \mathbb{E}[s^{\sum_{i=1}^{Z_n} X_{n,i}+Y_n}]\]
+\[ = \mathbb{E}[s^{\sum_{i=1}^{Z_n} X_{n,i}}s^{Y_n}]\]
+Since the Xs and Ys are independent,
+\[ = \mathbb{E}[s^{\sum_{i=1}^{Z_n} X_{n,i}}]\mathbb{E}[s^{Y_n}]\]
+\[ = \mathbb{E}[s^{\sum_{i=1}^{Z_n} X_{n,i}}]G_Y(s)\]
+By definition, from Theorem 3.1.9, this is
+\[ = G_{Z_n}(G_X(s))G_Y(s)\]
+\[G_{Z_{n+1}}(s) = G_{Z_n}(G_X(s))G_Y(s)\]
+\[G_{Z_{1}}(s) = G_{Z_0}(G_X(s))G_Y(s)\]
+\[ = \mathbb{E}[s^{\sum_{i=1}^{1} X_{n,i}}]G_Y(s)\]
+\[ = G_X(s)G_Y(s)\]
+\[G_{Z_{2}}(s)= G_{Z_1}(G_X(s))G_Y(s)\]
+\[= G_X(G_X(s))G_Y(G_X(s))G_Y(s)\]
+\[= (G_X(s))^2G_Y(G_X(s))G_Y(s)\]
+\item
+\[\phi_{X^2}(t)=\mathbb{E}e^{itX^2}\]
+\[=\int_{-\infty}^{\infty}\frac{1}{\sqrt{2\pi \sigma^2}}e^{itx^2}e^{-\frac{(x-\mu)^2}{2\sigma^2}}\]
+\[=\int_{-\infty}^{\infty}\frac{1}{\sqrt{2\pi \sigma^2}}e^{itx^2-\frac{(x-\mu)^2}{2\sigma^2}}\]
+\[=\int_{-\infty}^{\infty}\frac{1}{\sqrt{2\pi \sigma^2}}e^{-\frac{(1-2\sigma^2it)x^2-2\mu x+\mu^2}{2\sigma^2}}\]
+\[=\int_{-\infty}^{\infty}\frac{1}{\sqrt{2\pi \sigma^2}}e^{-\frac{(1-2\sigma^2it)}{2\sigma^2}(x^2-\frac{2\mu x}{1-2\sigma^2it}+\frac{\mu^2}{1-2\sigma^2it})}\]
+\[=\int_{-\infty}^{\infty}\frac{1}{\sqrt{2\pi \sigma^2}}e^{-\frac{(1-2\sigma^2it)}{2\sigma^2}((x-\frac{\mu }{1-2\sigma^2it})^2-\frac{\mu^2}{(1-2\sigma^2it)^2}+\frac{\mu^2}{1-2\sigma^2it})}\]
+\[=e^{\frac{- it}{(1-2\sigma^2it)}}\int_{-\infty}^{\infty}\frac{1}{\sqrt{2\pi \sigma^2}}e^{-\frac{(1-2\sigma^2it)}{2\sigma^2}(x-\frac{2\mu }{1-it})^2}\]
+\[=e^{\frac{-it}{(1-2\sigma^2it)}}\frac{1}{\sqrt{1-2\sigma^2it}}\]
+\[\phi_{X^2}(t)=\frac{1}{\sqrt{1-2\sigma^2it}} e^{\frac{-it}{(1-2\sigma^2it)}}\]
+In this case, we assume it is possible to analytically continue the complex function.
+\item
+\begin{enumerate}
+ \item 
+
+
+\[F_{X_n}(x)=(x-\frac{sin(2n\pi x)}{2 n \pi})\mathbb{I}_{0 \leq x\leq1}+ \mathbb{I}_{x>1}\]
+This is 0 when x $\leq$ 0 and 1 when $x>0$. Also, when x is in between 0 and 1, this is a strictly increasing function.
+Thus, this is a distribution function.
+
+It is smooth between 0 and 1. So, we can differentiate it
+ \begin{align*}
+  f(x)= \begin{cases}
+       1 - cos(2n\pi x) & \text{if $0 \leq x \leq 1$}\\
+      \\ 0 & \text{otherwise}
+    \end{cases}
+\end{align*}
+\item
+\[\lim_{n\to\infty} F(x)=x\]
+This is the uniform distribution function.
+\[\lim_{n\to\infty} f(x)= 1-\lim_{n\to\infty}cos(2n\pi x)\]
+This limit doesn't exist. It implies that in that limit, the cos term is wildly oscillating and is not the constant 
+uniform density function.
+\end{enumerate}
+\item 
+
+When k = 1, this process is a geomtric distribution where you get tails N-1 times and then heads.
+When k = 2, this is like one geometric distribution after another one and thus getting two heads. These two geometric distributions 
+are independent of each other.
+
+Thus, for any k, the process is a sequence of k geometric distribution.
+So, the generating function is $G_{Geo}(s)^k$, where $G_{Geo}(s)$ is the generating function of the geometric distribution.
+Since the characteristic function is a generating function too, we can say the characteristic function of this process is
+\[\phi_N(t)= (\phi_{geo}(t))^k\]
+\[= (e^{it}p+e^{2it}qp+e^{3it}q^{2}p+ \ldots )^k\]
+\[= (\frac{e^{it}p}{1-e^{it}(1-p)})^k\]
+\[\phi_{2Np}(t)= \bigg(\frac{e^{2itp}p}{1-e^{itp}(1-p)}\bigg)^k\]
+\[\lim_{p\to 0}\phi_{2Np}(t)= \bigg(\frac{1}{1-it}\bigg)^k\]
+Characteristic function for a gamma distribution is given by
+\[\phi(t) =\int_0^\infty \frac{1}{\Gamma(s)} \lambda^s x^{s-1} e^{-\lambda x +itx} dx \]
+Using a result from complex analysis, we know
+\[ =\bigg(\frac{\lambda}{\lambda-it}\bigg)^s\]
+
+For $\lambda=1$ and s=k, these characteristic function converges to that of a gamma distribution as p goes to zero.
+
+Thus, by the corollary of the Continuity Theorem, the distribution function for the process converges to a Gamma distribution.
+\end{enumerate} 
+\end{document}

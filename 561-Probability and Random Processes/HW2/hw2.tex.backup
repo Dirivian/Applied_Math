@@ -1,0 +1,189 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage{fullpage} % Package to use full page
+\usepackage{parskip} % Package to tweak paragraph skipping
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{amsmath,amsfonts,amsthm} % Math packages
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{color}
+\usepackage{float}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{brown}{rgb}{0.59, 0.29, 0.0}
+\definecolor{beaublue}{rgb}{0.74, 0.83, 0.9}
+\definecolor{orange}{rgb}{1.0, 0.5, 0.0}
+\definecolor{darkslategray}{rgb}{0.18, 0.31, 0.31}
+\def\Xint#1{\mathchoice
+	{\XXint\displaystyle\textstyle{#1}}%
+	{\XXint\textstyle\scriptstyle{#1}}%
+	{\XXint\scriptstyle\scriptscriptstyle{#1}}%
+	{\XXint\scriptscriptstyle\scriptscriptstyle{#1}}%
+	\!\int}
+\def\XXint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$}
+		\vcenter{\hbox{$#2#3$}}\kern-.5\wd0}}
+\def\dashint{\Xint-}
+
+% Swap the definition of \abs* and \norm*, so that \abs
+% and \norm resizes the size of the brackets, and the 
+% starred version does not.
+\makeatletter
+\let\oldabs\abs
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}
+%
+\let\oldnorm\norm
+\def\norm{\@ifstar{\oldnorm}{\oldnorm*}}
+\makeatother
+\definecolor{keywords}{RGB}{255,0,90}
+\definecolor{comments}{RGB}{0,0,113}
+\definecolor{red}{RGB}{160,0,0}
+\definecolor{green}{RGB}{0,150,0}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{brown}{rgb}{0.59, 0.29, 0.0}
+\definecolor{beaublue}{rgb}{0.74, 0.83, 0.9}
+\definecolor{orange}{rgb}{1.0, 0.5, 0.0}
+\definecolor{darkslategray}{rgb}{0.18, 0.31, 0.31}
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepgreen}{rgb}{0,0.5,0}
+\lstdefinestyle{myMatlabstyle}{
+	language=Matlab,
+	backgroundcolor=\color{white},   
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{blue},
+	identifierstyle=\color{brown},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{orange},
+	basicstyle=\footnotesize,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,                 
+	numbers=left,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2
+}
+\lstdefinestyle{myPythonstyle}{
+	language=Python, 
+	basicstyle=\ttfamily\small, 
+	keywordstyle=\color{blue},
+	commentstyle=\color{green},
+	stringstyle=\color{red},
+	showstringspaces=false,
+	identifierstyle=\color{black},
+}
+\lstset{language=Matlab,frame=single}
+\lstset{language=Python,frame=single}
+
+\title{AMATH 561: Homework 2}
+\author{Jithin D. George, No. 1622555}
+%\date{23/11/16}
+% matrix environment
+\newenvironment{mat}{\left[ \begin{array}{ccccccccccccc}}{\end{array}\right]}
+\newcommand\bcm{\begin{mat}}
+	\newcommand\ecm{\end{mat}}
+
+\begin{document}
+
+\maketitle
+\begin{enumerate}
+
+	\item
+	\begin{enumerate}\item
+	X takes the values 1 and -1. So, the $\sigma(X)$ must contain the events decribed by those values in addition to the trivial $\sigma$-algebra.
+	\[\sigma(X)= \{\phi, \Omega, a\cup b, c\cup d\}\]
+	\item 
+	
+	\[\mathbb{E}[Y|X](a)= \mathbb{E}[Y|X=1]= \frac{P(a)Y(a) + P(b)Y(b)}{P(x=1)} =\frac{1}{3}- \frac{2}{3} =-\frac{1}{3}\]
+	\[\mathbb{E}[Y|X](b)= \mathbb{E}[Y|X=1]= \frac{P(a)Y(a) + P(b)Y(b)}{P(x=1)} =\frac{1}{3}- \frac{2}{3} =-\frac{1}{3}\]
+	\[\mathbb{E}[Y|X](c)= \mathbb{E}[Y|X=-1]= \frac{P(c)Y(c) + P(d)Y(d)}{P(x=1)} =\frac{1}{2}- \frac{1}{2} =0\]
+	\[\mathbb{E}[Y|X](d)= \mathbb{E}[Y|X=-1]=\frac{P(c)Y(c) + P(d)Y(d)}{P(x=1)} =\frac{1}{2}- \frac{1}{2} =0\]
+The partial averaging property.
+
+For A = $\phi$,
+\[\mathbb{E}[\mathbb{I}_\phi\mathbb{E}[Y|X]]=\mathbb{E}[\mathbb{I}_\phi Y] =0\]
+For A = $\Omega$,
+\[\mathbb{E}[\mathbb{I}_\Omega\mathbb{E}[Y|X]]=P(a)\mathbb{E}[Y|X](a)+ P(b)\mathbb{E}[Y|X](b) +0 +0=-\frac{1}{18}- \frac{2}{18}=-\frac{1}{6}\]
+\[\mathbb{E}[\mathbb{I}_\Omega Y] = P(a)Y(a) + P(b)Y(b)+ P(c)Y(c) + P(d)Y(d)= -\frac{1}{6}\]
+For A = a$\cup$b,
+\[\mathbb{E}[\mathbb{I}_{a\cup b}\mathbb{E}[Y|X]]=P(a)\mathbb{E}[Y|X](a)+ P(b)\mathbb{E}[Y|X](b) =-\frac{1}{18}- \frac{2}{18}=-\frac{1}{6}\]
+\[\mathbb{E}[\mathbb{I}_{a\cup b} Y] = P(a)Y(a) + P(b)Y(b)= -\frac{1}{6}\]
+For A = c$\cup$d,
+\[\mathbb{E}[\mathbb{I}_{c\cup d}\mathbb{E}[Y|X]]=P(c)\mathbb{E}[Y|X](c)+ P(d)\mathbb{E}[Y|X](d) =0\]
+\[\mathbb{E}[\mathbb{I}_{c\cup d} Y] =P(c)Y(c) + P(d)Y(d)= 0\]
+\item
+Z(a)= 2, Z(b)=Z(c)=0, Z(d)=-2
+	\[\mathbb{E}[Z|X](a)= \mathbb{E}[Z|X=1]= \frac{P(a)Z(a) + P(b)Z(b)}{P(x=1)} =\frac{2}{3}\]
+	\[\mathbb{E}[Z|X](b)= \mathbb{E}[Z|X=1]= \frac{P(a)Z(a) + P(b)Z(b)}{P(x=1)} =\frac{2}{3}\]
+	\[\mathbb{E}[Z|X](c)= \mathbb{E}[Z|X=-1]= \frac{P(c)Z(c) + P(d)Z(d)}{P(x=1)} =-1\]
+	\[\mathbb{E}[Z|X](d)= \mathbb{E}[Z|X=-1]= \frac{P(c)Z(c) + P(d)Z(d)}{P(x=1)} =-1\]
+The partial averaging property.
+
+For A = $\phi$,
+\[\mathbb{E}[\mathbb{I}_\phi\mathbb{E}[Z|X]]=\mathbb{E}[\mathbb{I}_\phi Z] =0\]
+For A = $\Omega$,
+\[\mathbb{E}[\mathbb{I}_\Omega\mathbb{E}[Z|X]]=P(a)\mathbb{E}[Z|X](a)+ P(b)\mathbb{E}[Z|X](b) +P(c)\mathbb{E}[Y|X](c)+ P(d)\mathbb{E}[Y|X](d)=-\frac{1}{6}\]
+\[\mathbb{E}[\mathbb{I}_\Omega Z] = P(a)Z(a) + P(b)Z(b)+ P(c)Z(c) + P(d)Z(d)= =\frac{1}{3}-\frac{1}{2}= -\frac{1}{6}\]
+For A = a$\cup$b,
+\[\mathbb{E}[\mathbb{I}_\Omega\mathbb{E}[Z|X]]=P(a)\mathbb{E}[Z|X](a)+ P(b)\mathbb{E}[Z|X](b) +P(c)\mathbb{E}[Y|X](c)+ P(d)\mathbb{E}[Y|X](d)=\frac{1}{3}\]
+\[\mathbb{E}[\mathbb{I}_\Omega Z] = P(a)Z(a) + P(b)Z(b)+ P(c)Z(c) + P(d)Z(d) =\frac{1}{3}\]
+For A = c$\cup$d,
+\[\mathbb{E}[\mathbb{I}_\Omega\mathbb{E}[Z|X]] = P(c)\mathbb{E}[Y|X](c)+ P(d)\mathbb{E}[Y|X](d)=-\frac{1}{4}-\frac{1}{4}= -\frac{1}{2}\]
+\[\mathbb{E}[\mathbb{I}_\Omega Z] = P(c)Z(c) + P(d)Z(d)= -\frac{1}{2}\]
+\end{enumerate} 
+\item
+\[\mathbb{V}(Y-X)= \mathbb{V}(Y-\mathbb{E}[Y|G]+ \mathbb{E}[Y|G]-X)\]
+\[= \mathbb{V}(Y-\mathbb{E}[Y|G]) + \mathbb{V}(X-\mathbb{E}[Y|G])-2Cov\mathbb{V}(Y-\mathbb{E}[Y|G], X-\mathbb{E}[Y|G])\]
+
+Intuitively, the Cov$\mathbb{V}$ should be zero, since X-$\mathbb{E}[Y|G]$ is in G and Y-$\mathbb{E}[Y|G]$ is orthogonal to it.
+\[Cov\mathbb{V}(Y-\mathbb{E}[Y|G], X-\mathbb{E}[Y|G])= \mathbb{E}(Y-\mathbb{E}[Y|G]) (X-\mathbb{E}[Y|G])-\mathbb{E}(Y-\mathbb{E}[Y|G]) \mathbb{E}(X-\mathbb{E}[Y|G]) \]
+\[= \mathbb{E}(YX)-\mathbb{E}[\mathbb{E}[Y|G]X]-\mathbb{E}[Y\mathbb{E}[Y|G]]+\mathbb{E}[\mathbb{E}[Y|G]\mathbb{E}[Y|G]]-\mathbb{E}Y\mathbb{E}X \]
+\[-(\mathbb{E}[\mathbb{E}[Y|G]])^2 +\mathbb{E}X\mathbb{E}[\mathbb{E}[Y|G]]  +\mathbb{E}Y\mathbb{E}[\mathbb{E}[Y|G]] \]
+\item
+\[ \Omega =\{a,b,c,d\}\]
+\[X = \{1,2,3,4\}\]
+ \begin{align*}
+  f(X)= \begin{cases}
+      1 & \text{if $x>2$} \\
+      \\ 0 & \text{if $x \leq 2$}
+    \end{cases}
+\end{align*}
+\[\sigma(f(X))= \{\phi, \Omega, a\cup  b, c\cup d\}\]
+This is clearly, strictly smaller than $\sigma(X)$ since it doesn't have terms like $a\cup c$
+	
+If g is a constant function, $\sigma(g(X))= \{\phi,\Omega\}$ since the random variable produces the same value for every event (apart from the null event).
+
+\item 
+\[X_n =\mathbb{E}[X|F_n]\]
+\[\mathbb{E}[X_n|F_s] =\mathbb{E}[\mathbb{E}[X|F_n]|F_s]=\mathbb{E}[X|F_s]= X_s\]
+Thus, this is a martingale.
+\item
+For convenience, let
+\[ q= 1-p\]
+\[Z_{n+1} = \bigg(\frac{q}{p}\bigg)^{2 S_{n+1}-(n+1)}= \bigg(\frac{q}{p}\bigg)^{2 S_{n}+2X_{n+1}-n-1}=Z_n\bigg(\frac{q}{p}\bigg)^{2X_{n+1}-1} \]
+\[\mathbb{E}[Z_{n+1}|F_{n}]=\mathbb{E}[Z_n\bigg(\frac{q}{p}\bigg)^{2X_{n+1}-1}|F_{n}]\]
+Since $Z_n$ is known from $F_n$,
+\[\mathbb{E}[Z_{n+1}|F_{n}]=\mathbb{E}[Z_n\bigg(\frac{q}{p}\bigg)^{2X_{n+1}-1}|F_{n}] = Z_n \mathbb{E}[\bigg(\frac{q}{p}\bigg)^{2X_{n+1}-1}|F_{n}]\]
+\[= Z_n (q \bigg( \frac{p}{q} \bigg)+ p \bigg(\frac{q}{p} \bigg))\]
+\[=Z_n(p+q)=Z_n\]
+Similarly, we can show
+\[\mathbb{E}[Z_{n+m}|F_{n}]=\mathbb{E}[\mathbb{E}[Z_{n+m}|F_{n+m-1}]|F_{n}] \]
+\[=\mathbb{E}[Z_{n+m-1}|F_{n}] \]
+\[= ......................\]
+\[=\mathbb{E}[Z_{n+1}|F_{n}] = Z_n\]
+Thus, $Z_n$ is a martingale with respect to this filtration.
+\end{enumerate} 
+	
+
+\end{document}

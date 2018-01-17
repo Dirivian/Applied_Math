@@ -1,0 +1,240 @@
+%  This is a LaTex file.
+
+%  Homework for the course "AMath 585:  Applied Linear Algebra and Numerical Analysis", 
+%  Autumn quarter, 2009, Anne Greenbaum.
+
+
+%   A latex format for making homework assignments.
+
+
+\documentclass[letterpaper,12pt]{article}
+
+%          The page format, somewhat wider and taller page than in art12.sty.
+
+\topmargin -0.1in \headsep 0in \textheight 8.9in \footskip 0.6in
+\oddsidemargin 0in  \evensidemargin 0in  \textwidth 6.5in
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{color}
+\usepackage{float}
+\definecolor{keywords}{RGB}{255,0,90}
+\definecolor{comments}{RGB}{0,0,113}
+\definecolor{red}{RGB}{160,0,0}
+\definecolor{green}{RGB}{0,150,0}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{brown}{rgb}{0.59, 0.29, 0.0}
+\definecolor{beaublue}{rgb}{0.74, 0.83, 0.9}
+\definecolor{orange}{rgb}{1.0, 0.5, 0.0}
+\definecolor{darkslategray}{rgb}{0.18, 0.31, 0.31}
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepgreen}{rgb}{0,0.5,0}
+\lstdefinestyle{myMatlabstyle}{
+	language=Matlab,
+	backgroundcolor=\color{white},   
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{blue},
+	identifierstyle=\color{brown},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{orange},
+	basicstyle=\footnotesize,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,                 
+	numbers=left,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2
+}
+\lstdefinestyle{myPythonstyle}{
+	language=Python, 
+	basicstyle=\ttfamily\small, 
+	keywordstyle=\color{blue},
+	commentstyle=\color{green},
+	stringstyle=\color{red},
+	showstringspaces=false,
+	identifierstyle=\color{black},
+}
+\lstset{language=Matlab,frame=single}
+\lstset{language=Python,frame=single}
+\usepackage{amsmath}
+\usepackage{amsmath,amsfonts,amsthm} % 
+\usepackage{epsfig}         % to insert PostScript figures
+
+\begin{document}
+
+
+%          Definitions of commonly used symbols.
+
+
+
+%          The title and header.
+
+\noindent
+{\scriptsize AMath 585, Winter 2018} \hfill 
+
+\begin{center}
+\large
+Assignment 2. 
+\normalsize
+
+Jithin D. George, No. 1622555
+
+\end{center}
+\noindent
+Due Monday, Jan. 22.
+\vspace{.3in}
+
+
+%           The questions!
+
+
+
+\noindent
+Reading:  Through Sec. 2.15.  (Page numbers and equation numbers in this 
+assignment refer to the text.)
+\vspace{.5cm}
+
+\begin{enumerate}
+\item (Inverse matrix and Green's functions)
+\begin{enumerate}
+\item Write out the $5\times 5$
+matrix $A$ from (2.43) for the boundary value problem
+$u''(x)=f(x)$ with $u(0)=u(1)=0$ for  $h = 0.25$.
+
+
+{\bf Solution:}
+
+\[\begin{bmatrix}
+  12 & 5 & 2\\
+  20 & 4 & 8\\
+  2 & 4 & 3\\
+  7 & 1 & 10\\
+\end{bmatrix} \]
+\item Write out the $5\times 5$
+inverse matrix $A^{-1}$ explicitly for this problem.
+
+\item
+If $f(x)=x$, determine the discrete approximation to the solution of the
+boundary value problem on this grid and sketch this solution and the five
+Green's functions whose sum gives this solution.
+\end{enumerate}
+
+\item (Another way of analyzing the error using Green's functions)
+The {\em composite trapezoid rule} for integration approximates the
+integral from $a$ to $b$ of a function $g$ by dividing the interval
+into segments of length $h$ and approximating the integral over each
+segment by the integral of the linear function that matches $g$ at
+the endpoints of the segment. (For $g > 0$, this is the area of
+the trapezoid with height $g( x_j )$ at the left endpoint $x_j$
+and height $g( x_{j+1} )$ at the right endpoint $x_{j+1}$.)  Letting
+$h = (b-a)/(m+1)$ and $x_j = a + jh$, $j = 0,1, \ldots , m, m+1$:
+\[
+\int_a^b g(x)\,dx \approx  h \sum_{j=0}^m \frac{g( x_j )+g( x_{j+1} )}{2} 
+     =  h \left[ \frac{g( x_0 )}{2} + \sum_{j=1}^m g( x_j ) + 
+                   \frac{g( x_{m+1} )}{2} \right] .
+\]
+
+\begin{enumerate}
+\item
+Assuming that $g$ is sufficiently smooth, show that the error in the 
+composite trapezoid rule approximation to the integral is $O( h^2 )$.
+[Hint:  Show that the error on each subinterval is $O( h^3 )$.]
+
+\item
+Recall that the true solution of the boundary value problem $u'' (x) = f(x)$,
+$u(0) = u(1) = 0$ can be written as
+\begin{equation}
+u(x) = \int_0^1 f( \bar{x} ) G(x; \bar{x} )\,d \bar{x} , \label{1}
+\end{equation}
+where $G(x; \bar{x})$ is the Green's function corresponding to
+$\bar{x}$.  The finite difference approximation $u_i$ to $u( x_i )$, 
+using the centered finite difference scheme in (2.43), is
+\begin{equation}
+u_i = h \sum_{j=1}^m f( x_j ) G( x_i ; x_j ) ,~~i=1, \ldots , m . \label{2}
+\end{equation}
+Show that formula (\ref{2}) is the trapezoid rule approximation to 
+the integral in (\ref{1}) when $x = x_i$, and conclude from this that the 
+error in the finite difference approximation is $O( h^2 )$ at each node $x_i$. 
+[Recall:  The Green's function $G( x ; x_j )$ has a {\em discontinuous}
+derivative at $x = x_j$.  Why does this not degrade the accuracy of the
+composite trapezoid rule?]
+\end{enumerate}
+
+\item (Green's function with Neumann boundary conditions)
+\begin{enumerate}
+\item
+Determine the Green's functions for the two-point boundary
+value problem $u''(x) = f(x)$ on $0<x<1$ with a Neumann boundary condition
+at $x=0$ and a Dirichlet condition at $x=1$, i.e, find the function
+$G(x,\bar x)$ solving
+\[
+u''(x) = \delta(x-\bar x), \quad u'(0)=0, \quad u(1)=0
+\]
+and the functions $G_0(x)$ solving
+\[
+u''(x) = 0, \quad u'(0)=1, \quad u(1)=0
+\]
+and $G_1(x)$ solving
+\[
+u''(x) = 0, \quad u'(0)=0, \quad u(1)=1.
+\]
+\item
+Using this as guidance, find the general formulas for the elements of the
+inverse of the matrix in equation (2.54).  Write out the $5\times 5$ matrices
+$A$ and $A^{-1}$ for the case $h=0.25$.
+\end{enumerate}
+
+\item (Solvability condition for Neumann problem)
+Determine the null space of the matrix $A^T$, where $A$ is given in
+equation (2.58), and verify that the condition (2.62) must hold for the
+linear system to have solutions.
+
+\item (Symmetric tridiagonal matrices)
+\begin{enumerate}
+\item
+Consider the {\bf Second approach} described on p.~31 for dealing with
+a Neumann boundary condition.  If we use this technique to approximate
+the solution to the boundary value problem $u'' (x) = f(x)$, 
+$0 \leq x \leq 1$, $u' (0) = \sigma$, $u(1) = \beta$, then the resulting
+linear system $A {\bf u} = {\bf f}$ has the following form:
+\[
+\frac{1}{h^2} \left( \begin{array}{ccccc}
+-h & h  &        &        &      \\
+1  & -2 & 1      &        &      \\
+   & 1  & \ddots & \ddots &      \\
+   &    & \ddots & \ddots & 1    \\
+   &    &        & 1      & -2 \end{array} \right)
+\left( \begin{array}{c} u_0 \\ u_1 \\ \vdots \\ u_{m-1} \\ u_{m} \end{array} 
+\right) =
+\left( \begin{array}{c} \sigma + (h/2) f( x_0 ) \\ f( x_1 ) \\ \vdots \\ 
+f( x_{m-1} ) \\ f( x_m ) - \beta / h^2 \end{array} \right) .
+\]
+Show that the above matrix is similar to a symmetric tridiagonal matrix 
+via a {\em diagonal} similarity transformation; that is, there is a diagonal
+matrix $D$ such that $D A D^{-1}$ is symmetric.
+\item
+Consider the {\bf Third approach} described on pp.~31-32 for dealing with
+a Neumann boundary condition.  [{\bf Note:} If you have an older edition of the text,
+there is a typo in the matrix (2.57) on p.~32.  There should be a row above what is written
+there that has entries $\frac{3}{2} h$, $-2h$, and $\frac{1}{2} h$
+in columns $1$ through $3$ and $0$'s elsewhere.  I believe this was corrected in newer editions.]  
+Show that if we use that first equation
+(given at the bottom of p. 31) to eliminate $u_0$ and we also eliminate
+$u_{m+1}$ from the equations by setting it equal to $\beta$ and modifying
+the right-hand side vector accordingly, then we obtain an $m$ by $m$
+linear system $A {\bf u} = {\bf f}$, where $A$ is similar to a symmetric
+tridiagonal matrix via a diagonal similarity transformation.
+\end{enumerate}
+
+\end{enumerate}
+
+\end{document}

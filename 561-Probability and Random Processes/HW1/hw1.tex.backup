@@ -1,0 +1,249 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage{fullpage} % Package to use full page
+\usepackage{parskip} % Package to tweak paragraph skipping
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{amsmath,amsfonts,amsthm} % Math packages
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{color}
+\usepackage{float}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{brown}{rgb}{0.59, 0.29, 0.0}
+\definecolor{beaublue}{rgb}{0.74, 0.83, 0.9}
+\definecolor{orange}{rgb}{1.0, 0.5, 0.0}
+\definecolor{darkslategray}{rgb}{0.18, 0.31, 0.31}
+\def\Xint#1{\mathchoice
+	{\XXint\displaystyle\textstyle{#1}}%
+	{\XXint\textstyle\scriptstyle{#1}}%
+	{\XXint\scriptstyle\scriptscriptstyle{#1}}%
+	{\XXint\scriptscriptstyle\scriptscriptstyle{#1}}%
+	\!\int}
+\def\XXint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$}
+		\vcenter{\hbox{$#2#3$}}\kern-.5\wd0}}
+\def\dashint{\Xint-}
+
+% Swap the definition of \abs* and \norm*, so that \abs
+% and \norm resizes the size of the brackets, and the 
+% starred version does not.
+\makeatletter
+\let\oldabs\abs
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}
+%
+\let\oldnorm\norm
+\def\norm{\@ifstar{\oldnorm}{\oldnorm*}}
+\makeatother
+\definecolor{keywords}{RGB}{255,0,90}
+\definecolor{comments}{RGB}{0,0,113}
+\definecolor{red}{RGB}{160,0,0}
+\definecolor{green}{RGB}{0,150,0}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{brown}{rgb}{0.59, 0.29, 0.0}
+\definecolor{beaublue}{rgb}{0.74, 0.83, 0.9}
+\definecolor{orange}{rgb}{1.0, 0.5, 0.0}
+\definecolor{darkslategray}{rgb}{0.18, 0.31, 0.31}
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepgreen}{rgb}{0,0.5,0}
+\lstdefinestyle{myMatlabstyle}{
+	language=Matlab,
+	backgroundcolor=\color{white},   
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{blue},
+	identifierstyle=\color{brown},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{orange},
+	basicstyle=\footnotesize,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,                 
+	numbers=left,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2
+}
+\lstdefinestyle{myPythonstyle}{
+	language=Python, 
+	basicstyle=\ttfamily\small, 
+	keywordstyle=\color{blue},
+	commentstyle=\color{green},
+	stringstyle=\color{red},
+	showstringspaces=false,
+	identifierstyle=\color{black},
+}
+\lstset{language=Matlab,frame=single}
+\lstset{language=Python,frame=single}
+
+\title{AMATH 561: Homework 1}
+\author{Jithin D. George, No. 1622555}
+%\date{23/11/16}
+% matrix environment
+\newenvironment{mat}{\left[ \begin{array}{ccccccccccccc}}{\end{array}\right]}
+\newcommand\bcm{\begin{mat}}
+	\newcommand\ecm{\end{mat}}
+
+\begin{document}
+
+\maketitle
+\begin{enumerate}
+
+	\item
+Setting A as B and as $\phi$, we find that $B,\phi\in \mathcal{G}$.
+
+If $A_1,A_2,A_3,\ldots \in \mathcal{F}$, then $\cup_{i}A_i \in \mathcal{F}$.
+
+Since $\cup_{i}A_i \in \mathcal{F}$.,
+\[\cup_{i}(A_i\cap B) = (\cup_{i}A_i)\cap B \text{ exists in } \mathcal{G}.\]
+
+For any A $\in \mathcal{F}$, there exist its complement $A^c$.
+
+So, the following exist.
+
+\[Y_1=A \cap B, Y_2=A^c \cap B\]
+The relative complement of $Y_1$ with respect to B is given by
+\[B\setminus Y_1 = B\setminus(A \cap B)= (B\setminus B)\cup(B\setminus A)=\phi \cup (B\setminus A)=B\setminus A = B\cap A^c = Y_2\]
+So, if Y is an element in \mathcal{G}, then its complement exists as well in \mathcal{G}.
+
+
+
+Thus, $\mathcal{F}$ is a $\sigma$ -algebra on B
+
+\item
+Since $\mathcal{F}$ and $\mathcal{G}$ are $\sigma$-algebra,
+
+\[ \phi \in \mathcal{F}, \phi \in \mathcal{G}\]
+
+So, \[\phi \in \mathcal{F} \cap \mathcal{G}\]
+
+Also, if A is in $\mathcal{F}\cap \mathcal{G}$, then 
+\[A \in \mathcal{F} \text{  and  } A \in \mathcal{G}\]
+and
+\[A^c \in \mathcal{F} \text{  and  } A^c \in \mathcal{G}\]
+Thus, \[A^c \in \mathcal{F} \cap \mathcal{G}\]
+Finally, if
+\[A_1,A_2,A_3,A_4,\ldots \in \mathcal{F} \cap \mathcal{G} \]
+then for countable unions,
+\[\cup_i A_i \in \mathcal{F} \cap \mathcal{G}\]
+since 
+\[A_1,A_2,A_3,A_4,\ldots, \cup_i A_i \in \mathcal{F} \text{  and  }A_1,A_2,A_3,A_4,\ldots, \cup_i A_i \in \mathcal{G}\]
+Thus, $\mathcal{F} \cap \mathcal{G}$ is a $\sigma$-algebra.
+
+\item
+\begin{enumerate}
+ \item Here, $\Omega$ is the set of all possible outcomes and is given by
+ \[\Omega =\{TTT,HHH,HTT,HHT,HTH,THH,THT,TTH\}\]
+ The trivial $\sigma$ -algebra is given by
+ \[\mathcal{F_0}= \{\phi,\Omega\}\] with the probability measure maps them to {0,1}
+ A slightly more resolved $\sigma$ -algebra is given by
+ \[\mathcal{F}_1= \{\phi,\Omega,HXX ,TXX \}\] where HXX represents the event where the firstcoin shows a Head while
+ TXX is its complement where the first coin shows a tail.
+ 
+ If p is the probability of getting a Head, the probability measure maps the $\sigma$ -algebra to \{0,1,p,1-p\} 
+ \item
+ 
+ \[\Omega =\{Blue Blue,Red Red,Blue Red, Red Blue\}\]
+ 
+  A slightly resolved $\sigma$ -algebra is given by
+ \[\mathcal{F}= \{\phi,\Omega,\text{ `Two balls of same color `} ,\text{ `Two balls of different color `}\}\] 
+ 
+ The probability measure maps this $\sigma$ -algebra to \{0,1,$\frac{1}{3},\frac{1}{3}$\} 
+ 
+
+ \item
+ Here, $\Omega$ is infinite and given by
+ \[\Omega =\{H,TH,TTH,TTTH,TTTTH,TTTTTH \ldots\}\]
+   A $\sigma$ -algebra is given by
+ \[\mathcal{F}= \{\phi,\Omega,\text{ `Events where you get Head within 3 tries`} ,\text{ `Events where you don't get Head within 3 tries`}\}\] 
+ 
+  If p is the probability of getting a Head is p,the probability measure maps this $\sigma$ -algebra to \{0,1,$p+(1-p)p+(1-p)^2p$,1-($p+(1-p)p+(1-p)^2p$)\} 
+\end{itemize}
+
+\item
+Since g is a strictly increasing function, it is a one-one function. Since it is continuous, it is onto. Thus, g is invertible.
+
+So, we can write
+\[F_Y(x)=P(Y\leq x)=P(g(X)\leq x)= P(X\leq g^{-1}(x)) = F_X(g^{-1}(x))\]
+
+\[f_Y(x) = {F'}_Y(x) = {F'}_X(g^{-1}(x))g^{-1}'(x)\]
+
+\item
+\begin{enumerate}
+ \item 
+ \[F_Y(x)=P(Y\leq x)=P(X^2\leq x)= P(-\sqrt{x}\leq X\leq \sqrt{x}) = F_X(\sqrt{x})-F_X(-\sqrt{x})\]
+ 
+ Here, x should be greater than or equal to 0.
+ So,
+ \begin{align*}
+  F_Y = \begin{cases}
+      0 & \text{if $x<0$} \\
+       F_X(\sqrt{x})-F_X(-\sqrt{x}) & \text{if $x\geq 0$}
+    \end{cases}
+\end{align*}
+ \item 
+ 
+ \[F_Y(x)=P(Y\leq x)=P(\sqrt{|X|}\leq x)= P(|X|\leq x^2)=P(-x^2 \leq X\leq x^2)= F_X(x^2)-F_X(-x^2) \]
+ Since usually the square root function is assumed to be its positive value and not multivalued,
+ So,
+ \begin{align*}
+  F_Y = \begin{cases}
+      0 & \text{if $x<0$} \\
+       F_X(x^2)-F_X(-x^2) & \text{if $x\geq 0$}
+    \end{cases}
+\end{align*}
+\item
+
+\[F_Y(x)=P(Y\leq x)=P(sin(X)\leq x)\]
+This is only valid for $-1\leq x \leq 1$.
+Within this region, for $sin(X)\leq x$, the random variable X can take any value in \mathcal{R} depending on x.
+
+
+\item
+\[F_Y(x)=P(Y\leq x)=P(F_X(X)\leq x)\]
+Although $F_X$ is non-decreasing, it may not be continuous and increasing. 
+So, it may not be invertible. But, for any x, the random variable X that satisfies
+$F_X(X)\leq x)$ by an open or closed set like in the graph below (since it's non-decreasing and
+right-continuous). Thus, everything is defined on a Borel $\sigma$-algebra and $F_X$(x) is still a measurable function.
+ \begin{align*}
+  F_Y = \begin{cases}
+      0 & \text{if $x<0$} \\
+       \\\int_{\{X: F_X(X) \leq x\}} dx f_X(x) & \text{if $0\leq x\leq 1$}
+       \\
+       1 & \text{if $x > 1$}
+    \end{cases}
+\end{align*}
+
+ \end{enumerate}
+
+\item 
+\begin{enumerate}
+ \item 
+We need $\mathbb{E}$Z =1.
+By definition,
+\[\mathbb{E}Z = \int_R dx Z f(x)= \int_R dx \frac{g(x)}{f(x)} f(x)\]
+Since f $>$ 0 always, we don't need to worry about singularities in the integral.
+\[\mathbb{E}Z = \int_R dx Z f(x)= \int_R dx  g(x) = \int_{-\infty}^{\infty} g(x)dx\]
+That is the distribution function corresponding to g evaluated at infinity, which should be 1. Thus,
+\[\mathbb{E}Z =1\]
+
+Also, since g $>$ 0 because it is a density function and f $>$ 0, Z $>$ 0.
+
+Thus, Z fulfills the requirements to be a Radon-Nikodym derivative.
+\item
+To find the density of X, we start with the distribution of X (under the new probability measure).
+\[\widetilde{\mathcal{P}}(X\leq b) = \mathbb{E}Z\mathbbm{1}_{\{X\leq b\}} = \int_{\{X\leq b\}}  dx Z f(x)= \int_{\{X\leq b\}}  dx  g(x) = \int_{-\infty}^{b} g(x)dx\]
+ Looking at this, we can see that the density function of X under the new measure is g(x). 
+\end{enumerate} 
+	\end{enumerate} 
+\end{document}

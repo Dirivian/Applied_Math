@@ -1,0 +1,181 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage{fullpage} % Package to use full page
+\usepackage{parskip} % Package to tweak paragraph skipping
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{amsmath,amsfonts,amsthm} % Math packages
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{color}
+\usepackage{float}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{brown}{rgb}{0.59, 0.29, 0.0}
+\definecolor{beaublue}{rgb}{0.74, 0.83, 0.9}
+\definecolor{orange}{rgb}{1.0, 0.5, 0.0}
+\definecolor{darkslategray}{rgb}{0.18, 0.31, 0.31}
+\def\Xint#1{\mathchoice
+	{\XXint\displaystyle\textstyle{#1}}%
+	{\XXint\textstyle\scriptstyle{#1}}%
+	{\XXint\scriptstyle\scriptscriptstyle{#1}}%
+	{\XXint\scriptscriptstyle\scriptscriptstyle{#1}}%
+	\!\int}
+\def\XXint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$}
+		\vcenter{\hbox{$#2#3$}}\kern-.5\wd0}}
+\def\dashint{\Xint-}
+
+% Swap the definition of \abs* and \norm*, so that \abs
+% and \norm resizes the size of the brackets, and the 
+% starred version does not.
+\makeatletter
+\let\oldabs\abs
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}
+%
+\let\oldnorm\norm
+\def\norm{\@ifstar{\oldnorm}{\oldnorm*}}
+\makeatother
+\definecolor{keywords}{RGB}{255,0,90}
+\definecolor{comments}{RGB}{0,0,113}
+\definecolor{red}{RGB}{160,0,0}
+\definecolor{green}{RGB}{0,150,0}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{brown}{rgb}{0.59, 0.29, 0.0}
+\definecolor{beaublue}{rgb}{0.74, 0.83, 0.9}
+\definecolor{orange}{rgb}{1.0, 0.5, 0.0}
+\definecolor{darkslategray}{rgb}{0.18, 0.31, 0.31}
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepgreen}{rgb}{0,0.5,0}
+\lstdefinestyle{myMatlabstyle}{
+	language=Matlab,
+	backgroundcolor=\color{white},   
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{blue},
+	identifierstyle=\color{brown},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{orange},
+	basicstyle=\footnotesize,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,                 
+	numbers=left,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2
+}
+\lstdefinestyle{myPythonstyle}{
+	language=Python, 
+	basicstyle=\ttfamily\small, 
+	keywordstyle=\color{blue},
+	commentstyle=\color{green},
+	stringstyle=\color{red},
+	showstringspaces=false,
+	identifierstyle=\color{black},
+}
+\lstset{language=Matlab,frame=single}
+\lstset{language=Python,frame=single}
+
+\title{AMATH 561: Homework 4}
+\author{Jithin D. George, No. 1622555}
+%\date{23/11/16}
+% matrix environment
+\newenvironment{mat}{\left[ \begin{array}{ccccccccccccc}}{\end{array}\right]}
+\newcommand\bcm{\begin{mat}}
+	\newcommand\ecm{\end{mat}}
+
+\begin{document}
+
+\maketitle
+\begin{enumerate}
+
+\item Not required.
+
+\item 
+
+\begin{enumerate}
+ \item 
+ In a random walk, X becomes X+1 with probability p and X-1 with probability 1-p.
+ 
+ In this process, X becomes X+2 with probability $p^2$, X-2 with probability $(1-p)^2$
+ and stays at X with probability 2p(1-p).
+ 
+ The transition matrix will looks like
+ \[ \bcm  \ddots &\ddots  &\ddots &\ddots &\ddots  &\ddots  &\ddots &\ddots  \\ \ddots &\ddots  &\ddots &\ddots &\ddots  &\ddots  &\ddots &\ddots   \\  \ddots &\ddots  &\ddots &\ddots &\ddots  &\ddots  &\ddots &\ddots   \\ 0 &(1-p)^2  &0 &2p(1-p) &0 &p^2 &0 &0 \\ 0  &0 &(1-p)^2  &0 &2p(1-p) &0 &p^2 &0 \\ \ddots &\ddots  &\ddots &\ddots &\ddots  &\ddots  &\ddots &\ddots  \\     \ecm\]
+
+
+\item
+
+If the initial generation is 0, the future generations are 0 as well.
+
+If the generating function for a single individual is G(s), the generating function for an individual after two generations is G(G(s)) or $G_2(s)$
+
+Thus, we can obtain the transition probabilities by differentiating it.
+
+\[P(i,j) = \frac{1}{j!}\frac{d^j}{ds^j}(G_2(s))^i|_{s=0}\]
+
+ The transition matrix will looks like
+ \[ \bcm  1 & 0  &0  &\hdots   \\ \\frac{1}{j!}\frac{d^j}{ds^j}(G_2(s))^i &\ddots  &\ddots &\ddots &\ddots  &\ddots  &\ddots &\ddots   \\  \ddots &\ddots  &\ddots &\ddots &\ddots  &\ddots  &\ddots &\ddots   \\ 0 &(1-p)^2  &0 &2p(1-p) &0 &p^2 &0 &0 \\ 0  &0 &(1-p)^2  &0 &2p(1-p) &0 &p^2 &0 \\ \ddots &\ddots  &\ddots &\ddots &\ddots  &\ddots  &\ddots &\ddots  \\     \ecm\]
+
+
+
+\end{enumerate}
+\item not required
+\item 
+\[P(\tau_j < \tau_i|X_0 = i)=P(\tau_i < \tau_j|X_0 = j) =p\]
+\[\text{Probability that j is visited once}= P(X_0=i)P(\tau_j < \tau_i|X_0 = i) P(\tau_i < \tau_j|X_0 = j) =p^2P(X_0=i)\]
+\[\text{Probability that j is visited once given you start at i} =p^2\]
+\[\text{Probability that j is visited n times given you start at i} =\]
+\[ =p^2\text{(Probability that it transitions between j and j n-1 times)} = p^2 P(\tau_j < \tau_i|X_0 = j)^{n-1}= (1-p)^{n-1}p^2\]
+
+\[\text{Expected number of visits} = \sum_{n=1}^{\infty} n (1-p)^{n-1}p^2  = \sum_{n=0}^{\infty} (n+1) (1-p)^{n}p^2  \]
+
+This is an arithmetic geometric progression. So, the infinite sume is given by
+\[\text{Expected number of visits} = p^2 \bigg(\frac{1}{1-(1-p)} +\frac{1-p}{(1-(1-p))^2} \bigg) = p^2 \bigg(\frac{1}{p} +\frac{1-p}{p^2} \bigg) =1\]
+
+\item
+Since $\sum_i P(i,j) = 1$, we can replace all the $\mu$s to get the following transition matrix.
+
+For equilibrium, we need
+\[\pi P = P\]
+Let $\pi$ be
+\[ [x_0, x_1, x_2,x_3 ,\ldots]\]
+\[(1-\lambda_0)X_0 + (1-\lambda_1)x_1=x_0\]
+\[x_1 = \frac{\lambda_0}{(1-\lambda_1)}x_0\]
+\[(\lambda_0)x _0 + (1-\lambda_2)x_2=x_1\]
+\[(1-\lambda_1)x_1 + (1-\lambda_2)x_2=x_1\]
+\[(1-\lambda_2)x_2=\lambda_1 x_1\]
+\[x_2 = \frac{\lambda_1}{(1-\lambda_2)}x_1\]
+Similarly, for j upto n-1,
+\[x_{j} = \frac{\lambda_{j-1}}{(1-\lambda_j)}x_{j-1}\]
+For n,
+\[\lambda_{n-1}x_{n-1}=\lambda_{n}x_{n}\]
+\[x_{n} = \frac{\lambda_{n-1}}{1-\lambda_n}x_{n-1}\]
+For reversibility, we need
+\[\pi(i) p(i,j) = \pi(j)p(j,i)\]
+Since this MC has finite space and the $\pi$s should sum to 1, we can safely say all the $\pi$s are finite.
+For diagonal elements,
+\[\pi(i) p(i,i) = \pi(i)p(i,i)\]
+We only need to worry about off-diagonal elements of the form j=i+1. (because all other probabilities are zero).
+For i =0,
+\[\pi(0)p(0,1)=x_0 \lambda_0= \frac{\lambda_0}{(1-\lambda_1)}x_0(1-\lambda_1)=\pi(1)p(1,0)\]
+
+For i upto n-2,
+\[\pi(i)p(i,i+1)=x_i \lambda_i= \frac{\lambda_i}{(1-\lambda_{i+1})}x_0(1-\lambda_{i+1})=\pi(i+1)p(i+1,i)\]
+
+For i = n-1,
+\[\pi(n-1)p(n-1,n)=x_{n-1} \lambda_{n-1}= \frac{\lambda_{n-1}}{(1-\lambda_{n})}x_0(1-\lambda_{n})=\pi(n)p(n,n-1)\]
+
+Thus, the system is reversible in equilibrium.
+\end{enumerate} 
+\end{document}

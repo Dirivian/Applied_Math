@@ -1,0 +1,239 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage{fullpage} % Package to use full page
+\usepackage{parskip} % Package to tweak paragraph skipping
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{amsmath,amsfonts,amsthm} % Math packages
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{color}
+\usepackage{float}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{brown}{rgb}{0.59, 0.29, 0.0}
+\definecolor{beaublue}{rgb}{0.74, 0.83, 0.9}
+\definecolor{orange}{rgb}{1.0, 0.5, 0.0}
+\definecolor{darkslategray}{rgb}{0.18, 0.31, 0.31}
+\def\Xint#1{\mathchoice
+	{\XXint\displaystyle\textstyle{#1}}%
+	{\XXint\textstyle\scriptstyle{#1}}%
+	{\XXint\scriptstyle\scriptscriptstyle{#1}}%
+	{\XXint\scriptscriptstyle\scriptscriptstyle{#1}}%
+	\!\int}
+\def\XXint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$}
+		\vcenter{\hbox{$#2#3$}}\kern-.5\wd0}}
+\def\dashint{\Xint-}
+
+% Swap the definition of \abs* and \norm*, so that \abs
+% and \norm resizes the size of the brackets, and the 
+% starred version does not.
+\makeatletter
+\let\oldabs\abs
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}
+%
+\let\oldnorm\norm
+\def\norm{\@ifstar{\oldnorm}{\oldnorm*}}
+\makeatother
+\definecolor{keywords}{RGB}{255,0,90}
+\definecolor{comments}{RGB}{0,0,113}
+\definecolor{red}{RGB}{160,0,0}
+\definecolor{green}{RGB}{0,150,0}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{brown}{rgb}{0.59, 0.29, 0.0}
+\definecolor{beaublue}{rgb}{0.74, 0.83, 0.9}
+\definecolor{orange}{rgb}{1.0, 0.5, 0.0}
+\definecolor{darkslategray}{rgb}{0.18, 0.31, 0.31}
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepgreen}{rgb}{0,0.5,0}
+\lstdefinestyle{myMatlabstyle}{
+	language=Matlab,
+	backgroundcolor=\color{white},   
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{blue},
+	identifierstyle=\color{brown},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{orange},
+	basicstyle=\footnotesize,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,                 
+	numbers=left,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2
+}
+\lstdefinestyle{myPythonstyle}{
+	language=Python, 
+	basicstyle=\ttfamily\small, 
+	keywordstyle=\color{blue},
+	commentstyle=\color{green},
+	stringstyle=\color{red},
+	showstringspaces=false,
+	identifierstyle=\color{black},
+}
+\lstset{language=Matlab,frame=single}
+\lstset{language=Python,frame=single}
+
+\title{AMATH 561: Final Examination}
+\author{Jithin D. George, No. 1622555}
+%\date{23/11/16}
+% matrix environment
+\newenvironment{mat}{\left[ \begin{array}{ccccccccccccc}}{\end{array}\right]}
+\newcommand\bcm{\begin{mat}}
+	\newcommand\ecm{\end{mat}}
+
+\begin{document}
+
+\maketitle
+\begin{enumerate}
+
+
+\item
+\[P = \bcm 1-p & p \\ q & 1-q\ecm\]
+\[Y_n = X_{S_n} \]
+But, $S_n$ is a random variable. So, we need to incorporate its probability into the transition matrix. The probability of transitioning from state i to state j is given by
+\[Q(i,j) = \sum_{k=0}^\infty prob(S_n =k)P^k(i,j)\]
+Notice that it is $P^k(i,j)$ and not $(P(i,j))^k$. So, we can write the transition matrix as
+\[Q = \sum_{k=0}^\infty prob(S_n =k)P^k\]
+\[ =\mathbb{E}[P^{S_n}]\]
+\[ = G_{S_n}(P)\]
+where $G_{S_n}$ is the generating function for $S_n$.
+
+\[P =  \bcm 1 & -\frac{p}{q} \\ 1 & 1\ecm \bcm 1 &0\\0 & 1-p-q\ecm   \bcm \frac{q}{p+q} &\frac{p}{p+q}\\ -\frac{q}{p+q} & \frac{q}{p+q}\ecm = JAJ^{-1}\] 
+ 
+If a function has a power series representation which converges and a matrix P is diagonalisable to $JAJ^{-1}$, 
+\[f(P) = J^{-1}f(A)J \text{    (From wikipedia)  }\]
+
+Since $G_{S_n}$ is defined as a power series, we can use this property to find Q.
+\[ Q = G_{S_n}(P) = J^{-1}G_{S_n}(A)J\]
+
+For geometric distribution,
+\[G_{Geo} = \frac{sr}{1-s(1-r)}\]
+For $S_n$, 
+\[G_{S_n} = G_{Geo}^n = \bigg(\frac{sr}{1-s(1-r)}\bigg)^n\]
+\[G_{S_n}(A) = \bcm \bigg(\frac{r}{1-(1-r)}\bigg)^n&0\\ 0 & \bigg(\frac{(1-p-q)r}{1-(1-p-q)(1-r)}\bigg)^n\ecm = \bcm 1 &0\\ 0 & \bigg(\frac{(1-p-q)r}{1-(1-p-q)(1-r)}\bigg)^n\ecm \]
+\begin{enumerate}
+\item
+So,
+\[ Q = \bcm 1 & -\frac{p}{q} \\ 1 & 1\ecm  \bcm 1 &0\\ 0 & \bigg(\frac{(1-p-q)r}{1-(1-p-q)(1-r)}\bigg)^n\ecm  \bcm \frac{q}{p+q} &\frac{p}{p+q}\\ -\frac{q}{p+q} & \frac{q}{p+q}\ecm\]
+\item
+
+Thankfully, the eigenvalue 1 remains the same under $G_{S_n}$. So, the invariant distribution of Y is the same as that of X and given by the first row of 'J'.
+
+\[\pi_Y = \pi_X = \bigg[\frac{q}{p+q} , \frac{p}{p+q}\bigg]\]
+
+\end{enumerate}
+
+\item
+\[g(X_i)= \sum_j p(X_i,X_j)f(X_j) - f(X_i)\]
+\[ = \mathbb{E}[f(X_{i+1})|X_i] - f(X_i)\]
+\[M_n = f(X_n) - \sum_{i=0}^{n-1} g(X_i)\]
+\begin{align} \mathbb{E}[M_n|\mathcal{F}_{n-1}] = \mathbb{E}[f(X_n)|\mathcal{F}_{n-1}]- \sum_{i=0}^{n-1} \mathbb{E}[ g(X_i)|\mathcal{F}_{n-1}] \\
+ = \mathbb{E}[f(X_n)|\mathcal{F}_{n-1}]-\mathbb{E}[ g(X_{n-1})|\mathcal{F}_{n-1}] -\sum_{i=0}^{n-2} \mathbb{E}[ g(X_i)|\mathcal{F}_{n-1}
+ \end{align}
+\[\mathbb{E}[ g(X_{n-1})|\mathcal{F}_{n-1}]  = \mathbb{E}[\mathbb{E}[f(X_n)|X_{n-1}]|\mathcal{F}_{n-1}] - \mathbb{E}[f(X_{n-1})|\mathcal{F}_{n-1}]\]
+
+
+\[\mathbb{E}[\mathbb{E}[f(X_n)|X_{n-1}]|\mathcal{F}_{n-1}] = \mathbb{E}[\mathbb{E}[f(X_n)|\mathcal{F}_{n-1}]|\mathcal{F}_{n-1}] \text{ (Since X is markov) }\]
+\[ = \mathbb{E}[f(X_n)|\mathcal{F}_{n-1}] \text{ (Iterated Conditiong) }\]
+
+\[\mathbb{E}[f(X_{n-1})|\mathcal{F}_{n-1}] = f(X_{n-1})\]
+
+Thus,
+\[\mathbb{E}[ g(X_{n-1})|\mathcal{F}_{n-1}]  = \mathbb{E}[f(X_n)|\mathcal{F}_{n-1}] - f(X_{n-1})\]
+
+Plugging this into (2),
+\[ \mathbb{E}[M_n|\mathcal{F}_{n-1}] = f(X_{n-1}) -\sum_{i=0}^{n-2} \mathbb{E}[ g(X_i)|\mathcal{F}_{n-1}]\]
+
+\[\sum_{i=0}^{n-2} \mathbb{E}[ g(X_i)|\mathcal{F}_{n-1}] = \mathbb{E}[ \sum_{i=0}^{n-2} \mathbb{E}[f(X_{i+1})|X_i]\mathcal{F}_{n-1}] - \mathbb{E}[ \sum_{i=0}^{n-2}  f(X_i) |\mathcal{F}_{n-1}]\]
+Since $X_0, X_1, ..... X_{i-1} \in \mathcal{F}_{n-1} $,
+\[\sum_{i=0}^{n-2} \mathbb{E}[ g(X_i)|\mathcal{F}_{n-1}] = \sum_{i=0}^{n-2}  \mathbb{E}[f(X_{i+1})|X_i]- \sum_{i=0}^{n-2}  f(X_i) \]
+\[ = \sum_{i=0}^{n-2}g(X_i)\]
+
+Thus,
+\[ \mathbb{E}[M_n|\mathcal{F}_{n-1}] = f(X_{n-1}) -\sum_{i=0}^{n-2}g(X_i)\]
+\[ = M_{n-1} \]
+Similarly, we can show
+\[\mathbb{E}[M_{n+m}|\mathcal{F}_{n}]=\mathbb{E}[\mathbb{E}[M_{n+m}|\mathcal{F}_{n+m-1}]|\mathcal{F}_{n}] \]
+\[=\mathbb{E}[M_{n+m-1}|\mathcal{F}_{n}] \]
+\[= ......................\]
+\[=\mathbb{E}[M_{n+1}|\mathcal{F}_{n}] = M_n\] 
+So, the process $M_n$ is a martingale with respect to this filtration.
+
+\item 
+
+\begin{enumerate}
+
+\item
+Let $A_j$ represent the number of accidents in the jth year
+\[\mathbb{E}[A_2|A_1=n] = \mathbb{E}[\mathbb{E}[A_2|type =i]|A_1=n] \text{ (Iterated Conditioning)}\]
+We know
+ \[\mathbb{E}[\mathbb{E}[A_2|type =i]] = \sum_i Prob(type=i) \lambda_i\]
+Thus, 
+\[ \mathbb{E}[\mathbb{E}[A_2|type =i]|A_1=n]  =  \sum_i Prob(type=i|A_1=n) \lambda_i  \]
+\[ Prob(type=i | A_1=n) = \frac{ Prob(A_1=n|type=i) Prob(type =i)}{Prob(A_1=n)} \text{ (Bayes Rule)}\]
+\[ = \frac{ e^{-\lambda_i} \frac{\lambda_i^n}{n!}p_i}{\sum_{j = 1}^k e^{-\lambda_j} \frac{\lambda_j^n}{n!}p_j} \]
+Thus,
+\[\mathbb{E}[A_2|A_1=n] = \frac{ \sum_i e^{-\lambda_i} \frac{\lambda_i^n}{n!}p_i \lambda_i }{\sum_{j = 1}^k e^{-\lambda_j} \frac{\lambda_j^n}{n!}p_j}\]
+
+\item
+\[p(A_2 = m | A_1 =n ) = \frac{p(A_2 = m \cap A_1 =n )}{p( A_1 =n )} \]
+\[ = \frac{\sum_i p(A_2 = m \cap A_1 =n | type = i ) p(type =i)}{\sum_i p( A_1 =n | type = i ) p(type =i)} \]
+\[ = \frac{\sum_i e^{-2\lambda_i} \frac{\lambda_i^{n+m}}{n!m!} p_i}{\sum_i e^{-\lambda_i} \frac{\lambda_i^n}{n!} p_i} \]
+\end{enumerate}
+
+
+\item
+The inter-arrival times of machines arriving from the serviceman is determined by an exponential distribution with parameter $\mu$. Thus, the number of machines arriving is given by a Poisson distribution with parameter $\mu$. The inter-'departure' times of \textbf{a} machine going to the serviceman is determined by an exponential distribution with mean $\frac{1}{\lambda}$. 
+Thus, for n machines, the mean time would be (probability of 1 of n machines failing) * (expected failing time of one machine) = $\frac{1}{n\lambda}$.
+So, the number of machines leaving to the serviceman is given by a Poisson distribution with parameter $n \lambda$. 
+
+Then, we can construct the following generator for the number of machines running by thinking of it like a birth-death process.
+
+\[\bcm -\mu &\mu &0 &0  \\ \lambda &-(\mu+\lambda) &\mu  &0 \\  \vdots &\vdots   &\vdots &\vdots \\0 &(M-1)\lambda &-(\mu+(M-1)\lambda) &\mu    \\ 0 &0   &M\lambda &-M\lambda \ecm\]
+Let $\pi$ be
+\[ [\pi_0, \pi_1, \pi_2,\pi_3 ,\ldots]\]
+\[-\mu \pi_0 + \lambda \pi_1 =0\]
+\[\pi_1 = \frac{\mu}{\lambda}\pi_0\]
+\[\mu \pi_{0} -(\mu +\lambda)\pi_1 + n \lambda \pi_{2} =0\]
+\[\pi_2 = \frac{\mu}{2 \lambda} \pi_1\]
+\[\vdots\]
+\[\pi_n = \frac{\mu}{ n \lambda} \pi_{n-1}\]
+Thus, \[\pi_n =
+\frac{1}{n!}\bigg(\frac{\mu}{\lambda}\bigg)^n \pi_0 \]
+
+
+To normalize,
+\[\sum_{n=0}^{M} \frac{1}{n!} \bigg(\frac{\mu}{\lambda}\bigg)^n \pi_0= 1 \]
+\[\pi_0 \sum_{n=0}^{M} \frac{1}{n!} \bigg(\frac{\mu}{\lambda}\bigg)^n = 1 \]
+\[ \pi_0= \frac{1}{\sum_{n=0}^{M} \frac{1}{n!} \big(\frac{\mu}{\lambda}\big)^n}\]
+\begin{enumerate}
+\item
+Expected number of machinces not in use = 
+\[= \sum_{k=0}^M (M-k) \pi(k)\]
+\[= \sum_{k=0}^M M \pi(k) -\sum_{k=0}^M k \pi(k) \] 
+\[= M\sum_{k=0}^M \pi(k) -\sum_{k=0}^M k \pi(k) \] 
+\[= M -\sum_{k=0}^M \frac{k}{k!}  \bigg(\frac{\mu}{\lambda}\bigg)^k \pi_0\] 
+\[= M -\frac{\sum_{k=0}^M \frac{k}{k!}  \big(\frac{\mu}{\lambda}\big)^k }{\sum_{k=0}^{M} \frac{1}{k!} \big(\frac{\mu}{\lambda}\big)^k}\] 
+\item 
+Probability that a given machine ($M_x$) is in use = (Probability of n machines in use * Probability that $M_x$ is one of them) for all n
+\[ = \sum_{n=0}^{M} \frac{n}{M}\pi(n)\]
+\[ = \frac{1}{M} \sum_{n=0}^{M} n \pi(n)\]
+\[= \frac{\sum_{k=0}^M \frac{k}{k!}  \big(\frac{\mu}{\lambda}\big)^k }{M\sum_{k=0}^{M} \frac{1}{k!} \big(\frac{\mu}{\lambda}\big)^k}\] 
+\end{enumerate} 
+
+
+\end{enumerate}   
+\end{document}

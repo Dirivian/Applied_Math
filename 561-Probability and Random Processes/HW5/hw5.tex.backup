@@ -1,0 +1,204 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage{fullpage} % Package to use full page
+\usepackage{parskip} % Package to tweak paragraph skipping
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{amsmath,amsfonts,amsthm} % Math packages
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{color}
+\usepackage{float}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{brown}{rgb}{0.59, 0.29, 0.0}
+\definecolor{beaublue}{rgb}{0.74, 0.83, 0.9}
+\definecolor{orange}{rgb}{1.0, 0.5, 0.0}
+\definecolor{darkslategray}{rgb}{0.18, 0.31, 0.31}
+\def\Xint#1{\mathchoice
+	{\XXint\displaystyle\textstyle{#1}}%
+	{\XXint\textstyle\scriptstyle{#1}}%
+	{\XXint\scriptstyle\scriptscriptstyle{#1}}%
+	{\XXint\scriptscriptstyle\scriptscriptstyle{#1}}%
+	\!\int}
+\def\XXint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$}
+		\vcenter{\hbox{$#2#3$}}\kern-.5\wd0}}
+\def\dashint{\Xint-}
+
+% Swap the definition of \abs* and \norm*, so that \abs
+% and \norm resizes the size of the brackets, and the 
+% starred version does not.
+\makeatletter
+\let\oldabs\abs
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}
+%
+\let\oldnorm\norm
+\def\norm{\@ifstar{\oldnorm}{\oldnorm*}}
+\makeatother
+\definecolor{keywords}{RGB}{255,0,90}
+\definecolor{comments}{RGB}{0,0,113}
+\definecolor{red}{RGB}{160,0,0}
+\definecolor{green}{RGB}{0,150,0}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{brown}{rgb}{0.59, 0.29, 0.0}
+\definecolor{beaublue}{rgb}{0.74, 0.83, 0.9}
+\definecolor{orange}{rgb}{1.0, 0.5, 0.0}
+\definecolor{darkslategray}{rgb}{0.18, 0.31, 0.31}
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepgreen}{rgb}{0,0.5,0}
+\lstdefinestyle{myMatlabstyle}{
+	language=Matlab,
+	backgroundcolor=\color{white},   
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{blue},
+	identifierstyle=\color{brown},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{orange},
+	basicstyle=\footnotesize,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,                 
+	numbers=left,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2
+}
+\lstdefinestyle{myPythonstyle}{
+	language=Python, 
+	basicstyle=\ttfamily\small, 
+	keywordstyle=\color{blue},
+	commentstyle=\color{green},
+	stringstyle=\color{red},
+	showstringspaces=false,
+	identifierstyle=\color{black},
+}
+\lstset{language=Matlab,frame=single}
+\lstset{language=Python,frame=single}
+
+\title{AMATH 561: Homework 5}
+\author{Jithin D. George, No. 1622555}
+%\date{23/11/16}
+% matrix environment
+\newenvironment{mat}{\left[ \begin{array}{ccccccccccccc}}{\end{array}\right]}
+\newcommand\bcm{\begin{mat}}
+	\newcommand\ecm{\end{mat}}
+
+\begin{document}
+
+\maketitle
+\begin{enumerate}
+
+\item  Since the inter-treatment time for patients is exponential with parameter $\mu$. The number of patients treated would be a Poisson process with parameter $\mu$. Thus, we get the following generator
+\[\bcm -\lambda &\lambda &0 &0 &\hdots \\ \mu &-(\mu+\lambda) &\lambda  &0 &\hdots \\0 &\mu &-(\mu+\lambda) &\lambda   &\hdots\\ \vdots &\vdots&\vdots  &\vdots &\hdots \ecm\]
+
+To find the invariant distribution,
+\[\pi G =0\]
+Let $\pi$ be
+\[ [x_0, x_1, x_2,x_3 ,\ldots]\]
+\[-\lambda x_0 + \mu x_1 =0\]
+\[x_1 = \frac{\lambda}{\mu}x_0\]
+\[\lambda x_{n-1} -(\mu +\lambda)x_n + \mu x_{n+1} =0\]
+\[x_2 = \frac{\lambda}{\mu} x_1\]
+Thus, \[x_n =\bigg(\frac{\lambda}{\mu}\bigg)^n x_0 \]
+
+We can only normalize and get an invariant distribution if the $x_n$s are finite. So, $\lambda$ has to be less than $\mu$
+
+To normalize,
+\[\sum_{n=0}^{\infty} \bigg(\frac{\lambda}{\mu}\bigg)^n x_0= 1 \]
+\[ x_0= \frac{\mu-\lambda}{\mu}\]
+Expected waiting time = (probability of n patients being present x Expected time of waiting for n patients and treating yourself ) for all n = 
+\[ = \sum_n^\infty x_0 \bigg(\frac{\lambda}{\mu}\bigg)^n \frac{(n+1)}{\mu} \]
+\[ = \frac{x_0\mu}{(\mu-\lambda)^2}  = \frac{1}{\mu-\lambda}\]
+\item
+Y is the discrete time process and $T_n$ is the nth sampled time. X is the continous markov chain.
+\[P[Y_{n+1}|Y_{n}, Y_{n-1}, Y_{n-2} ,...] = P[X_{T_{n+1}}|X_{T_{n}}, X_{T_{n-1}}, X_{T_{n-2}} ,...] \]
+\[ = P[X_{T_{n+1}}|X_{T_{n}}] \text{ (X is markov)}  \]
+\[ = P[Y_{n+1}|Y_{n}]  \]
+Thus, Y is Markov and a discrete time Markov chain with a transition matrix $P$.
+\item
+\[\bcm -\lambda &\lambda &0 &0 &\hdots \\ \mu &-(\mu+\lambda) &\lambda  &0 &\hdots \\0 &2\mu &-(2\mu+\lambda) &\lambda   &\hdots\\ \vdots &\vdots&\vdots  &\vdots &\hdots \ecm\]
+
+\[\frac{dP(i,j)}{dt} = p(i,j-1)g(j-1,j) +p(i,j)g(j,j)+p(i,j+1)g(j+1,j)\]
+
+\[= \lambda p(i,j-1) -\lambda p(i,j)-j \mu p(i,j)+(j+1)\mu p(i,j+1)\]
+
+Multiplying with $s^j$, we obtain the generating function conditioned that $x_0$ is  j,
+\[\frac{\partial G}{\partial t}=\lambda s G - \lambda G - \mu s\frac{\partial G}{\partial s} + \mu \frac{\partial G}{\partial s}\]
+\[G(s,0)= s^j\]
+Using Mathematica,
+\[G(s,t) = (se^{-\mu t}+1-e^{-\mu t})^je^{\frac{\lambda (s-1) (1-e^{-\mu t})}{\mu}}\]
+\[G (s,\infty) = e^{\frac{\lambda}{\mu} (s-1) }\]
+
+Thus, from the generating function, we get that the limiting distribution is Poisson with parameter $\frac{\lambda}{\mu}$
+
+\item
+Kolmogorov Forward Equation
+\[\frac{dp(i,j)}{dt} = p(i,j-1)g(j-1,j) +p(i,j)g(j,j)\]
+\[= \lambda p(i,j-1) -\lambda p(i,j)\]
+\[\frac{\partial G}{\partial t}=\lambda(t) s G - \lambda(t) G \]
+\[G = C e^{\int_0^t \lambda(t) (s-1) dt}\]
+At t=0, 
+\[G = s^{N_0}=s^{0}=1\]
+Thus,
+\[G = e^{\int_0^t \lambda(t) (s-1) dt}\]
+\[G = e^{(s-1) \int_0^t \lambda(t)  dt}\]
+This is a Poisson process with $\lambda$ as $\int_0^t \lambda(t)  dt$
+\[p_t(0,0) = e^{- \int_0^t \lambda(t) dt} \]
+Kolmogorov Backward Equation
+\[\frac{dp(i,j)}{dt} = g(i,i+1)p(i+1,j) +g(i,i)p(i,j)\]
+Since this is a Poisson process
+\[p(i+1,j) = p(i,j-1)\]
+\[\frac{dp(i,j)}{dt} = g(i,i+1)p(i,j-1) +g(i,i)p(i,j)\]
+\[\frac{dp(i,j)}{dt} = \lambda p(i,j-1) - \lambda p(i,j)\]
+\[\frac{\partial G}{\partial t}=\lambda(t) s G - \lambda(t) G \]
+which is the same pde as before.
+%When j =i,
+%\[\frac{dP(i,i)}{dt} = g(i,i+1)p(i+1,i) +g(i,i)p(i,i)\]
+%\[= -\lambda p(i,i)\]
+%\[P(i,i) = e^{- \int_0^t \lambda(t)  dt}\]
+%When j = i+1,
+%\[\frac{dP(i,i+1)}{dt} = g(i,i+1)p(i+1,i+1) +g(i,i)p(i,i+1)\]
+%\[=\lambda e^{-\int_0^t \lambda(t)  dt} -\lambda p(i,i)\]
+%\[P(i,i+1) = ce^{-\int_0^t \lambda(t)  dt}+  \lambda e^{-\int_0^t \lambda(t)  dt}\]
+%Since P(i,i+1) = 0 at t = 0, c = 0 and 
+%\[P(i,i+1) = \lambda e^{-\int_0^t \lambda(t)  dt}\]
+%Similarly, by recursion, we can find, 
+%\[P(i,i+n) = \frac{(\lambda t)^n e^{-\int_0^t \lambda(t)  dt}}{n!}\]
+Again, we see this is a Poisson process with $\lambda$ as $\int_0^t \lambda(t)  dt$
+
+
+When 
+\[\lambda(t) = \frac{c}{1+t}\]
+\[G = e^{s-1} (1+t)^c\]
+\[p(\tau_1 > t) = p_t(0,0) =  (1+t)^{-c}\]
+\[p(\tau_1 < t) = 1 - p(\tau_1 > t) = 1 - (1+t)^{-c}\]
+\[p(\tau_1 = t) = c (1+t)^{-c-1}\]
+\[\mathbb{E}(\tau_1) = \int_0^\infty tc(1+t)^{-c-1} dt\]
+\[= \frac{t}{(1+t)^c}\bigg|_0^\infty + \int_0^\infty \frac{1}{(1+t)^c} dt\]
+The first term is only finite for c $>$ 1.
+
+Thus, $\mathbb{E}(\tau_1)<\infty$ only when c $>$ 1.
+
+
+\item 
+\[G_{N_t}(s) = \mathbb{E}[s^{N_t}]\]
+\[= \mathbb{E}[\mathbb{E}[s^{N_t}|\lambda ] ]\]
+\[= p \mathbb{E}[s^{N_t}|\lambda_1] + (1-p) p \mathbb{E}[s^{N_t}|\lambda_2]\]
+\[= p e^{\lambda_1 t (s-1)} + (1-p)e^{\lambda_2 t (s-1)}\]
+The mean is given by 
+\[\frac{\partial G(s)}{\partial s}\bigg|_{s=1} = p\lambda_1 t +(1-p)\lambda_2 t  \]
+The variance is given by 
+\[\frac{\partial^2 G(s)}{\partial^2 s}\bigg|_{s=1} - \bigg(\frac{\partial G(s)}{\partial s}\bigg|_{s=1}\bigg)^2 -\frac{\partial G(s)}{\partial s}\bigg|_{s=1}  \]
+\end{enumerate} 
+\end{document}
