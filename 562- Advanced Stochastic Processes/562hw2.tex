@@ -1,0 +1,174 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage{fullpage} % Package to use full page
+\usepackage{parskip} % Package to tweak paragraph skipping
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{amsmath,amsfonts,amsthm} % Math packages
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{color}
+\usepackage{float}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{brown}{rgb}{0.59, 0.29, 0.0}
+\definecolor{beaublue}{rgb}{0.74, 0.83, 0.9}
+\definecolor{orange}{rgb}{1.0, 0.5, 0.0}
+\definecolor{darkslategray}{rgb}{0.18, 0.31, 0.31}
+\def\Xint#1{\mathchoice
+	{\XXint\displaystyle\textstyle{#1}}%
+	{\XXint\textstyle\scriptstyle{#1}}%
+	{\XXint\scriptstyle\scriptscriptstyle{#1}}%
+	{\XXint\scriptscriptstyle\scriptscriptstyle{#1}}%
+	\!\int}
+\def\XXint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$}
+		\vcenter{\hbox{$#2#3$}}\kern-.5\wd0}}
+\def\dashint{\Xint-}
+
+% Swap the definition of \abs* and \norm*, so that \abs
+% and \norm resizes the size of the brackets, and the 
+% starred version does not.
+\makeatletter
+\let\oldabs\abs
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}
+%
+\let\oldnorm\norm
+\def\norm{\@ifstar{\oldnorm}{\oldnorm*}}
+\makeatother
+\definecolor{keywords}{RGB}{255,0,90}
+\definecolor{comments}{RGB}{0,0,113}
+\definecolor{red}{RGB}{160,0,0}
+\definecolor{green}{RGB}{0,150,0}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{brown}{rgb}{0.59, 0.29, 0.0}
+\definecolor{beaublue}{rgb}{0.74, 0.83, 0.9}
+\definecolor{orange}{rgb}{1.0, 0.5, 0.0}
+\definecolor{darkslategray}{rgb}{0.18, 0.31, 0.31}
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepgreen}{rgb}{0,0.5,0}
+\lstdefinestyle{myMatlabstyle}{
+	language=Matlab,
+	backgroundcolor=\color{white},   
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{blue},
+	identifierstyle=\color{brown},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{orange},
+	basicstyle=\footnotesize,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,                 
+	numbers=left,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2
+}
+\lstdefinestyle{myPythonstyle}{
+	language=Python, 
+	basicstyle=\ttfamily\small, 
+	keywordstyle=\color{blue},
+	commentstyle=\color{green},
+	stringstyle=\color{red},
+	showstringspaces=false,
+	identifierstyle=\color{black},
+}
+\lstset{language=Matlab,frame=single}
+\lstset{language=Python,frame=single}
+
+\title{AMATH 562: Homework 2}
+\author{Jithin D. George, No. 1622555}
+%\date{23/11/16}
+% matrix environment
+\newenvironment{mat}{\left[ \begin{array}{ccccccccccccc}}{\end{array}\right]}
+\newcommand\bcm{\begin{mat}}
+	\newcommand\ecm{\end{mat}}
+
+\begin{document}
+
+\maketitle
+\begin{enumerate}
+\item
+\[\mathbb{E}[W(t)^2-t|\mathbb{F}_s]=\mathbb{E}[W(t)^2-W(s)^2-t+s|\mathbb{F}_s]+\mathbb{E}[W(s)^2-s|\mathbb{F}_s]\]
+\[=\mathbb{E}[W(t)^2-W(s)^2-t+s|\mathbb{F}_s]+W(s)^2-s\]
+For $W(t)^2-t$, we need
+\[\mathbb{E}[W(t)^2-W(s)^2-t+s|\mathbb{F}_s=0\]
+or
+\[ \mathbb{E}[W(t)^2-W(s)^2|\mathbb{F}_s]=t-s\]
+\[\mathbb{E}[W(t)^2-W(s)^2|\mathbb{F}_s]=\mathbb{E}[(W(t)-W(s))(W(t)+W(s))|\mathbb{F}_s]\]
+\[=\mathbb{E}[(W(t)-W(s))W(t)|\mathbb{F}_s]+\mathbb{E}[(W(t)-W(s))W(s)|\mathbb{F}_s]\]
+\[=\mathbb{E}[(W(t)-W(s))W(t)|\mathbb{F}_s]+\mathbb{E}W(s)\mathbb{E}[W(t)-W(s)|\mathbb{F}_s]\]
+\[=\mathbb{E}[(W(t)-W(s))(W(t)-W(s)+W(s))|\mathbb{F}_s]+0 \]
+\[=\mathbb{E}[(W(t)-W(s))^2|\mathbb{F}_s]+\mathbb{E}[(W(t)-W(s))W(s)|\mathbb{F}_s]\]
+\[=\mathbb{E}[(W(t)-W(s))^2|\mathbb{F}_s]\]
+\[=t-s\]
+\item 
+
+\[\phi_{W(N)}(u)=\mathbb{E}[e^{iuW(N)}]\]
+\[=\mathbb{E}[\mathbb{E}[e^{iuW(N)}]|N]\]
+\[=\mathbb{E}[e^{-\frac{1}{2}Nu^2}]\]
+\[=\sum_{0}^{\infty} e^{-\frac{1}{2}ku^2}e^{-\lambda}\frac{\lambda^k}{k!}\]
+\[=e^{-\lambda} \sum_{0}^{\infty} \frac{(\lambda e^{-\frac{1}{2}u^2})^k}{k!}\]
+\[=e^{-\lambda}  e^{\lambda e^{-\frac{u^2}{2}}}\]
+\[= e^{\lambda e^{-\frac{u^2}{2}}-\lambda}\]
+\item
+\[V_T(1,W)=\lim_{||\pi||\to 0}\sum_{j=0}^{n-1}|W(t_{j+1})-W(t_{j})|\]
+\[V_T(3,W)=\lim_{||\pi||\to 0}\sum_{j=0}^{n-1}|W(t_{j+1})-W(t_{j})|^3\]
+We know
+\[V_T(2,W) = T\]
+\[T=\lim_{||\pi||\to 0}\sum_{j=0}^{n-1}|W(t_{j+1})-W(t_{j})|^2\]
+\[T\leq \lim_{||\pi||\to 0}max(|W(t_{j+1})-W(t_{j})|)\ \sum_{j=0}^{n-1}|W(t_{j+1})-W(t_{j})|\]
+\[T\leq \lim_{||\pi||\to 0}max(|W(t_{j+1})-W(t_{j})|)\lim_{||\pi||\to 0} \sum_{j=0}^{n-1}|W(t_{j+1})-W(t_{j})|\]
+\[T\leq \lim_{||\pi||\to 0}max(|W(t_{j+1})-W(t_{j})|) V_T(1,W)\]
+Since $\lim_{||\pi||\to 0}max(|W(t_{j+1})-W(t_{j})|) = 0$, $V_T(1,W)$ has to be infinity.
+\[V_T(3,W)=\lim_{||\pi||\to 0}\sum_{j=0}^{n-1}|W(t_{j+1})-W(t_{j})|^3\]
+\[V_T(3,W) \leq \lim_{||\pi||\to 0}max(|W(t_{j+1})-W(t_{j})|)\lim_{||\pi||\to 0} \sum_{j=0}^{n-1}|W(t_{j+1})-W(t_{j})|^2 \]
+\[V_T(3,W) \leq \lim_{||\pi||\to 0}max(|W(t_{j+1})-W(t_{j})|)T \]
+\[V_T(3,W) \leq 0\]
+Since the variations are non-negative, $V_T(3,W)$ = 0.
+\item
+\[Z = e^{\sigma X -(\sigma \mu t +\sigma^2 t/2)}= e^{\sigma \mu t +\sigma W -(\sigma \mu t +\sigma^2 t/2)}= e^{\sigma W - \sigma^2 t/2}\]
+We need to show
+\[\mathbb{E}[e^{\sigma W_t - \sigma^2 t/2}|\mathbb{F}_s]= e^{\sigma W_s - \sigma^2 s/2}\]
+\[\mathbb{E}[e^{\sigma W_t-\sigma W_s - \sigma^2 t/2 +\sigma^2 s/2} e^{\sigma W_s - \sigma^2 s/2}|\mathbb{F}_s]= e^{\sigma W_s - \sigma^2 s/2}\]
+\[\mathbb{E}[e^{\sigma W_t-\sigma W_s - \sigma^2 t/2 +\sigma^2 s/2} |\mathbb{F}_s] e^{\sigma W_s - \sigma^2 s/2}= e^{\sigma W_s - \sigma^2 s/2}\]
+\[\mathbb{E}[e^{\sigma W_t-\sigma W_s - \sigma^2 t/2 +\sigma^2 s/2} |\mathbb{F}_s]= 1 \]
+\[\mathbb{E}[e^{\sigma W_t-\sigma W_s } |\mathbb{F}_s]e^{- \sigma^2 t/2 +\sigma^2 s/2}= 1 \]
+\[\mathbb{E}[e^{\sigma W_t-\sigma W_s } |\mathbb{F}_s]= e^{\sigma^2 (t-s)/2 } \]
+
+\[\mathbb{E}[e^{\sigma W_t-\sigma W_s } |\mathbb{F}_s]=\mathbb{E}[e^{\sigma N(0,t-s)}]\]
+\[=\mathbb{E}[\sigma N(0,t-s)]+\mathbb{E}[\frac{\sigma^2 N(0,t-s)^2}{2}]+ \mathbb{E}[\frac{\sigma^3 N(0,t-s)^3}{3!}]+ \mathbb{E}[\frac{\sigma^4 N(0,t-s)^4}{4!}]+\ldots\]
+\[=\frac{\sigma^2 (t-s)}{2}+\frac{3\sigma^4 (t-s)^2}{4!}+ \frac{15\sigma^6 (t-s)^3}{6!}+ \frac{105 \sigma^4 (t-s)^4}{8!}+\ldots\]
+\[=\frac{\sigma^2 (t-s)}{2}+\frac{\sigma^4 (t-s)^2}{2^2*2!}+ \frac{\sigma^6 (t-s)^3}{2^3*3!}+ \frac{ \sigma^4 (t-s)^4}{2^44!}+\ldots\]
+\[= e^{\sigma^2 (t-s)/2 } \]
+Thus, Z is a martingale.
+\[Z = e^{\sigma W_t - \sigma^2 t/2}\]
+By assumption, $Z^m$ the stopping process is a martingale.
+So,
+\[1=Z_0^m=\mathbb{E}Z_t^m=\mathbb{E}e^{\sigma W_t \wedge\tau_m - \sigma^2 t\wedge \tau_m/2}\]
+\[1= \lim_{t\to \infty}\mathbb{E}e^{\sigma W_t \wedge\tau_m - \sigma^2 t\wedge \tau_m/2}\]
+\[ = \mathbb{E}\lim_{t\to \infty}e^{\sigma W_t \wedge\tau_m - \sigma^2 t\wedge \tau_m/2}\]
+\[=\mathbb{E}e^{\sigma W_{\tau_m} - \sigma^2  \tau_m/2}\]
+\[=\mathbb{E}e^{\sigma (m-\mu \tau_m) - \sigma^2  \tau_m/2}\]
+\[=\mathbb{E}e^{\sigma (m-\mu \tau_m) - \sigma^2  \tau_m/2}\]
+So,
+\[e^{\sigma m}\mathbb{E}e^{-\sigma\mu \tau_m - \sigma^2  \tau_m/2}=1\]
+\[\mathbb{E}e^{-(\sigma\mu + \sigma^2/2)\tau_m }=e^{-\sigma m}\]
+We can set
+
+\[\sigma = \frac{-2\mu + \sqrt{4\mu^2+8\alpha}}{2}\]
+\[\alpha =\sigma\mu + \sigma^2/2\]
+Then,
+\[\mathbb{E}e^{-\alpha \tau_m }=e^{-\frac{(-2\mu + \sqrt{4\mu^2+8\alpha})}{2} m}\]
+\end{enumerate}  
+\end{document}

@@ -45,5 +45,29 @@ for i in range(5):
     plt.plot(F[i]*B[:,i])
     a+=F[i]*B[:,i]
     print(a)
-        
-
+for i in range(5):
+    plt.plot(B[:,i],label="G"+str(i))
+    plt.legend()
+     
+def G_0(x):
+    return x-1
+A=np.zeros((5,5))
+for i in range(5):
+    for j in range(5):
+        if i>j:
+            A[i,j]=i*h-1
+        else:
+            A[i,j]=j*h-1
+A[:,0]=[-1,-0.75,-0.5,-.25,0]
+A[:,-1]=[1,1,1,1,1]
+B[:,-1]=[1,1,1,1,1]
+B[:,0]=[-1,-0.75,-0.5,-0.25,0]
+A=np.zeros((5,5))
+for i in range(5):
+    for j in range(5):
+        if i>j:
+            A[i,j]=(i*h-1)*j*h*h
+        else:
+            A[i,j]=(j*h-1)*i*h*h
+A[:,0]=[1,0.75,0.5,.25,0]
+A[:,-1]=[0,0.25,.5,.75,1]

@@ -1,9 +1,9 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/Debian) (preloaded format=xelatex 2017.6.24)  22 JAN 2018 11:17
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/Debian) (preloaded format=xelatex 2017.6.24)  29 JAN 2018 00:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**hw2.tex
-(./hw2.tex
+**hw3_584.tex
+(./hw3_584.tex
 LaTeX2e <2016/02/01>
 Babel <3.9q> and hyphenation patterns for 81 language(s) loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
@@ -126,89 +126,19 @@ File: lstlang1.sty 2015/06/04 1.6 listings language file
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
-(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
-Package: amsmath 2016/03/03 v2.15a AMS math features
-\@mathmargin=\skip43
-
-For additional information on amsmath, use the `?' option.
-(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
-Package: amstext 2000/06/29 v2.01 AMS text
-
-(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
-File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks18
-\ex@=\dimen116
-))
-(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
-Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen117
-)
-(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
-Package: amsopn 1999/12/14 v2.01 operator names
-)
-\inf@bad=\count99
-LaTeX Info: Redefining \frac on input line 199.
-\uproot@=\count100
-\leftroot@=\count101
-LaTeX Info: Redefining \overline on input line 297.
-\classnum@=\count102
-\DOTSCASE@=\count103
-LaTeX Info: Redefining \ldots on input line 394.
-LaTeX Info: Redefining \dots on input line 397.
-LaTeX Info: Redefining \cdots on input line 518.
-\Mathstrutbox@=\box30
-\strutbox@=\box31
-\big@size=\dimen118
-LaTeX Font Info:    Redeclaring font encoding OML on input line 630.
-LaTeX Font Info:    Redeclaring font encoding OMS on input line 631.
-\macc@depth=\count104
-\c@MaxMatrixCols=\count105
-\dotsspace@=\muskip10
-\c@parentequation=\count106
-\dspbrk@lvl=\count107
-\tag@help=\toks19
-\row@=\count108
-\column@=\count109
-\maxfields@=\count110
-\andhelp@=\toks20
-\eqnshift@=\dimen119
-\alignsep@=\dimen120
-\tagshift@=\dimen121
-\tagwidth@=\dimen122
-\totwidth@=\dimen123
-\lineht@=\dimen124
-\@envbody=\toks21
-\multlinegap=\skip44
-\multlinetaggap=\skip45
-\mathdisplay@stack=\toks22
-LaTeX Info: Redefining \[ on input line 2735.
-LaTeX Info: Redefining \] on input line 2736.
-)
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
-Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
-\symAMSa=\mathgroup4
-\symAMSb=\mathgroup5
-LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
-(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
-)
-(/usr/share/texlive/texmf-dist/tex/latex/amscls/amsthm.sty
-Package: amsthm 2015/03/04 v2.20.2
-\thm@style=\toks23
-\thm@bodyfont=\toks24
-\thm@headfont=\toks25
-\thm@notefont=\toks26
-\thm@headpunct=\toks27
-\thm@preskip=\skip46
-\thm@postskip=\skip47
-\thm@headsep=\skip48
-\dth@everypar=\toks28
-)
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/epsfig.sty
 Package: epsfig 1999/02/16 v1.7a (e)psfig emulation (SPQR)
-\epsfxsize=\dimen125
-\epsfysize=\dimen126
-) (./hw2.aux)
-\openout1 = `hw2.aux'.
+\epsfxsize=\dimen116
+\epsfysize=\dimen117
+) (./hw3_584.aux
+
+LaTeX Warning: Label `fig:figure3' multiply defined.
+
+
+LaTeX Warning: Label `fig:figure3' multiply defined.
+
+)
+\openout1 = `hw3_584.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 72.
 LaTeX Font Info:    ... okay on input line 72.
@@ -222,62 +152,52 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 72.
 LaTeX Font Info:    ... okay on input line 72.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 72.
 LaTeX Font Info:    ... okay on input line 72.
-\c@lstlisting=\count111
+\c@lstlisting=\count99
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Try loading font information for U+msa on input line 102.
-
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Try loading font information for U+msb on input line 102.
-
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-File: int.png Graphic file (type QTm)
- <use  "int.png" >
-File: bound.png Graphic file (type QTm)
-
-<use  "bound.png" >
-File: solution.png Graphic file (type QTm)
- <use  "solution.png" > [1
+File: 311.png Graphic file (type QTm)
+ <use  "311.png" > [1
 
 ]
-Overfull \hbox (11.96777pt too wide) detected at line 183
-\OML/cmm/m/it/12 g\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 ) = \OML/c
-mm/m/it/12 g\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x[]\OT1/cmr/m/n/12 ) + \OML/cmm/m
-/it/12 g[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x[]\OT1/cmr/m/n/12 )(\OML/cmm/m/it/
-12 x \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 x[]\OT1/cmr/m/n/12 ) + \OML/cmm/m/it
-/12 g[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x[]\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 h
-\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 x[]\O
-T1/cmr/m/n/12 ) + []\OML/cmm/m/it/12 g[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x[]\O
-T1/cmr/m/n/12 )(\OML/cmm/m/it/12 x \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 x[]\OT
-1/cmr/m/n/12 )[] + \OML/cmm/m/it/12 O\OT1/cmr/m/n/12 ((\OML/cmm/m/it/12 x \OMS/
-cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 x[]\OT1/cmr/m/n/12 )[])
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 151.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 151.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 151.
+File: 312a.png Graphic file (type QTm)
+ <use  "312a.png" >
+File: 312b.png Graphic file (type QTm)
+ <use  "312b.png" >
+File: 312c.png Graphic file (type QTm)
+
+<use  "312c.png" >
+Overfull \hbox (1.30225pt too wide) detected at line 203
+[] []
  []
 
-[2]
-Overfull \hbox (3.2297pt too wide) in paragraph at lines 223--227
-[]\OT1/cmr/m/n/12 Determine the Green's func-tions for the two-point bound-ary 
-value prob-lem $\OML/cmm/m/it/12 u[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr
-/m/n/12 ) =
+[2] [3]
+Overfull \hbox (48.11876pt too wide) in paragraph at lines 283--285
+[]\OT1/cmr/m/n/12 The er-ror ob-tained us-ing Richard-son's ex-trap-o-la-tion i
+n this way is 0.00083991977137813927.
  []
 
-[3] [4]
-Overfull \hbox (5.77318pt too wide) detected at line 381
-[] [] []
- []
+File: 341.png Graphic file (type QTm)
+<use  "341.png" >
+File: 342.png Graphic file (type QTm)
+ <use  "342.png" > [4] [5] (./hw3_584.aux)
 
-[5] [6] (./hw2.aux) ) 
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
 Here is how much of TeX's memory you used:
- 4011 strings out of 493638
- 58961 string characters out of 6146796
- 162294 words of memory out of 5000000
- 7383 multiletter control sequences out of 15000+600000
- 9858 words of font info for 37 fonts, out of 8000000 for 9000
+ 3463 strings out of 493638
+ 52088 string characters out of 6146796
+ 234311 words of memory out of 5000000
+ 6867 multiletter control sequences out of 15000+600000
+ 7965 words of font info for 29 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
- 36i,9n,40p,261b,416s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 36i,9n,44p,240b,1822s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on hw2.pdf (6 pages).
+Output written on hw3_584.pdf (5 pages).

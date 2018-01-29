@@ -113,19 +113,39 @@ $u''(x)=f(x)$ with $u(0)=u(1)=0$ for  $h = 0.25$.
 
 {\bf Solution:}
 
-\[\begin{bmatrix}
-  12 & 5 & 2\\
-  20 & 4 & 8\\
-  2 & 4 & 3\\
-  7 & 1 & 10\\
-\end{bmatrix} \]
+
+\[A = \begin{bmatrix}
+        1. & 0. & 0. & 0. & 0.\\
+        0.25 & -0.5 & 0.25 & 0. & 0.\\ 
+        0. & 0.25 & -0.5 & 0.25 & 0.\\ 
+        0. & 0. & 0.25 & -0.5 & 0.25\\ 
+        0. & 0. & 0. & 0. & 1.\\
+        \end{bmatrix} \]
+
+
 \item Write out the $5\times 5$
 inverse matrix $A^{-1}$ explicitly for this problem.
+
+{\bf Solution:}
+
+\[\begin{bmatrix}
+ 1. & 0. & 0. & 0. & 0.\\  
+ 0.75 & -3. & -2. & -1. & 0.25\\
+ 0.5 & -2. & -4. & -2. & 0.5\\
+ 0.25 & -1. & -2. & -3. & 0.75\\
+ 0. & 0. & 0. & 0. & 1.\\
+ \end{bmatrix}\]
 
 \item
 If $f(x)=x$, determine the discrete approximation to the solution of the
 boundary value problem on this grid and sketch this solution and the five
 Green's functions whose sum gives this solution.
+
+{\bf Solution:}
+
+\[u(x) = \int_0^1 \bar{x}  G(x; \bar{x} )\,d \bar{x} \]
+
+
 \end{enumerate}
 
 \item (Another way of analyzing the error using Green's functions)
@@ -149,6 +169,14 @@ Assuming that $g$ is sufficiently smooth, show that the error in the
 composite trapezoid rule approximation to the integral is $O( h^2 )$.
 [Hint:  Show that the error on each subinterval is $O( h^3 )$.]
 
+
+{\bf Solution:}
+
+\[g(x) = g(x_i) +g'(x_i)(x-x_i) +\frac{1}{2}g''(x_i)(x-x_i)^2 +O((x-x_i)^3) \]
+\[g(x) = g(x_{i+1}) +g'(x_{i+1})(x-x_{i+1}) +\frac{1}{2}g''(x_{i+1})(x-x_{i+1})^2 +O((x-x_i)^3) \]
+\[\int_0^1 g(x)dx = \int_0^1 g(x_i)dx + \int_0^1 g'(x_i)(x-x_i)dx + \int_0^1 \frac{1}{2}g''(x_i)(x-x_i)^2 dx +\int_0^1 O((x-x_i)^3) dx \]
+\[g(x) = g(x_{i+1}) +g'(x_{i})(x-x_{i+1}) +g''(x_{i})h(x-x_{i+1}) +\frac{1}{2}g''(x_{i+1})(x-x_{i+1})^2 +O((x-x_i)^3) \]
+
 \item
 Recall that the true solution of the boundary value problem $u'' (x) = f(x)$,
 $u(0) = u(1) = 0$ can be written as
@@ -167,6 +195,16 @@ error in the finite difference approximation is $O( h^2 )$ at each node $x_i$.
 [Recall:  The Green's function $G( x ; x_j )$ has a {\em discontinuous}
 derivative at $x = x_j$.  Why does this not degrade the accuracy of the
 composite trapezoid rule?]
+
+
+{\bf Solution:}
+
+\[u(x) = \int_0^1 f( \bar{x} ) G(x; \bar{x} )\,d \bar{x}\]
+Setting x = $x_i$ and using the Trapezoidal approximation,
+\[u_i =   h \frac{ f( 0 ) G( x_i ; 0 )}{2} + h \sum_{j=1}^m f( x_j ) G( x_i ; x_j )+  h \frac{ f( 1 ) G( x_i ; 1 )}{2} \]
+Since the Green's function is the solution to the ODE and since at the boundaries, u is 0, G(x,0)=G(x,1)=0.
+So, we get
+\[u_i = h \sum_{j=1}^m f( x_j ) G( x_i ; x_j )\]
 \end{enumerate}
 
 \item (Green's function with Neumann boundary conditions)
@@ -187,17 +225,82 @@ and $G_1(x)$ solving
 \[
 u''(x) = 0, \quad u'(0)=0, \quad u(1)=1.
 \]
+
+
+{\bf Solution:}
+
+ We need 
+ \[u'(0)=0 , u(1)=0 \]
+ and
+ \[u(\bar{x}+\epsilon)-u(\bar{x}-\epsilon)=1\]
+ So, the Green's function satisying that would be given by
+
+  \[
+    G(x,\bar{x}) = \left\{\begin{array}{lr}
+        \bar{x}-1, & \text{for } 0\leq x\leq \bar{x}\\
+
+        x-1, & \text{for } \bar{x}\leq x\leq 1
+        \end{array}\right\} \]
+
+Solving the odes for the boundaries, we have
+\[G_0(x) = x-1\]
+\[G_1(x) = 1\]
 \item
 Using this as guidance, find the general formulas for the elements of the
 inverse of the matrix in equation (2.54).  Write out the $5\times 5$ matrices
 $A$ and $A^{-1}$ for the case $h=0.25$.
+
+{\bf Solution:}
+
+
+\[A = \begin{bmatrix}
+        3. & -4. & 1. & 0. & 0.\\
+        0.25 & -0.5 & 0.25 & 0. & 0.\\ 
+        0. & 0.25 & -0.5 & 0.25 & 0.\\ 
+        0. & 0. & 0.25 & -0.5 & 0.25\\ 
+        0. & 0. & 0. & 0. & 1.\\
+        \end{bmatrix} \]
+        
+\[A^{-1} = 
+\begin{bmatrix}  -1. & -0.75 & -0.5 & -0.25 & 1.\\  -0.75 & -0.75 & -0.5 & -0.25 & 1.\\  -0.5 & -0.5 & -0.5 & -0.25 & 1.\\  -0.25 & -0.25 & -0.25 & -0.25 & 1.\\ 0. & 0. & 0. & 0. & 1.  \end{bmatrix}
+\]
+
 \end{enumerate}
+
 
 \item (Solvability condition for Neumann problem)
 Determine the null space of the matrix $A^T$, where $A$ is given in
 equation (2.58), and verify that the condition (2.62) must hold for the
 linear system to have solutions.
 
+{\bf Solution:}
+
+
+\[
+A= \left( \begin{array}{cccccc}
+-h & h &        &        &    &  \\
+1  & -2 & 1      &        &    &  \\
+   & 1  & \ddots & \ddots &     & \\
+   &    & \ddots & \ddots & 1    & \\
+   &    &        & 1      & -2 & 1 \\
+      &    &        &       & h & -h \\
+   \end{array} \right)
+\]
+\[
+A^T= \left( \begin{array}{cccccc}
+-h & 1 &        &        &    &  \\
+h  & -2 & 1      &        &    &  \\
+   & 1  & \ddots & \ddots &     & \\
+   &    & \ddots & \ddots & 1    & \\
+   &    &        & 1      & -2 & h \\
+      &    &        &       & 1 & -h \\
+   \end{array} \right)
+\]
+The nullspace of this matrix is the vector [1,h,h,h,h....,h,1] because we can see multiplying them yields 0.
+So, a solution only exists if the f-vector is orthogonal to the nullspace. Setting the dot-product equal to 0, we obtain the following criteria
+\[ \sigma_0 + (h/2) f( x_0 )  +  h f( x_1 ) +\hdots + 
+h f( x_{m-1} ) +  h f( x_m ) - \sigma_1  +  \frac{h}{2} f( x_{m+1} ) = 0 \]
+which is the same as 2.62.
 \item (Symmetric tridiagonal matrices)
 \begin{enumerate}
 \item
@@ -221,6 +324,59 @@ f( x_{m-1} ) \\ f( x_m ) - \beta / h^2 \end{array} \right) .
 Show that the above matrix is similar to a symmetric tridiagonal matrix 
 via a {\em diagonal} similarity transformation; that is, there is a diagonal
 matrix $D$ such that $D A D^{-1}$ is symmetric.
+
+{\bf Solution:}
+Experimenting with a smaller version,
+\[
+\left( \begin{array}{ccccc}
+d_0 &   &     0       \\
+0  & d_1 & 0        \\
+
+0       & 0      & d_2 \end{array} \right) \left( \begin{array}{ccccc}
+-h & h  &     0       \\
+1  & -2 & 1        \\
+
+0       & 1      & -2 \end{array} \right) 
+\left( \begin{array}{ccccc}
+\frac{1}{d_0} &   &     0       \\
+0  & \frac{1}{d_1} & 0        \\
+
+0       & 0      & \frac{1}{d_2} \end{array} \right) =
+ \left( \begin{array}{ccccc}
+-h & h\frac{d_0}{d_1}  &     0       \\
+\frac{d_1}{d_0}  & -2 & \frac{d_1}{d_2}       \\
+
+0       & \frac{d_2}{d_1}      & -2 \end{array} \right)\]
+
+So, for the resulting matrix to be symmetric, we choose
+the diagonal vector given by [1 $\sqrt{h}$ $\sqrt{h}$ $\sqrt{h}$  $\sqrt{h}$]
+
+\[
+\left( \begin{array}{ccccc}
+1 &   &        &        &      \\
+  & \sqrt{h} &      &        &      \\
+   &   & \ddots & &      \\
+   &    &  & \ddots &    \\
+   &    &        &       & \sqrt{h} \end{array} \right) \left( \begin{array}{ccccc}
+-h & h  &        &        &      \\
+1  & -2 & 1      &        &      \\
+   & 1  & \ddots & \ddots &      \\
+   &    & \ddots & \ddots & 1    \\
+   &    &        & 1      & -2 \end{array} \right)
+   \left( \begin{array}{ccccc}
+1 &   &        &        &      \\
+  & \frac{1}{\sqrt{h}} &      &        &      \\
+   &   & \ddots & &      \\
+   &    &  & \ddots &    \\
+   &    &        &       & \frac{1}{\sqrt{h}} \end{array} \right) \]
+   
+  \[ =  \left( \begin{array}{ccccc}
+-h & \sqrt{h} &        &        &      \\
+\sqrt{h}  & -2 & 1      &        &      \\
+   & 1  & \ddots & \ddots &      \\
+   &    & \ddots & \ddots & 1    \\
+   &    &        & 1      & -2 \end{array} \right)\]
+   This is a symmetric matrix.
 \item
 Consider the {\bf Third approach} described on pp.~31-32 for dealing with
 a Neumann boundary condition.  [{\bf Note:} If you have an older edition of the text,
@@ -233,6 +389,46 @@ $u_{m+1}$ from the equations by setting it equal to $\beta$ and modifying
 the right-hand side vector accordingly, then we obtain an $m$ by $m$
 linear system $A {\bf u} = {\bf f}$, where $A$ is similar to a symmetric
 tridiagonal matrix via a diagonal similarity transformation.
+
+{\bf Solution:}
+
+\[
+\frac{1}{h^2} \left( \begin{array}{ccccc}
+\frac{3}{2}h & -2h  & \frac{1}{2}h       &        &      \\
+1  & -2 & 1      &        &      \\
+   & 1  & \ddots & \ddots &      \\
+   &    & \ddots & \ddots & 1    \\
+   &    &        & 1      & -2 \end{array} \right)
+\left( \begin{array}{c} u_0 \\ u_1 \\ \vdots \\ u_{m-1} \\ u_{m} \end{array} 
+\right) =
+\left( \begin{array}{c} \sigma  \\ f( x_1 ) \\ \vdots \\ 
+f( x_{m-1} ) \\ f( x_m ) - \beta / h^2 \end{array} \right) .
+\]
+\[
+\frac{1}{h^2} \left( \begin{array}{ccccc}
+3 & -4  & 1       &        &      \\
+3  & -6 & 3      &        &      \\
+   & 1  & \ddots & \ddots &      \\
+   &    & \ddots & \ddots & 1    \\
+   &    &        & 1      & -2 \end{array} \right)
+\left( \begin{array}{c} u_0 \\ u_1 \\ \vdots \\ u_{m-1} \\ u_{m} \end{array} 
+\right) =
+\left( \begin{array}{c} 2 \frac{\sigma}{h}  \\ 3f( x_1 ) \\ \vdots \\ 
+f( x_{m-1} ) \\ f( x_m ) - \beta / h^2 \end{array} \right) .
+\]
+Eliminating the boundary element,
+\[
+\frac{1}{h^2} \left( \begin{array}{ccccc}
+ -1 & 1      &        &      \\
+1  & \ddots & \ddots &      \\
+    & \ddots & \ddots & 1    \\
+   &        & 1      & -2 \end{array} \right)
+\left( \begin{array}{c}  u_1 \\ \vdots \\ u_{m-1} \\ u_{m} \end{array} 
+\right) =
+\left( \begin{array}{c}  \frac{3}{2} f( x_1 ) -  \frac{\sigma}{h}  \\ \vdots \\ 
+f( x_{m-1} ) \\ f( x_m ) - \beta / h^2 \end{array} \right) .
+\]
+   This is a symmetric matrix.
 \end{enumerate}
 
 \end{enumerate}
