@@ -1,0 +1,174 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage{fullpage} % Package to use full page
+\usepackage{parskip} % Package to tweak paragraph skipping
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{amsmath,amsfonts,amsthm} % Math packages
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{color}
+\usepackage{float}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{brown}{rgb}{0.59, 0.29, 0.0}
+\definecolor{beaublue}{rgb}{0.74, 0.83, 0.9}
+\definecolor{orange}{rgb}{1.0, 0.5, 0.0}
+\definecolor{darkslategray}{rgb}{0.18, 0.31, 0.31}
+\def\Xint#1{\mathchoice
+	{\XXint\displaystyle\textstyle{#1}}%
+	{\XXint\textstyle\scriptstyle{#1}}%
+	{\XXint\scriptstyle\scriptscriptstyle{#1}}%
+	{\XXint\scriptscriptstyle\scriptscriptstyle{#1}}%
+	\!\int}
+\def\XXint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$}
+		\vcenter{\hbox{$#2#3$}}\kern-.5\wd0}}
+\def\dashint{\Xint-}
+
+% Swap the definition of \abs* and \norm*, so that \abs
+% and \norm resizes the size of the brackets, and the 
+% starred version does not.
+\makeatletter
+\let\oldabs\abs
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}
+%
+\let\oldnorm\norm
+\def\norm{\@ifstar{\oldnorm}{\oldnorm*}}
+\makeatother
+\definecolor{keywords}{RGB}{255,0,90}
+\definecolor{comments}{RGB}{0,0,113}
+\definecolor{red}{RGB}{160,0,0}
+\definecolor{green}{RGB}{0,150,0}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{brown}{rgb}{0.59, 0.29, 0.0}
+\definecolor{beaublue}{rgb}{0.74, 0.83, 0.9}
+\definecolor{orange}{rgb}{1.0, 0.5, 0.0}
+\definecolor{darkslategray}{rgb}{0.18, 0.31, 0.31}
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepgreen}{rgb}{0,0.5,0}
+\lstdefinestyle{myMatlabstyle}{
+	language=Matlab,
+	backgroundcolor=\color{white},   
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{blue},
+	identifierstyle=\color{brown},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{orange},
+	basicstyle=\footnotesize,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,                 
+	numbers=left,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2
+}
+\lstdefinestyle{myPythonstyle}{
+	language=Python, 
+	basicstyle=\ttfamily\small, 
+	keywordstyle=\color{blue},
+	commentstyle=\color{green},
+	stringstyle=\color{red},
+	showstringspaces=false,
+	identifierstyle=\color{black},
+}
+\lstset{language=Matlab,frame=single}
+\lstset{language=Python,frame=single}
+
+\title{AMATH 562: Homework 3}
+\author{Jithin D. George, No. 1622555}
+%\date{23/11/16}
+% matrix environment
+\newenvironment{mat}{\left[ \begin{array}{ccccccccccccc}}{\end{array}\right]}
+\newcommand\bcm{\begin{mat}}
+	\newcommand\ecm{\end{mat}}
+
+\begin{document}
+
+\maketitle
+\begin{enumerate}
+
+\item 
+
+\[d(W_T^4) =  4W_T^3 dW_T + 6W_T^2 dt\]
+
+\[W_T^4 = \int_0^T 4W_T^3 dW_T + \int_0^T 6W_T^2 dt\]
+
+\[E[W_T^4] = E[\int_0^T 4W_T^3 dW_T ]+ E[\int_0^T 6W_T^2 dt]\]
+The first term is an Ito integral. So, it is a martingale. So, its expectation is the value at t=0 which is zero.
+\[E[W_T^4] = E[\int_0^T 6W_T^2 dt]\]
+We can use Fubini's theorem to take the expectation inside the integral.
+
+\[E[W_T^4] = \int_0^T 6 E[W_T^2] dt\]
+
+\[E[W_T^4] =  \int_0^T 6 t dt\]
+
+\[E[W_T^4] =   3 T^2\]
+
+\[E[W_T^6] = \int_0^T E[6W_T^5 dW_T ]+ \int_0^T 15 E[W_T^4] dt\]
+
+\[E[W_T^6] = \int_0^T 45 t^2 dt\]
+\[E[W_T^6] = 15 T^3 \]
+\item
+\[F_t = e^{-\alpha W_t + \frac{1}{2}\alpha^2t}\]
+\[dF_t = \frac{1}{2}\alpha^2F_tdt-\alpha F_t dW_t+ \frac{1}{2}\alpha^2F_tdt\]
+\[dF_t = \alpha^2F_tdt-\alpha F_t dW_t\]
+\[d(Y_tF_t) = Y_t dF_t + F_tdY_t +d[Y,F]_t\]
+\[ d[Y,F]_t = -\alpha^2Y_tF_tdt\]
+\[d(Y_tF_t)= Y_t \alpha^2F_tdt-\alpha Y_t F_t dW_t +F_trdt +F_t\alpha Y_t dW_t+ -\alpha^2Y_tF_tdt\]
+\[d(Y_tF_t)= F_trdt \]
+
+\[Y_tF_t - Y_0F_0 = \int_0^t F_srds\]
+\[Y_tF_t  =Y_0 + \int_0^t F_srds\]
+\[Y_t  =Y_0e^{\alpha W_t - \frac{1}{2}\alpha^2t} + e^{\alpha W_t - \frac{1}{2}\alpha^2t}\int_0^t e^{-\alpha W_s + \frac{1}{2}\alpha^2s}rds\]
+\[Y_t  =Y_0e^{\alpha W_t - \frac{1}{2}\alpha^2t} + \int_0^t e^{\alpha (W_t-W_s) - \frac{1}{2}\alpha^2(t-s)}rds\]
+\item
+\[d(\pi_t) = X_td(\Delta_t) + \Delta_t d(X_t) + d[X,\Delta]_t\]
+\[d(\Delta_t) =d(\frac{\partial f}{\partial x})\]
+\[d(\frac{\partial f}{\partial x})=\frac{\partial (df)}{\partial x}\]
+\[df=(\partial_t +\frac{1}{2} \sigma^2 X^2 \partial_x^2)f dt +\partial_x f dX_t\]
+\[d(\Delta_t)= d(\frac{\partial f}{\partial x})=\frac{\partial (df)}{\partial x}=(\partial_x\partial_t +\frac{1}{2}\sigma^2 X_t^2\partial_x^3)f dt +\partial_x^2 f dX_t\]
+\[=(\partial_x\partial_t +\frac{1}{2}\sigma^2 X_t^2\partial_x^3)f dt +\sigma X_t\partial_x^2 f dW_t\]
+\[d[X,\Delta]_t =  \partial_x^2 f d[X,X] _t = \sigma^2 X_t^2\partial_x^2 f dt \]
+We know that
+\[(\partial_t + \frac{1}{2} \sigma^2 X^2 \partial_x^2)f= 0\]
+\[\partial_x(\partial_t + \frac{1}{2} \sigma^2 X^2 \partial_x^2)f= 0\]
+\[(\partial_x\partial_t + \sigma^2 X \partial_x^2 + \frac{1}{2} \sigma^2 X^2 \partial_x^3)f= 0\]
+\[(\partial_x\partial_t + \frac{1}{2} \sigma^2 X^2 \partial_x^3)f= - \sigma^2 X \partial_x^2 f\]
+
+Plugging this into $d(\Delta_t)$
+\[d(\Delta_t) = - \sigma^2 X_t \partial_x^2 f dt + \sigma X_t\partial_x^2 f dW_t\]
+\[X_td(\Delta_t) = - \sigma^2 X_t^2 \partial_x^2 f dt + \sigma X_t^2\partial_x^2 f dW_t\]
+
+\[d(\pi_t) =  - \sigma^2 X_t^2 \partial_x^2 f dt + \sigma X_t^2\partial_x^2 f dW_t + \Delta_t d(X_t) + d[X,\Delta]_t\]
+\[=  - \sigma^2 X_t^2 \partial_x^2 f dt + \sigma X_t^2\partial_x^2 f dW_t + \sigma X_t f_x dW_t + \sigma^2 X_t^2\partial_x^2 f dt \]
+\[= \sigma X_t^2\partial_x^2 f dW_t + \sigma X_t f_x dW_t \]
+Integrating this from 0 to T,
+\[\pi_T -\pi_0= \int_0^T \sigma X_t^2\partial_x^2 f dW_t + \sigma X_t f_x dW_t \]
+Since $X_0$ = 0, $\pi_0$ =0.
+\[\pi_T = \int_0^T (\sigma X_t^2\partial_x^2 f + \sigma X_t f_x)dW_t \]
+
+\item
+
+\[df = (\partial_t + \frac{1}{2} \sigma^2 \partial_x^2)fdt + \partial_x f  dX_t \]
+\[df= (\partial_t + \frac{1}{2} \sigma^2 \partial_x^2)f dt+ \partial_x f \mu dt  + \partial_x f \sigma dW_t\]
+
+Integrating this from 0 to T,
+\[f(T,X_T)-f(0,X_0)= \int_0^T(\partial_t + \frac{1}{2} \sigma^2 \partial_x^2)fdt + \partial_x f \mu dt  + \partial_x f \sigma dW_t\]
+\[f(T,X_T)-f(0,X_0) -\int_0^T(\partial_t + \frac{1}{2} \sigma^2 \partial_x^2)fdt + \partial_x f \mu dt  =   \int_0^T\partial_x f \sigma dW_t\]
+
+\[M_T^f =   \int_0^T\partial_x f \sigma dW_t\]
+Since f and $\sigma$ are $\mathcal{F}$-adapted, the right hand side is an Ito integral which is a martingale. Thus, $M_T^f$ is a martingale.
+\end{enumerate}  
+\end{document}
