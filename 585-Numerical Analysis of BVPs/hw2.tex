@@ -68,7 +68,7 @@
 \usepackage{amsmath}
 \usepackage{amsmath,amsfonts,amsthm} % 
 \usepackage{epsfig}         % to insert PostScript figures
-
+\usepackage{pythonhighlight}
 \begin{document}
 
 
@@ -105,7 +105,10 @@ $u''(x)=f(x)$ with $u(0)=u(1)=0$ for  $h = 0.25$.
 
 
 {\bf Solution:}
-
+\begin{python}
+def f(x):
+    return x
+\end{python}
 
 \[A = \begin{bmatrix}
         1. & 0. & 0. & 0. & 0.\\
