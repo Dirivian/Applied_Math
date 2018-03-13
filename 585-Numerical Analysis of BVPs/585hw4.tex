@@ -266,7 +266,7 @@ functions and how the matrix equation in part (a) would change.
         \end{array}\right\} \]
     \[
     \psi_n(x) = \left\{\begin{array}{lr}
-        \frac{1-x_{n-1}}{x_n-x_{n-1}}, & \text{for } x_{n-1}\leq x\leq x_n\\
+        \frac{x-x_{n-1}}{x_n-x_{n-1}}, & \text{for } x_{n-1}\leq x\leq x_n\\
 
         0, & \text{elsewhere } 
         \end{array}\right\} \]  
@@ -286,7 +286,8 @@ a_{ii-1}    & a_{ii} & a_{ii+1}  &    &              \\
 \end{enumerate}
 
 \item (spectral methods, \verb+chebfun+)
-Download the package \verb+chebfun+ from \verb+www.chebfun.org+. This package works
+Download the package \verb+chebfun+
+>>> eggs from \verb+www.chebfun.org+. This package works
 with functions that are represented (to machine precision) as sums of Chebyshev polynomials.
 It can solve 2-point boundary value problems using spectral methods.  Use \verb+chebfun+
 to solve the same problem as in the previous exercise and check the $L_2$-norm and the

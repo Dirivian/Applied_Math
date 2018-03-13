@@ -1,9 +1,9 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/Debian) (preloaded format=xelatex 2017.6.24)  13 MAR 2018 01:56
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/Debian) (preloaded format=xelatex 2017.6.24)  4 MAR 2018 15:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**final.tex
-(./final.tex
+**hw6_562.tex
+(./hw6_562.tex
 LaTeX2e <2016/02/01>
 Babel <3.9q> and hyphenation patterns for 81 language(s) loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
@@ -327,44 +327,50 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@everytoks=\toks28
 \@floatcapt=\box32
 )
-Package color Info: Redefining color red on input line 44.
-Package color Info: Redefining color green on input line 45.
-Package color Info: Redefining color codegreen on input line 46.
-Package color Info: Redefining color codegray on input line 47.
-Package color Info: Redefining color codepurple on input line 48.
-Package color Info: Redefining color backcolour on input line 49.
-Package color Info: Redefining color brown on input line 50.
-Package color Info: Redefining color beaublue on input line 51.
-Package color Info: Redefining color orange on input line 52.
-Package color Info: Redefining color darkslategray on input line 53.
+(/usr/share/texlive/texmf-dist/tex/latex/bbm-macros/bbm.sty
+Package: bbm 1999/03/15 V 1.2 provides fonts for set symbols - TH
+LaTeX Font Info:    Overwriting math alphabet `\mathbbm' in version `bold'
+(Font)                  U/bbm/m/n --> U/bbm/bx/n on input line 33.
+LaTeX Font Info:    Overwriting math alphabet `\mathbbmss' in version `bold'
+(Font)                  U/bbmss/m/n --> U/bbmss/bx/n on input line 35.
+)
+Package color Info: Redefining color red on input line 47.
+Package color Info: Redefining color green on input line 48.
+Package color Info: Redefining color codegreen on input line 49.
+Package color Info: Redefining color codegray on input line 50.
+Package color Info: Redefining color codepurple on input line 51.
+Package color Info: Redefining color backcolour on input line 52.
+Package color Info: Redefining color brown on input line 53.
+Package color Info: Redefining color beaublue on input line 54.
+Package color Info: Redefining color orange on input line 55.
+Package color Info: Redefining color darkslategray on input line 56.
 
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
-) (./final.aux)
-\openout1 = `final.aux'.
+) (./hw6_562.aux)
+\openout1 = `hw6_562.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 97.
-LaTeX Font Info:    ... okay on input line 97.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 97.
-LaTeX Font Info:    ... okay on input line 97.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 97.
-LaTeX Font Info:    ... okay on input line 97.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 97.
-LaTeX Font Info:    ... okay on input line 97.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 97.
-LaTeX Font Info:    ... okay on input line 97.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 97.
-LaTeX Font Info:    ... okay on input line 97.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 97.
-LaTeX Font Info:    ... okay on input line 97.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 97.
-LaTeX Font Info:    ... okay on input line 97.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 100.
+LaTeX Font Info:    ... okay on input line 100.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 100.
+LaTeX Font Info:    ... okay on input line 100.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 100.
+LaTeX Font Info:    ... okay on input line 100.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 100.
+LaTeX Font Info:    ... okay on input line 100.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 100.
+LaTeX Font Info:    ... okay on input line 100.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 100.
+LaTeX Font Info:    ... okay on input line 100.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 100.
+LaTeX Font Info:    ... okay on input line 100.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 100.
+LaTeX Font Info:    ... okay on input line 100.
 \AtBeginShipoutBox=\box33
-Package hyperref Info: Link coloring OFF on input line 97.
-
+Package hyperref Info: Link coloring OFF on input line 100.
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
@@ -373,27 +379,32 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count123
 )
-LaTeX Info: Redefining \ref on input line 97.
-LaTeX Info: Redefining \pageref on input line 97.
-LaTeX Info: Redefining \nameref on input line 97.
+LaTeX Info: Redefining \ref on input line 100.
+LaTeX Info: Redefining \pageref on input line 100.
+LaTeX Info: Redefining \nameref on input line 100.
 
-(./final.out) (./final.out)
+(./hw6_562.out) (./hw6_562.out)
 \@outlinefile=\write3
-\openout3 = `final.out'.
+\openout3 = `hw6_562.out'.
 
 \c@lstlisting=\count124
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Try loading font information for U+msa on input line 100.
+LaTeX Font Info:    Try loading font information for U+msa on input line 103.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 100.
+LaTeX Font Info:    Try loading font information for U+msb on input line 103.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Try loading font information for U+bbm on input line 109.
+
+(/usr/share/texlive/texmf-dist/tex/latex/bbm-macros/ubbm.fd
+File: ubbm.fd 1999/03/15 V 1.2 Font definition for bbm font - TH
 )
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/se-ascii-print.def
 File: se-ascii-print.def 2011/12/02 v1.10 stringenc: Printable ASCII characters
@@ -401,22 +412,48 @@ File: se-ascii-print.def 2011/12/02 v1.10 stringenc: Printable ASCII characters
 )
 [1
 
-] [2] [3] [4]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 239.
+]
+Overfull \hbox (2.11906pt too wide) detected at line 150
+\OML/cmm/m/it/10.95 f\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 X[] \OT1/cmr/m/n/1
+0.95 + (\OML/cmm/m/it/10.95 e[] \OMS/cmsy/m/n/10.95 ^^@ \OT1/cmr/m/n/10.95 1)\O
+ML/cmm/m/it/10.95 X[]; Y[] \OT1/cmr/m/n/10.95 + (\OML/cmm/m/it/10.95 e[] \OMS/c
+msy/m/n/10.95 ^^@ \OT1/cmr/m/n/10.95 1)\OML/cmm/m/it/10.95 Y[]\OT1/cmr/m/n/10.9
+5 ) = [] = \OML/cmm/m/it/10.95 Z[]e[]
+ []
+
+[2] [3]
+Overfull \hbox (44.11487pt too wide) detected at line 209
+\OML/cmm/m/it/10.95 ^^^\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 X[]\OT1/cmr/m/n/
+10.95 ) = \OML/cmm/m/it/10.95 ^^^\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 x\OT1/
+cmr/m/n/10.95 ) + [][](\OML/cmm/m/it/10.95 ^^V[]^^^[]\OT1/cmr/m/n/10.95 (\OML/c
+mm/m/it/10.95 X[]\OT1/cmr/m/n/10.95 ) + []\OML/cmm/m/it/10.95 ^^[[]^^^[]\OT1/cm
+r/m/n/10.95 (\OML/cmm/m/it/10.95 X[]\OT1/cmr/m/n/10.95 ))\OML/cmm/m/it/10.95 dr
+ \OT1/cmr/m/n/10.95 + [][] [][](\OML/cmm/m/it/10.95 ^^^\OT1/cmr/m/n/10.95 (\OML
+/cmm/m/it/10.95 X[] \OT1/cmr/m/n/10.95 + \OML/cmm/m/it/10.95 ^^M[]\OT1/cmr/m/n/
+10.95 (\OML/cmm/m/it/10.95 z\OT1/cmr/m/n/10.95 )) \OMS/cmsy/m/n/10.95 ^^@ \OML/
+cmm/m/it/10.95 ^^^\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 X[]\OT1/cmr/m/n/10.95
+ ) \OMS/cmsy/m/n/10.95 ^^@ \OML/cmm/m/it/10.95 ^^M[]\OT1/cmr/m/n/10.95 (\OML/cm
+m/m/it/10.95 z\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 ^^^[]\OT1/cmr/m/n/10.95 (
+\OML/cmm/m/it/10.95 X[]\OT1/cmr/m/n/10.95 ))\OML/cmm/m/it/10.95 v\OT1/cmr/m/n/1
+0.95 (\OML/cmm/m/it/10.95 dz\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 dr
+ []
+
+[4]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 222.
  [5]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 239.
- (./final.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 239.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 239.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 239.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 222.
+ (./hw6_562.aux)
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 222.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 222.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 222.
  ) 
 Here is how much of TeX's memory you used:
- 11207 strings out of 493638
- 160744 string characters out of 6146796
- 276696 words of memory out of 5000000
- 14531 multiletter control sequences out of 15000+600000
- 10800 words of font info for 41 fonts, out of 8000000 for 9000
+ 11248 strings out of 493638
+ 161708 string characters out of 6146796
+ 276920 words of memory out of 5000000
+ 14560 multiletter control sequences out of 15000+600000
+ 11817 words of font info for 46 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
- 36i,11n,40p,407b,471s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 36i,6n,40p,392b,470s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on final.pdf (5 pages).
+Output written on hw6_562.pdf (5 pages).

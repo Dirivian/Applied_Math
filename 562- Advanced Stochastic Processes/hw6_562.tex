@@ -1,0 +1,222 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage{fullpage} % Package to use full page
+\usepackage{parskip} % Package to tweak paragraph skipping
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{amsmath,amsfonts,amsthm} % Math packages
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{color}
+\usepackage{float}
+ \usepackage{bbm}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{brown}{rgb}{0.59, 0.29, 0.0}
+\definecolor{beaublue}{rgb}{0.74, 0.83, 0.9}
+\definecolor{orange}{rgb}{1.0, 0.5, 0.0}
+\definecolor{darkslategray}{rgb}{0.18, 0.31, 0.31}
+\def\Xint#1{\mathchoice
+	{\XXint\displaystyle\textstyle{#1}}%
+	{\XXint\textstyle\scriptstyle{#1}}%
+	{\XXint\scriptstyle\scriptscriptstyle{#1}}%
+	{\XXint\scriptscriptstyle\scriptscriptstyle{#1}}%
+	\!\int}
+\def\XXint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$}
+		\vcenter{\hbox{$#2#3$}}\kern-.5\wd0}}
+\def\dashint{\Xint-}
+
+% Swap the definition of \abs* and \norm*, so that \abs
+% and \norm resizes the size of the brackets, and the 
+% starred version does not.
+\makeatletter
+\let\oldabs\abs
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}
+%
+\let\oldnorm\norm
+\def\norm{\@ifstar{\oldnorm}{\oldnorm*}}
+\makeatother
+\definecolor{keywords}{RGB}{255,0,90}
+\definecolor{comments}{RGB}{0,0,113}
+\definecolor{red}{RGB}{160,0,0}
+\definecolor{green}{RGB}{0,150,0}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{brown}{rgb}{0.59, 0.29, 0.0}
+\definecolor{beaublue}{rgb}{0.74, 0.83, 0.9}
+\definecolor{orange}{rgb}{1.0, 0.5, 0.0}
+\definecolor{darkslategray}{rgb}{0.18, 0.31, 0.31}
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepgreen}{rgb}{0,0.5,0}
+\lstdefinestyle{myMatlabstyle}{
+	language=Matlab,
+	backgroundcolor=\color{white},   
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{blue},
+	identifierstyle=\color{brown},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{orange},
+	basicstyle=\footnotesize,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,                 
+	numbers=left,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2
+}
+\lstdefinestyle{myPythonstyle}{
+	language=Python, 
+	basicstyle=\ttfamily\small, 
+	keywordstyle=\color{blue},
+	commentstyle=\color{green},
+	stringstyle=\color{red},
+	showstringspaces=false,
+	identifierstyle=\color{black},
+}
+\lstset{language=Matlab,frame=single}
+\lstset{language=Python,frame=single}
+
+\title{AMATH 562: Homework 6}
+\author{Jithin D. George, No. 1622555}
+%\date{23/11/16}
+% matrix environment
+\newenvironment{mat}{\left[ \begin{array}{ccccccccccccc}}{\end{array}\right]}
+\newcommand\bcm{\begin{mat}}
+	\newcommand\ecm{\end{mat}}
+
+\begin{document}
+
+\maketitle
+\begin{enumerate}
+
+\item 
+\begin{enumerate}
+ \item
+         Poisson process is the special case of compound poisson process. Here, the jump can only be of size one.
+         \[v(U) = \mathbb{E}N(1,U) =\mathbb{E} \sum_{0\leq s \leq 1 } \mathbbm{1}_{\Delta P \in U} \]
+         \[= \mathbb{E}\sum_{1 }^{P_1} \mathbbm{1}_{1 \in U} \]
+                 \[= \mathbb{E}\mathbb{E}[\sum_{1 }^{P_1} \mathbbm{1}_{1 \in U}|P_1] \]
+                                  \[= \mathbb{E}[\sum_{1 }^{P_1} \mathbb{E}[\mathbbm{1}_{1 \in U}|P_1]] \]
+                                  \[= \mathbb{E}[ P_1 \mathbb{E}[\mathbbm{1}_{1 \in U}|P_1]] \]
+     \[= \mathbb{E} [P_1 \delta_1(U)] \]    
+        \[= \delta_1(U) \mathbb{E} [P_1 ] \] 
+        \[= \delta_1(U) \lambda\] 
+\item
+
+\[dX_t = dP_t\]
+If $X_t$ =x,
+\[X_T = P_T- P_t+x\]
+\[u(t,x) = \mathbb{E}[\phi(P_T- P_t+x)|X_t=x]\]
+\[ = \sum_n\phi(n+x) \mathbb{P}(P_T- P_t=n)\]
+\[ = \sum_n\phi(n+x) \mathbb{P}(P_{T-t}=n)\]
+\[ = \sum_n\phi(n+x) \frac{(\lambda (T-t))^n}{n!}e^{-\lambda (T-t)}\]
+
+\[\mathbf{A}(t)\phi(x) = \lim_{s\downarrow t} \frac{P(s,t)\phi(x)-\phi(x)}{s-t}\]
+\[= \lim_{s\downarrow t} \frac{\mathbb{E}[\phi(X_s)|X_t=x]-\phi(x)}{s-t}\]
+As t goes to s, there can either be a jump of size one or no jump.
+\[\mathbf{A}(t)\phi(x) = \lim_{s\downarrow t} \frac{P(s,t)\phi(x)-\phi(x)}{s-t}\]
+\[= \lim_{s\downarrow t} \frac{\mathbb{E}[\phi(X_s)|X_t=x]-\phi(x)}{s-t}\]
+\[= \lim_{dt \to 0} \frac{\phi(x+1)(\lambda dt e^{-\lambda dt})+\phi(x)(e^{-\lambda dt})-\phi(x)}{dt}\]
+  \[= \lim_{dt \to 0} \frac{\phi(x+1)(\lambda dt (1-\lambda dt+\ldots) )+\phi(x)(1-\lambda dt+\ldots) -\phi(x)}{dt}\]      
+    \[= \phi(x+1)\lambda -\lambda \phi(x)\] 
+    \[\partial_t u(t,x) = \sum_n \lambda \phi(n+x) \frac{(\lambda (T-t))^n}{n!}e^{- (T-t)}+ \lambda \phi(n+x+1) \frac{(\lambda (T-t))^n}{n!}e^{- (T-t)}\]
+    \[= \lambda u(t,x) - \lambda u(t,x+1)\]
+    \[= -\mathbb{A}(t,x) u(t,x) \]
+    Thus, it satisfies the KBE.
+ 
+ 
+\end{enumerate}
+\item 
+\begin{enumerate}
+ \item 
+  \[Z_t = \frac{X_t}{Y_t}\]
+This looks like a great place to use Ito's multi-dimensional formula.
+\[f_{X_t} = \frac{1}{Y_t},f_{Y_t} = -\frac{X_t}{Y_t^2}\]
+
+\[ f_{XX}= 0 , f_{YY}  = \frac{2X_t}{Y_t^3}, f_{XY}= f_{YX} = -\frac{1}{Y_t^2} \]
+\[f(X_{t-}+(e^{\gamma_t(z)}-1)X_{t-},Y_{t-}+(e^{g_t(z)}-1)Y_{t-}) = \frac{X_{t-}+(e^{\gamma_t(z)}-1)X_{t-}}{Y_{t-}+(e^{g_t(z)}-1)Y_{t-}} = Z_{t-} e^{\gamma_t(z)-g_t(z)} \]
+
+\[dZ_t = (\mu_t \frac{X_t}{Y_t} -b_t \frac{X_t}{Y_t} -2\frac{1}{2} \sigma_t a_t \frac{X_t}{Y_t}+ a_t^2 \frac{X_t}{Y_t} )dt\]
+\[+ (\sigma_t\frac{X_t}{Y_t} - a_t\frac{X_t}{Y_t})dW_t\]
+\[+\int_R Z_{t-} e^{\gamma_t(z)-g_t(z)} \widetilde{N}(dt,dz) \]
+\[+\int_R (Z_{t-} e^{\gamma_t(z)-g_t(z)} - (e^{\gamma_t(z)}-1) Z_{t-}+ (e^{g_t(z)}-1) Z_{t-})v(dz)dt \]
+ \[dZ_t = (\mu_t -b_t  -\sigma_t a_t +a_t^2 )Z_t dt+ (\sigma_t - a_t)Z_tdW_t\]
+\[+\int_R Z_{t-} e^{\gamma_t(z)-g_t(z)} \widetilde{N}(dt,dz) \]
+\[+\int_R ( e^{\gamma_t(z)-g_t(z)} +(e^{g_t(z)}-e^{\gamma_t(z)}) )v(dz)Z_{t-}dt \]
+\item 
+For $Z_t$ to be a martingale, it should have no drift
+Thus
+\[\mu_t = b_t  +\sigma_t a_t + a_t^2- \frac{\int_R ( e^{\gamma_t(z)-g_t(z)} +(e^{g_t(z)}-e^{\gamma_t(z)}) )v(dz)Z_{t-}}{Z_t}\]
+\end{enumerate}
+\item 
+\begin{enumerate}
+ \item \[dX_t = \kappa (\theta -X_t)dt + d\eta_t\]
+\[Y_t = X_t - \theta\]
+\[dY_t = -\kappa Y_t dt + d\eta_t\]
+\[f = e^{kt} Y_t\]
+\[df = ke^{t} Y_t +e^{kt}dY_t\]
+\[df= ke^{t} Y_t -\kappa e^{kt}Y_t + e^{kt}d\eta_t\]
+\[df =  e^{kt}d\eta_t\]
+\[f_t = f_0 +\int_0^t e^{ks}d\eta_s\]
+\[Y_t = e^{-kt}f_0 +\int_0^t e^{-k(t-s)}d\eta_s\]
+\[Y_t = e^{-kt}Y_0 +\int_0^t e^{-k(t-s)}d\eta_s\]
+\[X_t = \theta + e^{-kt}(X_0 - \theta) +\int_0^t e^{-k(t-s)}d\eta_s\]
+\[X_t = \theta + e^{-kt}(X_0 - \theta) +\int_0^t e^{-k(t-s)}\sigma dW_s+ +\int_0^t \int_R e^{-k(t-s)}z \widetilde{N}(ds,dz)\]
+\item 
+\[m(t) = \mathbb{E}[X_t] = \theta + e^{-kt}(X_0 - \theta) \]
+Here, we assume the $X_0$ is a constant and a random variable. 
+\[\mathbb{E}[(X_s -m(s))(X_t-m(t))] = \mathbb{E}[(X_s -m(s))(X_t-m(t))]\]
+\[Z_s =e^{ks}(X_s -m(s)) =  \int_0^t e^{kr}\sigma dW_r+ +\int_0^t \int_R e^{kr}z \widetilde{N}(dr,dz) \]
+ So, this process has no drift and we can do something similar to Ito Isometry.
+ \[f(Z_s,Z_t)= Z_sZ_t\]
+ 
+ If s $<$ t,I(t) = g(I(s)) and vice versa. Thus we can use Ito's multidimensional formula.  
+  \[\partial_{Z_s}f(Z_s,Z_t)=Z_t\]
+  \[\partial_{Z_s}\partial_{Z_s}f(Z_s,Z_t)=0\]
+   \[\partial_{Z_t}\partial_{Z_s}f(Z_s,Z_t)=1\]
+ \[f(Z_{s-}+\gamma_s,Z_{t-}+\gamma_t)-f(Z_{s-},Z_{t-}) - \gamma. \nabla f(Z_s,Z_t) \]
+ \[=  Z_{s-}Z_{t-}+ \gamma^2+\gamma Z_{t-}+ \gamma Z_{s-} -Z_{s-}Z_{t-}- \gamma Z_{t-}+-\gamma Z_{s-}\]
+ \[=\gamma^2= e^{2kr}z^2\]
+
+ \[\frac{1}{2} \sum_{i=1}^2\sum_{j=1}^2 \sigma_{eff}\sigma_{eff}^T (i,j) \partial_{Z_i} \partial_{Z_j}f(Z_s,Z_t) = \sigma_{eff}^2 = e^{2kr}\sigma^2\]
+ 
+ \[df(Z_s,Z_t)= e^{2kr}\sigma^2 dr + \int_{\mathbb{R}} e^{2kr}z^2v(dz)dr + \int_{\mathbb{R}}(\dots) \widetilde{N}(dt,dz)+(\dots)dW_t \]
+  \[d(Z_s Z_t)= e^{2kr}\sigma^2 dr + \int_{\mathbb{R}} e^{2kr}z^2v(dz)dr + \int_{\mathbb{R}}(\dots) \widetilde{N}(dt,dz)+(\dots)dW_t \]
+    \[\mathbb{E}[Z_s Z_t]=\mathbb{E} \int_0^T e^{2kr}\sigma^2 dr + \int_0^T  \int_{\mathbb{R}} e^{2kr}z^2v(dz)dr \]
+   \[=  \frac{(e^{2kT}-1)\sigma^2}{2k}  + \frac{(e^{2kT}-1)}{2k}  \int_{\mathbb{R}} z^2v(dz) \]
+   \[\mathbb{E}[Z_s Z_t]=\mathbb{E}[e^{k(t+s)}(X_s-m(s)) (X_t-m(t))]\]
+      \[c(t,s) = \mathbb{E}[(X_s-m(s)) (X_t-m(t))]=\mathbb{E}[e^{-k(t+s)}Z_s Z_t]= e^{-k(t+s)}\mathbb{E}[Z_s Z_t]\]
+         \[=  \frac{e^{-k(t+s)}(e^{2kT}-1)\sigma^2}{2k}  + \frac{e^{-k(t+s)}(e^{2kT}-1)}{2k}  \int_{\mathbb{R}} z^2v(dz) \]
+\end{enumerate}
+
+\item 
+\[dX_t = \mu dt + \sigma dW_t + \int_{\mathbb{R}}\gamma \widetilde{N}(t,dz) \]
+\[d\phi(X_t) = (\mu_t \phi'(X_t)+ \frac{1}{2}\sigma^2 \phi''(X_t))dt+ \int_{\mathbb{R}} (\phi(X_{t^-}+\gamma_t(z))-\phi(X_{t^-})-\gamma_t(z)\phi'(X_{t}))v(dz)dt \]
+\[+ \int_{\mathbb{R}}(\dots) \widetilde{N}(dt,dz)+(\dots)dW_t \]
+\[\phi(X_s) = \phi(x)+\int_t^s (\mu_r \phi'(X_r)+ \frac{1}{2}\sigma^2 \phi''(X_r))dr+ \int_t^s\int_{\mathbb{R}} (\phi(X_{r^-}+\gamma_t(z))-\phi(X_{r^-})-\gamma_r(z)\phi'(X_{r}))v(dz)dr \]
+\[+ \int_t^s \int_{\mathbb{R}}(\dots) \widetilde{N}(dr,dz)+ \int_t^s(\dots)dW_r \]
+\[\mathbb{E}[\phi(X_s)|X_t=x] = \phi(x)+\int_t^s \mathbb{E}[ (\mu_r \phi'(X_r)+ \frac{1}{2}\sigma^2 \phi''(X_r))dr|X_t=x]\]\[+ \int_t^s\mathbb{E}[\int_{\mathbb{R}} (\phi(X_{r^-}+\gamma_t(z))-\phi(X_{r^-})-\gamma_r(z)\phi'(X_{r}))v(dz)dr|X_t=x] \]
+\[+ 0 + 0\]
+\[\mathbb{E}[\phi(X_s)|X_t=x] - \phi(x) =\int_t^s \mathbb{E}[ (\mu_r \phi'(X_r)+ \frac{1}{2}\sigma^2 \phi''(X_r))dr|X_t=x]\]\[+ \int_t^s\mathbb{E}[\int_{\mathbb{R}} (\phi(X_{r^-}+\gamma_t(z))-\phi(X_{r^-})-\gamma_r(z)\phi'(X_{r}))v(dz)dr|X_t=x] \]
+\[\lim_{s \downarrow t} \frac{1}{s-t} \bigg(\mathbb{E}[\phi(X_s)|X_t=x] - \phi(x) \bigg) = \lim_{s \downarrow t}\frac{1}{s-t}\int_t^s \mathbb{E}[ (\mu_r \phi'(X_r)+ \frac{1}{2}\sigma^2 \phi''(X_r))dr|X_t=x]\]\[+ \lim_{s \downarrow t}\frac{1}{s-t}\int_t^s\mathbb{E}[\int_{\mathbb{R}} (\phi(X_{r^-}+\gamma_r(z))-\phi(X_{r^-})-\gamma_r(z)\phi'(X_{r}))v(dz)dr|X_t=x] \]
+
+Thus, 
+\[\mathbf {A}(t)\phi(x) = \]
+\[ = \mathbb{E}[ (\mu_r \phi'(X_t)+ \frac{1}{2}\sigma^2 \phi''(X_t))|X_t=x]\]\[+ \mathbb{E}[\int_{\mathbb{R}} (\phi(X_{t^-}+\gamma_t(z))-\phi(X_{t^-})-\gamma_t(z)\phi'(X_{t}))v(dz)|X_t=x] \]
+\[ = (\mu_t \phi'(x)+ \frac{1}{2}\sigma^2 \phi''(x))+ \int_{\mathbb{R}} (\phi(x+\gamma_t(z))-\phi(x)-\gamma_t(z)\phi'(x))v(dz) \]
+
+\end{enumerate}
+\end{document}

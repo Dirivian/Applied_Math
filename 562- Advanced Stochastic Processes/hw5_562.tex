@@ -1,0 +1,245 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage{fullpage} % Package to use full page
+\usepackage{parskip} % Package to tweak paragraph skipping
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{amsmath,amsfonts,amsthm} % Math packages
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{color}
+\usepackage{float}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{brown}{rgb}{0.59, 0.29, 0.0}
+\definecolor{beaublue}{rgb}{0.74, 0.83, 0.9}
+\definecolor{orange}{rgb}{1.0, 0.5, 0.0}
+\definecolor{darkslategray}{rgb}{0.18, 0.31, 0.31}
+\def\Xint#1{\mathchoice
+	{\XXint\displaystyle\textstyle{#1}}%
+	{\XXint\textstyle\scriptstyle{#1}}%
+	{\XXint\scriptstyle\scriptscriptstyle{#1}}%
+	{\XXint\scriptscriptstyle\scriptscriptstyle{#1}}%
+	\!\int}
+\def\XXint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$}
+		\vcenter{\hbox{$#2#3$}}\kern-.5\wd0}}
+\def\dashint{\Xint-}
+
+% Swap the definition of \abs* and \norm*, so that \abs
+% and \norm resizes the size of the brackets, and the 
+% starred version does not.
+\makeatletter
+\let\oldabs\abs
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}
+%
+\let\oldnorm\norm
+\def\norm{\@ifstar{\oldnorm}{\oldnorm*}}
+\makeatother
+\definecolor{keywords}{RGB}{255,0,90}
+\definecolor{comments}{RGB}{0,0,113}
+\definecolor{red}{RGB}{160,0,0}
+\definecolor{green}{RGB}{0,150,0}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{brown}{rgb}{0.59, 0.29, 0.0}
+\definecolor{beaublue}{rgb}{0.74, 0.83, 0.9}
+\definecolor{orange}{rgb}{1.0, 0.5, 0.0}
+\definecolor{darkslategray}{rgb}{0.18, 0.31, 0.31}
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepgreen}{rgb}{0,0.5,0}
+\lstdefinestyle{myMatlabstyle}{
+	language=Matlab,
+	backgroundcolor=\color{white},   
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{blue},
+	identifierstyle=\color{brown},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{orange},
+	basicstyle=\footnotesize,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,                 
+	numbers=left,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2
+}
+\lstdefinestyle{myPythonstyle}{
+	language=Python, 
+	basicstyle=\ttfamily\small, 
+	keywordstyle=\color{blue},
+	commentstyle=\color{green},
+	stringstyle=\color{red},
+	showstringspaces=false,
+	identifierstyle=\color{black},
+}
+\lstset{language=Matlab,frame=single}
+\lstset{language=Python,frame=single}
+
+\title{AMATH 562: Homework 5}
+\author{Jithin D. George, No. 1622555}
+%\date{23/11/16}
+% matrix environment
+\newenvironment{mat}{\left[ \begin{array}{ccccccccccccc}}{\end{array}\right]}
+\newcommand\bcm{\begin{mat}}
+	\newcommand\ecm{\end{mat}}
+
+\begin{document}
+
+\maketitle
+\begin{enumerate}
+
+\item 
+\[dX_t = \kappa(\theta -X_t)dt + \delta \sqrt{X_t} dW_t\]
+\[u(t,x) = \mathbb{E}\bigg[e^{- \int_t^T X_s ds}|X_t = x\bigg]\]
+By Theorem 9.2.2, we can obtain the PDE
+\[(\partial_t + \mathcal{A}(t))u +g = 0\]
+where 
+\[g = 0\]
+ and 
+\[\mathcal{A}(t)  =\kappa(\theta -x)\partial_x+\frac{\delta^2 x}{2}\partial_x^2 - x\]
+then the boundary is given by
+\[u(T,x) = 1\]
+We use the following ansatz
+\[u(t,x)= e^{-xA(t)-B(t)}\]
+
+Plugging it into the PDE, we get
+\[(-xA'-B')u-\kappa(\theta -x)Au+\frac{\delta^2 xA^2}{2}u-xu=0\]
+Thus,
+\[-xA'-B'-\kappa(\theta -x)A+\frac{\delta^2 x A^2}{2}-x=0\]
+\[x(-A'+\kappa\theta A+\frac{\delta^2 A^2}{2}-1)+(-B'-\kappa\theta A)=0\]
+Thus, we can get the following coupled odes.
+\[A'=\kappa\theta A+\frac{\delta^2 A^2}{2}-1\]
+\[B'=-\kappa\theta A\]
+Boundary conditions:
+\[u(T,x)=1\]
+\[-xA(T)-B(T)=0\]
+Since this should hold for all x,
+\[A(T)=B(T)=0\]
+
+\[A(t) = \frac{\sqrt{-2\delta^2-\kappa^2\theta^2}\tan(\frac{1}{2}(c_1\sqrt{-2\delta^2-\kappa^2\theta^2}+t\sqrt{-2\delta^2-\kappa^2\theta^2} ) )-\kappa\theta}{\delta^2}\]
+where
+\[c_1 = \frac{2}{\sqrt{-2\delta^2-\kappa^2\theta^2}}\tan^{-1}\bigg(\frac{\kappa\theta}{\sqrt{-2\delta^2-\kappa^2\theta^2}}\bigg)-T\]
+
+\[B(t) = \frac{2\log sech \frac{|c_1\sqrt{-2\delta^2-\kappa^2\theta^2}+t\sqrt{-2\delta^2-\kappa^2\theta^2} )|}{ |c_1\sqrt{-2\delta^2-\kappa^2\theta^2}+T\sqrt{-2\delta^2-\kappa^2\theta^2} )|}-\kappa\theta (t-T)}{\delta^2}\]
+
+\item 
+\[dX_t^i = -\frac{b}{2}X_t^{i}dt+ \frac{1}{2} \sigma dW_t^i\]
+\[B_t = \sum_i^d \int_0^t \frac{1}{\sqrt{R_s}}X_s^{i}dW_s^{i}\]
+\[B_0 = \sum_i^d \int_0^0 \frac{1}{\sqrt{R_s}}X_s^{i}dW_s^{i}=0\]
+Since $B_t$ has only $dW_s$ terms , it is a martingale.
+Also, since $B_t$ is an Ito process, it has continuous sample paths.
+\[dB_t = \sum_i^d \frac{1}{\sqrt{R_s}}X_s^{i}dW_s^{i}\] 
+\[dB_t^2 = \sum_i^d \frac{1}{R_s}X_s^{2^{i}}dt\]
+\[dB_t^2 = \frac{1}{R_s} \sum_i^d X_s^{2^{i}}dt\]
+\[dB_t^2 = \frac{1}{R_s} R_s dt\]
+\[dB_t^2 = dt\]
+Thus, since the quadratic variation is t, using Levy's characterization theorem, $B_t$ is a Brownian motion.
+
+\[R_t = \sum_{i=1}^d(X_t^{(i)})^2\]
+\[dR_t = \sum_i 2X_t^{i}dX_t^{i} + \frac{\sigma^2}{4}dt\]
+\[ = \sum_i 2X_t^{i}(-\frac{b}{2}X_t^{i}dt+ \frac{1}{2} \sigma dW_t^i) + \frac{\sigma^2}{4}dt\]
+\[ = \sum_i (-bX_t^{2^i} + \frac{\sigma^2}{4}) dt + X_t^{i}\sigma dW_t^i\]
+\[ = \sqrt{R_s}\sigma dB_t +\sum_i (-bX_t^{2^i} + \frac{\sigma^2}{4}) dt \]
+
+
+\item 
+
+\[dX_t  = \mu X_tdt + \sigma X_t dW_t\]
+
+\[Z_t = \log(X_t)\]
+\[dZ_t = \frac{1}{X_t}dX_t-\frac{1}{2X_t^2}\sigma^2X_t^2dt\]
+\[dZ_t = \mu dt + \sigma  dW_t-\frac{1}{2}\sigma^2dt\]
+\[dZ_t = \underbrace{(\mu -\frac{1}{2}\sigma^2)}_a dt + \sigma  dW_t\]
+The transition probability for Z , $\Gamma_z$ satisfies the following pde.
+\[(\partial_t + \mathcal{A}_z)\Gamma_z =0 \]
+\[\mathcal{A}_z= (\mu -\frac{1}{2}\sigma^2) \partial_z + \frac{\sigma^2}{2}\partial_z^2\]
+
+
+Usually, we would expect eigenfunctions of the form $e^{wz}$ but that wouldn't work at the boundaries where we need 
+\[\psi_n(\log(l))=\psi_n(\log(r))=0\]
+So, we say 
+\[\psi_n(z)=Ce^{wz} \sin\bigg(\frac{n\pi (z - \log(l))}{\log(r)-\log(l)}\bigg)\]
+where C is the normalization constant
+\[\mathcal{A}_z\psi_n(z)= aw\psi_n(z)+ \frac{a n\pi}{\log(r/l)} e^{wz} cos \bigg(\frac{n\pi (z - \log(l))}{\log(r/l)}\bigg)\]
+\[+ \frac{1}{2}\sigma^2\bigg( w^2\psi_n(z)+ \frac{2n\pi w}{\log(r/l)} e^{wz} cos \bigg(\frac{n\pi (z - \log(l))}{\log(r/l)}\bigg)- \bigg(\frac{ n\pi}{\log(r/l)}\bigg)^2\psi_n(z)\bigg)\]
+For $\mathcal{A}_z\psi_n(z)= \lambda \psi_n(z)$,
+\[a+\sigma^2w=0\]
+\[w= \frac{-a}{\sigma^2}= \frac{\frac{1}{2}\sigma^2-\mu}{\sigma^2}\]
+and 
+\[\lambda_n= aw+\frac{1}{2}\sigma^2(w^2-\bigg(\frac{ n\pi}{\log(r/l)}\bigg)^2)\]
+Since $aw  = - \sigma^2 w^2$,
+\[\lambda_n=- \frac{1}{2}\sigma^2(w^2+\bigg(\frac{ n\pi}{\log(r/l)}\bigg)^2)\]
+
+\[m(y)= \frac{2}{\sigma^2} e^{\int dy \frac{2\mu -\sigma^2}{\sigma^2}}= \frac{2}{\sigma^2} e^{y \frac{2\mu -\sigma^2}{\sigma^2}} = \frac{2}{\sigma^2}e^{-2wy}\]
+
+\[\langle \psi_n,\psi_n\rangle_m =1\]
+\[\int_{\log{l}}^{\log{r}} \psi_n(z) \psi_n(z) m(z)= 1\]
+\[C^2 \int_{\log{l}}^{\log{r}} e^{wz} \sin\bigg(\frac{n\pi (z - \log(l))}{\log(r)-\log(l)}\bigg) e^{wz} \sin\bigg(\frac{n\pi (z - \log(l))}{\log(r)-\log(l)}\bigg)\frac{2}{\sigma^2}e^{-2wz} \]
+\[=\frac{2C^2}{\sigma^2} \int_{\log{l}}^{\log{r}} \sin\bigg(\frac{n\pi (z - \log(l))}{\log(r)-\log(l)}\bigg)   \sin\bigg(\frac{n\pi (z - \log(l))}{\log(r)-\log(l)}\bigg) = \frac{C^2}{\sigma^2}\log(r/l) =1\]
+\[C = \frac{\sigma}{\sqrt{\log(r/l)}}\]
+
+Thus, the normalized eigenfunctions are
+\[\psi_n(z)=\frac{\sigma}{\sqrt{\log(r/l)}} e^{wz} \sin\bigg(\frac{n\pi z - \log(l)}{\log(r)-\log(l)}\bigg)\]
+
+
+\[\Gamma_z(t,x,T,y)=m(y) \sum_n e^{(T-t) \lambda_n}\psi_n(y)\psi_n(x)\]
+\[=\frac{2}{\sigma^2}e^{-2wy} \sum_n e^{(T-t) \lambda_n}\psi_n(y)\psi_n(x)\]
+\[\Gamma_z(t,x,T,y)=\frac{2}{\sigma^2}e^{-2wy} \sum_n e^{(T-t) \lambda_n}\psi_n(\log(y))\psi_n(\log(x))\]
+\[\Gamma_z(T,x,T,y)=\delta_y\]
+\[P(X_T \leq y| X_t=x) = \int_l^y \Gamma_x(t,x,T,s)ds\]
+\[P(X_T \leq y| X_t=x) =P(Z_T \leq \log y| Z_t=\log x) = \int_{\log l}^{\log y} \Gamma_z(t,\log x,T,s)ds\]
+
+\[\int_l^y \Gamma_x(t,x,T,s)ds =\int_{\log l}^{\log y} \Gamma_z(t,\log x,T,s)ds\]
+
+By Fundamental Theorem of Calculus,
+\[\Gamma_x(t,x,T,y) =\frac{1}{y} \Gamma_z(t,\log x,T,\log y)=\frac{2}{\sigma^2y}e^{-2wy} \sum_n e^{(T-t) \lambda_n}\psi_n(\log y)\psi_n(\log x)\]
+
+
+\item 
+\begin{enumerate}
+\item 
+We can see that 
+\[\lambda = g = 0\]
+Thus, u satisfies
+\[(\partial_t + \mathcal{A})u =0 \]
+where
+\[\mathcal{A} = \frac{1}{2}\partial_x^2+ \frac{1}{2}\partial_y^2\]
+and on the boundary
+\[u(x,y)= u(X_\tau,a)\]
+
+\item
+\[\phi(x) = \frac{1}{2\pi}\int e^{iwx}\hat{\phi}(w)dw\]
+\[\mathbb{E}[\phi(X_\tau)|X_t=x, Y_t=y ]= \mathbb{E}[\frac{1}{2\pi}\int e^{iwX_\tau}\hat{\phi}(w)dw|X_t=x, Y_t=y ] \]
+\[= \mathbb{E}[\frac{1}{2\pi}\int e^{iwX_\tau}\hat{\phi}(w)dw|X_t=x, Y_t=y ] \]
+\[= \frac{1}{2\pi} \int \hat{\phi}(w)  \mathbb{E}[ e^{iwX_\tau}dw|X_t=x, Y_t=y ] \]
+\[= \frac{1}{2\pi}\int \hat{\phi}(w) \mathbb{E}[\mathbb{E}[ e^{iwX_\tau}dw|X_t=x, Y_t=y, \tau ]|X_t=x, Y_t=y ] \]
+\[= \frac{1}{2\pi}\int \hat{\phi}(w) \mathbb{E}[\mathbb{E}[ e^{iwX_\tau}dw|X_t=x, Y_t=y, \tau ]|X_t=x, Y_t=y ] \]
+
+$X_\tau$  is normally distributed with mean x (starting value) and variance $(\tau-t)$.
+\[= \frac{1}{2\pi}\int \hat{\phi}(w)  \mathbb{E}[e^{iwx -\frac{1}{2}w^2(\tau-t)}|X_t=x, Y_t=y ] \]
+\[= \frac{1}{2\pi}\int \hat{\phi}(w)  e^{iwx }\mathbb{E}[e^{-\frac{1}{2}w^2(\tau-t)}|X_t=x, Y_t=y ] \]
+
+For hitting time $\tau_m$, we know
+\[\mathbb{E}[e^{-\lambda\tau_a}]= e^{-|a| \sqrt{2\lambda}}\]
+since we start from y at time t,
+\[\mathbb{E}[e^{-\lambda(\tau_a-t)}]= e^{-|a-y| \sqrt{2\lambda}}\]
+Thus,
+\[u(x)= \frac{1}{2\pi}\int \hat{\phi}(w)  e^{iwx }e^{-|a-y|w}dw \]
+\item
+\[\hat{u}(w)=  \hat{\phi}(w)  e^{-|a-y|w} \]
+
+\end{enumerate}
+
+\end{enumerate}
+\end{document}

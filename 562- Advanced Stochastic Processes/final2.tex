@@ -1,0 +1,415 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage{fullpage} % Package to use full page
+\usepackage{parskip} % Package to tweak paragraph skipping
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{amsmath,amsfonts,amsthm} % Math packages
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{caption}
+\usepackage{bbm}
+\usepackage{amsmath}
+\usepackage{mathspec}
+
+%\setmainfont{Palatino}
+%\setmathsfont(Digits){Palatino}
+
+%\newcommand{\mathbbm}[1]{\text{\usefont{U}{bbm}{m}{n}#1}} % from mathbbm.sty
+
+\usepackage{subcaption}
+\usepackage{color}
+\usepackage{float}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{brown}{rgb}{0.59, 0.29, 0.0}
+\definecolor{beaublue}{rgb}{0.74, 0.83, 0.9}
+\definecolor{orange}{rgb}{1.0, 0.5, 0.0}
+\definecolor{darkslategray}{rgb}{0.18, 0.31, 0.31}
+\def\Xint#1{\mathchoice
+	{\XXint\displaystyle\textstyle{#1}}%
+	{\XXint\textstyle\scriptstyle{#1}}%
+	{\XXint\scriptstyle\scriptscriptstyle{#1}}%
+	{\XXint\scriptscriptstyle\scriptscriptstyle{#1}}%
+	\!\int}
+\def\XXint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$}
+		\vcenter{\hbox{$#2#3$}}\kern-.5\wd0}}
+\def\dashint{\Xint-}
+
+% Swap the definition of \abs* and \norm*, so that \abs
+% and \norm resizes the size of the brackets, and the 
+% starred version does not.
+\makeatletter
+\let\oldabs\abs
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}
+%
+\let\oldnorm\norm
+\def\norm{\@ifstar{\oldnorm}{\oldnorm*}}
+\makeatother
+\definecolor{keywords}{RGB}{255,0,90}
+\definecolor{comments}{RGB}{0,0,113}
+\definecolor{red}{RGB}{160,0,0}
+\definecolor{green}{RGB}{0,150,0}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{brown}{rgb}{0.59, 0.29, 0.0}
+\definecolor{beaublue}{rgb}{0.74, 0.83, 0.9}
+\definecolor{orange}{rgb}{1.0, 0.5, 0.0}
+\definecolor{darkslategray}{rgb}{0.18, 0.31, 0.31}
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepgreen}{rgb}{0,0.5,0}
+\lstdefinestyle{myMatlabstyle}{
+	language=Matlab,
+	backgroundcolor=\color{white},   
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{blue},
+	identifierstyle=\color{brown},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{orange},
+	basicstyle=\footnotesize,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,                 
+	numbers=left,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2
+}
+\lstdefinestyle{myPythonstyle}{
+	language=Python, 
+	basicstyle=\ttfamily\small, 
+	keywordstyle=\color{blue},
+	commentstyle=\color{green},
+	stringstyle=\color{red},
+	showstringspaces=false,
+	identifierstyle=\color{black},
+}
+\lstset{language=Matlab,frame=single}
+\lstset{language=Python,frame=single}
+
+\title{AMATH 562: Final Examination}
+\author{Jithin D. George, No. 1622555}
+%\date{23/11/16}
+% matrix environment
+\newenvironment{mat}{\left[ \begin{array}{ccccccccccccc}}{\end{array}\right]}
+\newcommand\bcm{\begin{mat}}
+	\newcommand\ecm{\end{mat}}
+
+\begin{document}
+\maketitle
+\begin{enumerate}
+\item
+\begin{enumerate}
+\item
+\[d X_t = d W_t\]
+We know that P($\tau < \infty$) = 1.
+
+So, 
+\[u(x)= \mathbb{E}[\phi(X_\tau)|X_0 =x]\]
+satisfies 
+\[\mathcal{A}u=0\]
+with 
+\[\mathcal{A} = \frac{1}{2}\partial_x^2, u = \phi \text{ at l and r} \]
+
+For u(x) = P($X_\tau =R,X_0 = x $), $\phi(x) = \delta_R(x)$
+\[ u(x)= ax+b\]
+\[aL +b =0\]
+\[aR +b =1\]
+\[a = \frac{1}{R-L} , b = \frac{l}{R-L}\]
+
+Thus, 
+\[\boxed{P(X_\tau =R,X_0 = x ) = \frac{x-L}{R-L}}\]
+\item 
+\[\mathbb{E}[\tau |X_0=x]= - \lim_{\lambda \to 0}\frac{\partial}{\partial \lambda}\mathbb{E}[e^{-\lambda \tau } |X_0=x]\]
+
+\[u(x) = \mathbb{E}[e^{-\lambda \tau } |X_0=x]\]
+\[\mathcal{A}u=\lambda u\]
+with 
+\[\mathcal{A} = \frac{1}{2}\partial_x^2, u = 1 \text{at l and r}\]
+This is a job for Mathematica.
+\[u(x) = \frac{e^{-\sqrt{2\lambda} x} (e^{\sqrt{2\lambda} (L + R)} + e^{2 \sqrt{2\lambda} x})}{e^{\sqrt{2\lambda} L} + e^{\sqrt{2\lambda} R}}\]
+Again , using mathematica
+\[\boxed{ \mathbb{E}[\tau |X_0=x]= - \lim_{\lambda \to 0}\frac{\partial}{\partial \lambda}u(x) = (L-x)(x-R) }\]
+
+\item 
+\[  Y_t=\begin{cases}
+    X_t, & \text{if $t<\tau$}.\\
+    X_\tau, & \text{$t>\tau$}.
+  \end{cases}\]
+  This is a stopped Brownian motion. By Doob's optional stopping theorem, this is a martingale. However, we cannot use the time homogenous equations like in the previous parts.
+  \[(\partial_t + \frac{1}{2}\partial_x)u(t,x) =0\]
+  For u to be the transition probability $P(Y_t=y|X_0=x)$, u(T,x) = $\delta_y(x)$.
+  
+To find the eigenfunctions of our operator, we need boundary conditions. The boundaries are regular since you can start and end at any boundary. Since the stopped Brownian motion is killed at the boundary, killing boundary conditions are appropriate.
+\[\mathcal{A} \psi_n = \lambda \psi_n, \psi_n(l)= \psi_n(r) =0\]
+\[\psi_n = \sqrt{2}sin\bigg(\frac{n\pi}{r-l}(x-l)\bigg), \lambda_n = - \frac{1}{2}\bigg(\frac{n\pi}{r-l}\bigg)^2\]
+Using 9.27 from the notes and m(x) = $\frac{1}{l-r}$,
+\[P(Y_t=y|X_0=x)= \frac{1}{l-r} \sum_n 2 e^{\lambda_nT}sin\bigg(\frac{n\pi}{r-l}(x-l)\bigg)sin\bigg(\frac{n\pi}{r-l}(y-l)\bigg)\]
+\[P(Y_t=l|X_0=x)= \frac{1}{l-r} \sum_n 2 e^{\lambda_nT}sin\bigg(\frac{n\pi}{r-l}(x-l)\bigg)sin(0) =0\]
+\[P(Y_t=r|X_0=x)= \frac{1}{l-r} \sum_n 2 e^{\lambda_nT}sin\bigg(\frac{n\pi}{r-l}(x-l)\bigg)sin(n\pi) =0\]
+
+  \item
+
+I have three different approaches to this question, none of which yield a clean answer.
+
+{\bf Approach 1}
+\[Z_t = Y_{T_t}\]
+\[\mathbb{E}e^{iwZ_t} = \mathbb{E}\mathbb{E}e^{iwY_{T_t}} 
+= 
+\mathbb{E}e^{T_t \psi_Y(w)}\]
+\[= 
+e^{t \psi_T(-i \psi_Y(w)) } = e^{t\psi_Z(w)}\]
+\[\psi_T(-i \psi_Y(w))  = \psi_Z(w)\]
+where $\psi$ is the characteristic exponent.
+\[ -i\psi_Y(w) = i \frac{1}{2} \sigma^2 w^2 \]
+Since it is a Brownian motion essentially.
+\[\psi_T(u) = i\mu u + \int_R \nu(dz) (e^{iuz}-1)\]
+\[\psi_Z(w) = -\frac{\mu}{2} \sigma^2 w^2 + \int_R \nu(dz) (e^{-\frac{z}{2} \sigma^2 w^2 }-1)\]
+
+We define 
+\[u(t,x) = P(Z_t \in dy |Z_0 = x) \]
+ Its fourier transform satisfies 
+ \[(\partial_s + \psi(w))\hat{u}(s,w) = 0 \]
+ with boundary conditions
+ \[u(t,w) = \delta_y(Z), \hat{u}(t,w) = e^{-iwy} \]
+ 
+ \[\hat{u}(t,w) = e^{t\psi_z(w)}e^{-iwy}\]
+ \[ u(t,x) = F^{-1}[\hat{u}](x) = \frac{1}{2\pi} \int_R e^{iw(x-y)+ t \psi_z(w)} =  \frac{1}{2\pi} \int_R e^{iw(x-y)  -\frac{\mu}{2} \sigma^2 w^2t + \int_R \nu(dz)t (e^{-\frac{z}{2} \sigma^2 w^2 }-1)}\]
+  \[P(Z_t \in dy |Z_0 = x) =  \frac{1}{2\pi} \int_R e^{iw(x-y)  -\frac{\mu}{2} \sigma^2 w^2t + \int_R \nu(dz)t (e^{-\frac{z}{2} \sigma^2 w^2 }-1)}\]
+ 
+
+{\bf Approach 2}
+
+ \[P(Z_t \in dy |Z_0 = x) = \mathbb{E}[\mathbbm{1}_{Z_t \in dy} |Z_0 = x)]\]
+ \[= \mathbb{E}[\mathbbm{1}_{Y_{T_t} \in dy} |Z_0 = x]\]
+  \[= \mathbb{E}\mathbb{E}[\mathbbm{1}_{Y_{T_t} \in dy}|T_t = \tau] |Z_0 = x]\]
+    \[= \mathbb{E} P(Y_{T_t} \in dy |Z_0 = x)\]
+    \[= \int_R dt P(Y_{\tau} \in dy |Z_0 = x) P(T_t=\tau)\]
+      \[= \int_R d\tau \frac{1}{l-r} \sum_n 2 e^{\lambda_n\tau}sin\bigg(\frac{n\pi}{r-l}(x-l)\bigg)sin\bigg(\frac{n\pi}{r-l}(y-l)\bigg) dy P(T_t=\tau)\]
+      
+ To find $P(T_t=\tau)$, we use the characteristic exponent of T
+    \[\psi_T(w) = i\mu w + \int_R \nu(dz) (e^{iwz}-1)\]
+    
+ It is safe to assume that $T_0 = 0$. 
+ We define 
+\[u = P(T_t=\tau |T_0 = 0) \]
+ Its fourier transform satisfies 
+ \[(\partial_s + \psi(w))\hat{u}(s,w) = 0 \]
+ with boundary conditions
+ \[ \hat{u}(t,w) = e^{-iw\tau} \]
+ \[
+ P(T_t=\tau |T_0 = 0) = u(t_i = 0,T_0 = 0) = \frac{1}{2\pi} \int_R dw e^{-iw\tau  + t \psi_T(w)}\]
+  \[
+ P(T_t=\tau |T_0 = 0) = \frac{1}{2\pi} \int_R dw e^{-iw\tau  + t i\mu w + \int_R t \nu(dz) (e^{iwz}-1)}\]
+ 
+ Thus,
+
+  \[P(Z_t \in dy |Z_0 = x) = \]
+    \[= \int_R d\tau \frac{1}{l-r} \sum_n 2 e^{\lambda_n\tau}sin\bigg(\frac{n\pi}{r-l}(x-l)\bigg)sin\bigg(\frac{n\pi}{r-l}(y-l)\bigg) dy \frac{1}{2\pi} \int_R dw e^{-iw\tau  + t i\mu w + \int_R t \nu(dz) (e^{iwz}-1)}\]
+    
+    
+{\bf Approach 3}
+ \[T_t = \mu t + \int_{R+} z N(t,dz)\]
+  \[T_t - \mu t =  \int_{R+} z N(t,dz)\]
+    The term on the right hand side is a compound Poisson process.
+    \[T_t - \mu t =  \sum_{n=1}^{N_t}X_n\]
+
+ \[P(Z_t \in dy |Z_0 = x) = \sum_K P(Y_{\mu t+ K} \in dy |Z_0 = x) F_x(K)\]
+ Where $F_x$ is the distribution function of a compound Poisson process. 
+ \[P(Z_t \in dy |Z_0 = x) = \sum_K  \frac{1}{l-r} \sum_n 2 e^{\lambda_n (\mu t +K)}sin\bigg(\frac{n\pi}{r-l}(x-l)\bigg)sin\bigg(\frac{n\pi}{r-l}(y-l)\bigg) dy F_x(K)\]
+
+
+\end{enumerate}
+\item 
+
+\begin{enumerate}
+
+\item
+\[R_t = \sqrt{X_t^2 + Y_t^2}\]
+\[f_X = \frac{X}{\sqrt{X_t^2 + Y_t^2}}= \frac{X}{R}\]
+\[f_Y = \frac{Y}{\sqrt{X_t^2 + Y_t^2}}= \frac{Y}{R}\]
+\[f_{XX} = \frac{Y^2}{R^3}\]
+\[f_{YY} = \frac{X^2}{R^3}\]
+\[f_{XY} = f_{YX} = -\frac{XY}{R^3}\]
+\[dR_t = \frac{1}{2}\bigg( \frac{X^2+Y^2}{R^3}\bigg)dt+\frac{X}{R}dW_t+\frac{Y}{R}dB_t\]
+\[dR_t = \frac{1}{2R}dt+\frac{X}{R}dW_t+\frac{Y}{R}dB_t\]
+\[\frac{X}{R}=\frac{X}{\sqrt{X_t^2 + Y_t^2}}= \frac{1}{\sqrt{1+tan^2\Phi}}\]
+\[\frac{Y}{R}=\frac{Y}{\sqrt{X_t^2 + Y_t^2}}= \frac{1}{\sqrt{1+\frac{1}{tan^2\Phi}}}= \frac{tan\Phi}{\sqrt{1+tan^2\Phi}}\]
+\[\boxed{dR_t = \frac{1}{2R}dt+\frac{1}{\sqrt{1+tan^2\Phi}}dW_t+\frac{tan\Phi}{\sqrt{1+tan^2\Phi}}dB_t}\]
+
+\[\Phi(t) = \tan^{-1} \big(\frac{Y_t}{X_t}\big)\]
+\[f_X =  -\frac{Y}{R^2}\]
+\[f_Y = -\frac{X}{R^2}\]
+\[f_{XX} = \frac{Y^2}{R^3}\]
+\[f_{YY} = \frac{X^2}{R^3}\]
+
+\[d\Phi_t = \frac{-Y}{R^2}dW_t + \frac{X}{R^2}dB_t\]
+\[\boxed{d\Phi_t = \frac{-tan\Phi}{R\sqrt{1+tan^2\Phi}}dW_t + \frac{1}{R\sqrt{1+tan^2\Phi}}dB_t}\]
+\[[R,R]_t = \frac{1}{1+tan^2\Phi}+ \frac{tan^2\Phi}{1+tan^2\Phi} =  1\]
+\[[\Phi,\Phi]_t = \frac{tan^2\Phi}{R^2(1+tan^2\Phi)}+ \frac{1}{R^2(1+tan^2\Phi)} = \frac{1}{R^2} \]
+\[d\Phi_t dR_t = \frac{-tan\Phi}{R(1+tan^2\Phi)}+ \frac{tan\Phi}{R(1+tan^2\Phi)} = 0\]
+\[d\Phi_t dR_t = \frac{-tan\Phi}{R(1+tan^2\Phi)}+ \frac{tan\Phi}{R(1+tan^2\Phi)} = 0\]
+
+\item 
+\[u(r,\phi) = \mathbb{E}[g(R_\tau)|R_t=r , \Phi_t = \phi]\]
+\[\mathbb{E}[u(r,\phi)|R_s ,\phi_s] = \mathbb{E}[\mathbb{E}[g(R_\tau)|R_t, \Phi_t ]|R_s ,\Phi_s]\]
+\[= \mathbb{E}[g(R_\tau)R_s ,\Phi_s]\]
+\[= u(R_s ,\Phi_s)\]
+Thus, u is a martingale.
+\[d u  = \partial_r u(R_t,\Phi_t) dR_t  + \partial_\Phi u(R_t,\Phi_t) d\Phi_t + \frac{1}{2} \partial^2_r u(R_t,\Phi_t) dR_t d R_t  \]\[+ \frac{1}{2} \partial^2_\Phi u(R_t,\Phi_t) d\Phi_t d \Phi_t +  \partial_\Phi\partial_r u(R_t,\Phi_t) dR_t d \Phi_t\]
+\[= \partial_r u(R_t,\Phi_t) dR_t  + \partial_\Phi u(R_t,\Phi_t) d\Phi_t + \frac{1}{2} \partial^2_r u(R_t,\Phi_t) dR_t d R_t  \]\[+ \frac{1}{2} \partial^2_\Phi u(R_t,\Phi_t) d\Phi_t d \Phi_t +  \partial_\Phi\partial_r u(R_t,\Phi_t) dR_t d \Phi_t\]
+\[= (\frac{1}{2r}\partial_r+\frac{1}{2}\partial^2_r+\frac{1}{2r^2}\partial^2_\Phi)u dt + (\ldots)dW_t + (\ldots)dB_t\]
+\begin{equation}
+du = (\frac{1}{2r}\partial_r+\frac{1}{2}\partial^2_r+\frac{1}{2r^2}\partial^2_\Phi)u dt + (\ldots)dW_t + (\ldots)dB_t
+\end{equation}
+The dt terms must be equal to zero.
+\[ (\frac{1}{2r}\partial_r+\frac{1}{2}\partial^2_r+\frac{1}{2r^2}\partial^2_\Phi)u =0\]
+\[ (\frac{1}{r}\partial_r+\partial^2_r+\frac{1}{r^2}\partial^2_\Phi)u =0\]
+This is our operator .
+%Luckily this is the laplace equation on a disk.
+
+Let us assume 
+\[u = f(r)g(\phi)\]
+For u to be P($R_\tau = a|R_0=r,\Phi_0=\phi) $, we need the following boundary conditions 
+\[u(a,\phi) = 1, u(b,\phi) = 0 \]
+\[f(a)g(\phi) = 1, f(b)g(\phi) = 0 \]
+Thus, it is safe to assume that $g(\phi)$ = 1.
+\[\frac{f'(r)g(\phi)}{r}+ f''(r)g(\phi)+\frac{f(r)g''(\phi)}{r^2}  = 0\]
+\[f'(r)g(\phi)+ rf''(r)g(\phi)  = 0\]
+\[f'(r)+ rf''(r)  = 0\]
+with boundary conditions
+\[f(a)=1 , f(b) = 0\]
+Using Wolfram, the solution is 
+\[ \boxed{P(R_\tau = a|R_0=r,\Phi_0=\phi) = u(r, \phi) = f(r) = \frac{log(r) - log(b)}{log(a) - log(b)} }\]
+\item 
+From (1), we have
+\[du = (\frac{1}{2r}\partial_r+\frac{1}{2}\partial^2_r+\frac{1}{2r^2}\partial^2_\Phi)u dt + (\ldots)dW_t + (\ldots)dB_t\]
+\[u(R_t,\Phi_t) =  u(r,\Phi)+\int_0^t (\frac{1}{2r}\partial_r+\frac{1}{2}\partial^2_r+\frac{1}{2r^2}\partial^2_\Phi)u ds + \int_0^t (\ldots)dW_s +  \int_0^t (\ldots)dB_s\]
+\[\mathbb{E}[u(R_t,\Phi_t)] =  u(r,\Phi) + \mathbb{E}[\int_0^t (\frac{1}{2r}\partial_r+\frac{1}{2}\partial^2_r+\frac{1}{2r^2}\partial^2_\Phi)u ds\]
+
+u is any function. So, we can use f either.
+\[\mathbb{E}[f(R_t,\phi_t)] =  f(r,\phi) + \mathbb{E}[\int_0^t (\frac{1}{2r}\partial_r+\frac{1}{2}\partial^2_r+\frac{1}{2r^2}\partial^2_\Phi)f ds\]
+
+Setting t as $\tau$,
+\[\boxed{\mathbb{E}[f(R_\tau,\Phi_\tau)] =  f(r,\phi) + \mathbb{E}[\int_0^\tau (\frac{1}{2r}\partial_r+\frac{1}{2}\partial^2_r+\frac{1}{2r^2}\partial^2_\phi)f(R_t,\Phi_t) dt}\]
+
+\item  
+\[\mathcal{A}u+1=0\]
+\[u=0 \text{ when R = a or b }\]
+\[(\frac{1}{2r}\partial_r+\frac{1}{2}\partial^2_r+\frac{1}{2r^2}\partial^2_\phi)u + 1 = 0\]
+\[(\frac{1}{r}\partial_r+\partial^2_r+\frac{1}{r^2}\partial^2_\phi)u + 2 = 0\]
+Let us assume u = f(r)g($\phi)$.
+\[\frac{f'(r)g(\phi)}{r}+ f''(r)g(\phi)+\frac{f(r)g''(\phi)}{r^2} + 2 = 0\]
+All of the terms above have to be integers. So, it would be reasonable to assume $g(\phi)=1$. Also, that makes sense because exit time should only depend on the initial radius and not the initial angle on an annulus.
+\[\frac{f'(r)}{r}+ f''(r) + 2 = 0\]
+\[ f'(r)+ rf''(r) + 2r = 0\]
+This is an ode with boundary conditions f(a) = f(b) = 0.
+
+Using mathematica,
+\[u(x) = f(x) =  \frac{(a^2 - b^2) log(x) + (x^2 - a^2) log(b) + log(a) (b^2 - x^2)}{2 (log(a) - log(b))}\]
+\[\mathbb{E}[\tau | R_0 = r] =  \frac{(a^2 - b^2) log(r) + (r^2 - a^2) log(b) + log(a) (b^2 - r^2)}{2 (log(a) - log(b))}\]
+
+{\bf Alternate method:}
+\[\mathbb{E}[f(R_\tau,\Phi_\tau)] =  f(r,\phi) + \mathbb{E}[\int_0^\tau (\frac{1}{2r}\partial_r+\frac{1}{2}\partial^2_r+\frac{1}{2r^2}\partial^2_\phi)f(R_t,\Phi_t) dt\]
+
+Setting $ f(R_t,\Phi_t) = \frac{R_t^2}{2} $, 
+\[\frac{1}{2}\mathbb{E}[R_\tau^2] =  \frac{r^2}{2} + \mathbb{E}[\tau]\]
+\[\frac{1}{2}(a^2 P(R_\tau = a) + b^2 P(R_\tau = b)) =  \frac{r^2}{2} + \mathbb{E}[\tau]\]
+\[\frac{((a^2 - b^2) log(r) +b^2log(a) -a^2log(b) )}{2(log(a)-log(b))} =  \frac{r^2}{2} + \mathbb{E}[\tau]\]
+
+\[\boxed{\mathbb{E}[\tau | R_0 = r] =  \frac{(a^2 - b^2) log(r) + (r^2 - a^2) log(b) + log(a) (b^2 - r^2)}{2 (log(a) - log(b))}}\]
+\end{enumerate}
+
+
+
+\item
+\begin{enumerate}
+\item
+\[X_t =\log S_t\]
+
+$S_t$ is a Geometric Levy Process. This can be solved like in Example 10.2.2 to give
+\[dX_t =d\log S_t\]
+\[ = ( - \frac{1}{2}\sigma_t^2 + \int_R (e^{z}-1-z)\nu(dz)) dt+ \sigma_t dW_t +\int_R z \widetilde{N}(dt,dz)\]
+\[Y_t = [X,X]_t \]
+\[= \int_0^t (\sigma^2_t+\int_R z^2\nu(dz)) dt+ \int_0^t \int_R z^2 \widetilde{N}(dt,dz)\]
+
+\item
+\[dX_t  = ( - \frac{1}{2}\sigma_t^2 + \int_R (e^{z}-1-z)\nu(dz)) dt+ \sigma_t dW_t +\int_R z \widetilde{N}(dt,dz)\]
+
+We assume $\nu(\mathbb{R}) < \infty$.
+\begin{equation}
+dX_t  = ( - \frac{1}{2}\sigma_t^2 + \int_R (e^{z}-1)\nu(dz)) dt+ \sigma_t dW_t +\int_R z N(dt,dz)
+\end{equation}
+
+\[\Delta X_t = X_t - X_{t-}\] 
+Since Brownian motion is continuous, the first two terms in (2) disappear and it only matters if you have a jump at t. Even z is constant in that limit.
+\[ X_t - X_{t-} = \int_{t-}^t\int_R z N(dt,dz) = \int_R z \int_{t-}^t N(dt,dz) =  \int_R z \Delta N(t,dz)\]
+\[\Delta X_t = \int_R z \Delta N(t,dz) \]
+\[Q_t = \mathbb{E}(S_T^q|\mathcal{F}_t) = \mathbb{E}(e^{qX_T}|\mathcal{F}_t)\]
+
+\[\Delta Q_t = Q_t - Q_{t-} = \mathbb{E}(e^{qX_T}|\mathcal{F}_t)- \mathbb{E}(e^{qX_T}|\mathcal{F}_{t-}) \]
+\[= \mathbb{E}(e^{qX_{t}}e^{q(X_T-X_t)}|\mathcal{F}_t)- \mathbb{E}(e^{qX_{t-}}e^{q(X_T-X_{t-})}|\mathcal{F}_{t-}) \]
+\[= e^{qX_{t}} \mathbb{E}(e^{q(X_T-X_t)}|\mathcal{F}_t)- e^{qX_{t-}}\mathbb{E}(e^{q(X_T-X_{t-})}|\mathcal{F}_{t-}) \]
+\[= (e^{qX_{t}} - e^{qX_{t-}}) \mathbb{E}(e^{q(X_T-X_{t-})}|\mathcal{F}_{t-})  \]
+\[= (e^{q(X_t-X_{t-})}-1) \mathbb{E}(e^{qX_T}|\mathcal{F}_{t-})  \]
+\[= (e^{q \Delta X_t}-1) Q_{t-}  \]
+\[= (e^{\int_R z \Delta N(t,dz)}-1) Q_{t-}  \]
+\[\boxed{\Delta Q_t = (e^{\int_R z \Delta N(t,dz)}-1) Q_{t-}}\]
+\item
+\[Q_t = \mathbb{E}(S_T^q|\mathcal{F}_t) = \mathbb{E}(e^{qX_T}|\mathcal{F}_t)\] 
+\[dX_t  = ( - \frac{1}{2}\sigma_t^2 + \int_R (e^{z}-1-z)\nu(dz)) dt+ \sigma_t dW_t +\int_R z \widetilde{N}(dt,dz)\]
+ If $\nu = 0$ ,
+ \[dX_t  =  - \frac{1}{2}\sigma_t^2 dt+ \sigma_t dW_t +\int_R z \widetilde{N}(dt,dz)\]
+
+The function u(t,$X_t$) = $ Q_t$ satisfies
+\[(\partial_t + \mathcal{A})u(t,.)= 0,  u(T,.)= e^{qX_T} \]
+where 
+\[\mathcal{A}  = -\frac{\sigma_t^2}{2}\partial_x  +\frac{\sigma_t^2}{2} \partial_x^2\]
+
+Fourier Transforming everything,
+
+\[(\partial_t + \mathcal{A}) \hat{u}(t,.)= 0,  \hat{u}(T,.)= \delta(w-iq) \]
+\[\hat{u}(t,w) = e^{(T-t)\psi(w)}\delta(w-iq)\]
+\[\psi(w)= -i\frac{\sigma_t^2}{2}w-\frac{\sigma_t^2}{2}w^2 \]
+\[\psi(iq)= q\frac{\sigma_t^2}{2}+\frac{\sigma_t^2}{2}q^2 \]
+\[u(t,x) = \frac{1}{2\pi} \int_R e^{iwx+(T-t)\psi(w) }\delta(w-iq)\]
+\[u(t,x) = \frac{1}{2\pi}  e^{-qx+(T-t)\psi(iq) }\]
+\[\boxed{u(t,X_t) = \frac{1}{2\pi}  e^{-qX_t+(T-t)(q\frac{\sigma_t^2}{2}+\frac{\sigma_t^2}{2}q^2) } }\]
+\item
+
+\[Q_t = \mathbb{E}(S_T^q|\mathcal{F}_t) = \mathbb{E}(e^{qX_T}|\mathcal{F}_t)\] 
+\[dX_t  = ( - \frac{1}{2}\sigma_t^2 + \int_R (e^{z}-1-z)\nu(dz)) dt+ \sigma_t dW_t +\int_R z \widetilde{N}(dt,dz)\]
+ If $\sigma = 0$ ,
+ \[dX_t  =   \int_R (e^{z}-1-z)\nu(dz) dt +\int_R z \widetilde{N}(dt,dz)\]
+
+The function u(t,$X_t$) = $ Q_t$ satisfies
+\[(\partial_t + \mathcal{A})u(t,.)= 0,  u(T,.)= e^{qX_T} \]
+where 
+\[\mathcal{A}  = 
+\int_R (e^{z}-1) \nu(dz)
+\partial_x + \int_R  \nu(dz)(\theta_z-1) \]
+
+\[\psi(w) = \int_R (e^{z}-1) \nu(dz) i w + \int_R \nu(dz) (e^{iwz}-1-iwz)\]
+\[\psi(iq) = -\int_R (e^{z}-1) \nu(dz) q + \int_R \nu(dz) (e^{-qz}-1+qz)\]
+ 
+ \[(\partial_t + \mathcal{A}) \hat{u}(t,.)= 0,  \hat{u}(T,.)= \delta(w-iq) \]
+ 
+ \[u(t,x) = \frac{1}{2\pi}  e^{-qx+(T-t)\psi(iq) }\]
+\[\boxed{u(t,X_t) = \frac{1}{2\pi}  e^{-qX_t+(T-t)(-\int_R (e^{z}-1) \nu(dz) q + \int_R \nu(dz) (e^{-qz}-1+qz))} }\]
+
+Such a solution only exists if 
+\[- \int_R (e^{z}-1) \nu(dz)  < \infty \text{ and } \int_R \nu(dz) (e^{-qz}-1+qz)  < \infty\]
+\end{enumerate}
+
+
+\end{enumerate}
+
+\end{document}
